@@ -1,0 +1,17 @@
+﻿<Properties StartupConfiguration="{6B5759A0-56AF-4B66-81A3-A7E7C1D8D334}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="StudyBuddy/MainPage.xaml">
+    <Files>
+      <File FileName="StudyBuddy/MainPage.xaml" Line="7" Column="15" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.StudyBuddy FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.StudyBuddy.UITests FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.StudyBuddy.Android PreferredExecutionTarget="Android.Android_Accelerated_Oreo" FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.StudyBuddy.iOS FirstBuild="True" />
+  <MultiItemStartupConfigurations />
+</Properties>
