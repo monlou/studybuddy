@@ -3,7 +3,6 @@
     <Files>
       <File FileName="StudyBuddy/MainPage.xaml" Line="7" Column="15" />
       <File FileName="StudyBuddy/MainPage.xaml.cs" Line="18" Column="1" />
-      <File FileName=".travis.yml" Line="8" Column="1" />
       <File FileName="StudyBuddy Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>
