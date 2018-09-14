@@ -3,6 +3,5 @@ solution: StudyBuddy.sln
 
 matrix:
   include:
-    - dotnet: 1.1.5
-      mono: none
+    - dotnet: 2.1.2
     - mono: latest
