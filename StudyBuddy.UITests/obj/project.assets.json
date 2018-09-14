@@ -2,16 +2,19 @@
   "version": 3,
   "targets": {
     ".NETFramework,Version=v4.6.1": {
-      "NUnit/2.6.4": {
+      "NUnit/3.10.1": {
         "type": "package",
         "compile": {
-          "lib/nunit.framework.dll": {}
+          "lib/net45/nunit.framework.dll": {}
         },
         "runtime": {
-          "lib/nunit.framework.dll": {}
+          "lib/net45/nunit.framework.dll": {}
+        },
+        "build": {
+          "build/NUnit.props": {}
         }
       },
-      "Xamarin.UITest/2.2.2": {
+      "Xamarin.UITest/2.2.5": {
         "type": "package",
         "compile": {
           "lib/net45/Xamarin.UITest.dll": {}
@@ -22,16 +25,19 @@
       }
     },
     ".NETFramework,Version=v4.6.1/win": {
-      "NUnit/2.6.4": {
+      "NUnit/3.10.1": {
         "type": "package",
         "compile": {
-          "lib/nunit.framework.dll": {}
+          "lib/net45/nunit.framework.dll": {}
         },
         "runtime": {
-          "lib/nunit.framework.dll": {}
+          "lib/net45/nunit.framework.dll": {}
+        },
+        "build": {
+          "build/NUnit.props": {}
         }
       },
-      "Xamarin.UITest/2.2.2": {
+      "Xamarin.UITest/2.2.5": {
         "type": "package",
         "compile": {
           "lib/net45/Xamarin.UITest.dll": {}
@@ -42,16 +48,19 @@
       }
     },
     ".NETFramework,Version=v4.6.1/win-x64": {
-      "NUnit/2.6.4": {
+      "NUnit/3.10.1": {
         "type": "package",
         "compile": {
-          "lib/nunit.framework.dll": {}
+          "lib/net45/nunit.framework.dll": {}
         },
         "runtime": {
-          "lib/nunit.framework.dll": {}
+          "lib/net45/nunit.framework.dll": {}
+        },
+        "build": {
+          "build/NUnit.props": {}
         }
       },
-      "Xamarin.UITest/2.2.2": {
+      "Xamarin.UITest/2.2.5": {
         "type": "package",
         "compile": {
           "lib/net45/Xamarin.UITest.dll": {}
@@ -62,16 +71,19 @@
       }
     },
     ".NETFramework,Version=v4.6.1/win-x86": {
-      "NUnit/2.6.4": {
+      "NUnit/3.10.1": {
         "type": "package",
         "compile": {
-          "lib/nunit.framework.dll": {}
+          "lib/net45/nunit.framework.dll": {}
         },
         "runtime": {
-          "lib/nunit.framework.dll": {}
+          "lib/net45/nunit.framework.dll": {}
+        },
+        "build": {
+          "build/NUnit.props": {}
         }
       },
-      "Xamarin.UITest/2.2.2": {
+      "Xamarin.UITest/2.2.5": {
         "type": "package",
         "compile": {
           "lib/net45/Xamarin.UITest.dll": {}
@@ -83,23 +95,44 @@
     }
   },
   "libraries": {
-    "NUnit/2.6.4": {
-      "sha512": "cmSPvaCMRSP0DI19FP1Liw9DyJY3E/vOY1OrVaeJBZpZFWHkmT3fB9ngGWnZX/ftvA7zJEbghEaw3Yd+u4YFAw==",
+    "NUnit/3.10.1": {
+      "sha512": "E3ii6+VLdeIxTQ5gPjk/7g/xl+aCifbfcIkiGayZCuos+22FEdtKGrxMe6SzoXCQCcL7gdqhfNIFTaZ1+dS18g==",
       "type": "package",
-      "path": "nunit/2.6.4",
+      "path": "nunit/3.10.1",
       "files": [
-        "lib/nunit.framework.dll",
-        "lib/nunit.framework.xml",
-        "license.txt",
-        "nunit.2.6.4.nupkg.sha512",
+        "CHANGES.md",
+        "LICENSE.txt",
+        "NOTICES.txt",
+        "build/NUnit.props",
+        "lib/net20/NUnit.System.Linq.dll",
+        "lib/net20/nunit.framework.dll",
+        "lib/net20/nunit.framework.pdb",
+        "lib/net20/nunit.framework.xml",
+        "lib/net35/nunit.framework.dll",
+        "lib/net35/nunit.framework.pdb",
+        "lib/net35/nunit.framework.xml",
+        "lib/net40/nunit.framework.dll",
+        "lib/net40/nunit.framework.pdb",
+        "lib/net40/nunit.framework.xml",
+        "lib/net45/nunit.framework.dll",
+        "lib/net45/nunit.framework.pdb",
+        "lib/net45/nunit.framework.xml",
+        "lib/netstandard1.6/nunit.framework.dll",
+        "lib/netstandard1.6/nunit.framework.pdb",
+        "lib/netstandard1.6/nunit.framework.xml",
+        "lib/netstandard2.0/nunit.framework.dll",
+        "lib/netstandard2.0/nunit.framework.pdb",
+        "lib/netstandard2.0/nunit.framework.xml",
+        "nunit.3.10.1.nupkg.sha512",
         "nunit.nuspec"
       ]
     },
-    "Xamarin.UITest/2.2.2": {
-      "sha512": "es+FjpRrmwkZODSwRjTcA0SnQOyFsNf4FxOAmZg/Ns/noOD/A2DztIPNUNIain3qSvuXoxIuSgXXfG5QAEMLmw==",
+    "Xamarin.UITest/2.2.5": {
+      "sha512": "xR9TB30amObbprmji3i2FNZhnlse+n4k8o4a48bsH+0DPQmAxNvqgaAg6P9BVNyU8wR2T7pnHQoT/JtXv2kRJg==",
       "type": "package",
-      "path": "xamarin.uitest/2.2.2",
+      "path": "xamarin.uitest/2.2.5",
       "files": [
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "Xamarin.UITest-License.rtf",
         "lib/net45/Xamarin.UITest.dll",
@@ -108,15 +141,15 @@
         "lib/portable-net45+win8+wp8/Xamarin.UITest.xml",
         "lib/tools/test-cloud.exe",
         "tools/test-cloud.exe",
-        "xamarin.uitest.2.2.2.nupkg.sha512",
+        "xamarin.uitest.2.2.5.nupkg.sha512",
         "xamarin.uitest.nuspec"
       ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.6.1": [
-      "NUnit >= 2.6.4",
-      "Xamarin.UITest >= 2.2.2"
+      "NUnit >= 3.10.1",
+      "Xamarin.UITest >= 2.2.5"
     ]
   },
   "packageFolders": {
@@ -146,19 +179,18 @@
         }
       }
     },
-    "frameworks": {
-      "net461": {
-        "dependencies": {
-          "NUnit": {
-            "target": "Package",
-            "version": "2.6.4"
-          },
-          "Xamarin.UITest": {
-            "target": "Package",
-            "version": "2.2.2"
-          }
-        }
+    "dependencies": {
+      "NUnit": {
+        "target": "Package",
+        "version": "[3.10.1, )"
+      },
+      "Xamarin.UITest": {
+        "target": "Package",
+        "version": "[2.2.5, )"
       }
+    },
+    "frameworks": {
+      "net461": {}
     },
     "runtimes": {
       "win": {
