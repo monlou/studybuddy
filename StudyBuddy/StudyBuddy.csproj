@@ -10,4 +10,7 @@
   <ItemGroup>
     <None Remove=".travis.yml" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
 </Project>

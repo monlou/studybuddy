@@ -2,10 +2,20 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="StudyBuddy Status">
     <Files>
       <File FileName="StudyBuddy/MainPage.xaml" Line="7" Column="15" />
-      <File FileName="StudyBuddy/MainPage.xaml.cs" Line="18" Column="1" />
-      <File FileName=".travis.yml" Line="7" Column="1" />
+      <File FileName="StudyBuddy/MainPage.xaml.cs" Line="14" Column="19" />
       <File FileName="StudyBuddy Status" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="StudyBuddy" expanded="True" selected="True">
+            <Node name="StudyBuddy" expanded="True">
+              <Node name="MainPage.xaml" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -13,5 +23,6 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.StudyBuddy.Android PreferredExecutionTarget="Android.Android_Accelerated_Oreo" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
+  <MonoDevelop.Ide.ItemProperties.StudyBuddy.iOS automaticSigning="False" />
   <MultiItemStartupConfigurations />
 </Properties>
