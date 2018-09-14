@@ -7,10 +7,4 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.0.0.482510" />
   </ItemGroup>
-  <ItemGroup>
-    <None Remove=".travis.yml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include=".travis.yml" />
-  </ItemGroup>
 </Project>
