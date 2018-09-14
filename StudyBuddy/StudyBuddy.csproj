@@ -10,4 +10,7 @@
   <ItemGroup>
     <None Remove=".travis.yml" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include=".travis.yml" />
+  </ItemGroup>
 </Project>
