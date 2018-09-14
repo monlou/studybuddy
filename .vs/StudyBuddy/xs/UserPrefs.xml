@@ -1,17 +1,16 @@
 ﻿<Properties StartupConfiguration="{6B5759A0-56AF-4B66-81A3-A7E7C1D8D334}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="StudyBuddy/MainPage.xaml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="StudyBuddy Status">
     <Files>
-      <File FileName="StudyBuddy/MainPage.xaml" Line="7" Column="15" />
+      <File FileName="StudyBuddy/MainPage.xaml" Line="21" Column="16" />
+      <File FileName=".travis.yml" Line="10" Column="5" />
+      <File FileName="StudyBuddy Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.StudyBuddy FirstBuild="True" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.StudyBuddy.UITests FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.StudyBuddy.Android PreferredExecutionTarget="Android.Android_Accelerated_Oreo" FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.StudyBuddy.iOS FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.StudyBuddy.Android PreferredExecutionTarget="Android.Android_Accelerated_Oreo" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
   <MultiItemStartupConfigurations />
 </Properties>

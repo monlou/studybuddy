@@ -379,15 +379,15 @@
     "frameworks": {
       "netstandard2.0": {
         "dependencies": {
+          "Xamarin.Forms": {
+            "target": "Package",
+            "version": "3.0.0.482510"
+          },
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",
             "version": "2.0.3",
             "autoReferenced": true
-          },
-          "Xamarin.Forms": {
-            "target": "Package",
-            "version": "3.0.0.482510"
           }
         },
         "imports": [
