@@ -16,9 +16,9 @@ namespace StudyBuddy.Droid
     [IntentFilter(
     new[] { Intent.ActionView },
     Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable },
-        DataScheme = Configuration.Scheme,
-        DataHost = Configuration.Host,
-        DataPathPrefix = Configuration.Path)]
+        DataScheme = "com.auth0.quickstart",
+        DataHost = "@string/auth0_domain",
+        DataPathPrefix = "/android/com.auth0.quickstart/callback")]
 
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
