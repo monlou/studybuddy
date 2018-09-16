@@ -5,6 +5,6 @@
         <Label Text="Welcome to StudyBuddy!" HorizontalOptions="Center" />
         <Button Text="Sign Up" />
         <Button Text="Sign In" />
-        <Button Text="Google Sign In" Image="StudyBuddy/Images/googlesignin.png" />    
+        <Button Text="Google"  /> <!-- Image="googlesignin.png" /> -->
     </StackLayout>
 </ContentPage>
