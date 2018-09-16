@@ -16,8 +16,8 @@ namespace StudyBuddy.Droid
     [IntentFilter(
     new[] { Intent.ActionView },
     Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable },
-        DataScheme = Configuration.Package,
-        DataHost = Configuration.Domain,
+        DataScheme = Configuration.Scheme,
+        DataHost = Configuration.Host,
         DataPathPrefix = Configuration.Path)]
 
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity

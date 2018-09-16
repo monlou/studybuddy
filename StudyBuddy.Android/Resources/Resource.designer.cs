@@ -3979,6 +3979,9 @@ namespace StudyBuddy.Droid
 			// aapt resource value: 0x7f0a003c
 			public const int Hello = 2131361852;
 			
+			// aapt resource value: 0x7f0a003e
+			public const int Login = 2131361854;
+			
 			// aapt resource value: 0x7f0a0015
 			public const int abc_action_bar_home_description = 2131361813;
 			
@@ -4068,6 +4071,12 @@ namespace StudyBuddy.Droid
 			
 			// aapt resource value: 0x7f0a0033
 			public const int appbar_scrolling_view_behavior = 2131361843;
+			
+			// aapt resource value: 0x7f0a0040
+			public const int auth0_client_id = 2131361856;
+			
+			// aapt resource value: 0x7f0a003f
+			public const int auth0_domain = 2131361855;
 			
 			// aapt resource value: 0x7f0a0034
 			public const int bottom_sheet_behavior = 2131361844;

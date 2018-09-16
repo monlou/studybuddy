@@ -3626,6 +3626,7 @@ containing a value of this type.
     public static final class string {
         public static final int ApplicationName=0x7f0a003d;
         public static final int Hello=0x7f0a003c;
+        public static final int Login=0x7f0a003e;
         public static final int abc_action_bar_home_description=0x7f0a0015;
         public static final int abc_action_bar_up_description=0x7f0a0016;
         public static final int abc_action_menu_overflow_description=0x7f0a0017;
@@ -3656,6 +3657,8 @@ containing a value of this type.
         public static final int abc_shareactionprovider_share_with_application=0x7f0a0024;
         public static final int abc_toolbar_collapse_description=0x7f0a0025;
         public static final int appbar_scrolling_view_behavior=0x7f0a0033;
+        public static final int auth0_client_id=0x7f0a0040;
+        public static final int auth0_domain=0x7f0a003f;
         public static final int bottom_sheet_behavior=0x7f0a0034;
         public static final int character_counter_pattern=0x7f0a0035;
         public static final int mr_button_content_description=0x7f0a0000;
