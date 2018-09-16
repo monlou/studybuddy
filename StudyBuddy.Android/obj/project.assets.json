@@ -4546,12 +4546,6 @@
         }
       }
     },
-    "dependencies": {
-      "Auth0.OidcClient.Android": {
-        "target": "Package",
-        "version": "[2.3.0, )"
-      }
-    },
     "frameworks": {
       "monoandroid81": {
         "dependencies": {
@@ -4578,6 +4572,10 @@
           "Xamarin.Android.Support.v7.MediaRouter": {
             "target": "Package",
             "version": "27.0.2.1"
+          },
+          "Auth0.OidcClient.Android": {
+            "target": "Package",
+            "version": "2.3.0"
           }
         }
       }

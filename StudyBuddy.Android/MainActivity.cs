@@ -16,9 +16,9 @@ namespace StudyBuddy.Droid
     [IntentFilter(
     new[] { Intent.ActionView },
     Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable },
-    DataScheme = Configuration.Package,
-    DataHost = Configuration.Host,
-    DataPathPrefix = "/android/" + Configuration.Package + "/callback")]
+        DataScheme = Configuration.Package,
+        DataHost = Configuration.Domain,
+        DataPathPrefix = Configuration.Path)]
 
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
@@ -26,9 +26,8 @@ namespace StudyBuddy.Droid
 
         private Button loginButton;
         private TextView userDetailsTextView;
-        private AuthorizeState authorizeState;
-        ProgressDialog progress;
         private Auth0Client client;
+        private AuthorizeState authorizeState; 
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -52,7 +51,8 @@ namespace StudyBuddy.Droid
             client = new Auth0Client(new Auth0ClientOptions
             {
                 Domain = Configuration.Domain,
-                ClientId = Configuration.Client,
+                ClientId = Configuration.Client
+                //Scope = Configuration.Scope
                 //Activity = this
             });
         }
@@ -60,35 +60,27 @@ namespace StudyBuddy.Droid
         protected override void OnResume()
         {
             base.OnResume();
-
-            if (progress != null)
-            {
-                progress.Dismiss();
-
-                progress.Dispose();
-                progress = null;
-            }
-        }
-
-        protected override void OnNewIntent(Intent intent)
-        {
-            base.OnNewIntent(intent);
-
-            ActivityMediator.Instance.Send(intent.DataString);
         }
 
         private async void LoginButtonOnClick(object sender, EventArgs eventArgs)
         {
             userDetailsTextView.Text = "";
 
-            progress = new ProgressDialog(this);
-            progress.SetTitle("Log In");
-            progress.SetMessage("Redirect");
-            progress.SetCancelable(false); // disable dismiss by tapping outside of the dialog
-            progress.Show();
+            // Prepare for the login
+            authorizeState = await client.PrepareLoginAsync();
 
-            // Login
-            var loginResult = await client.LoginAsync();
+            // Send the user off to the authorization endpoint
+            var uri = Android.Net.Uri.Parse(authorizeState.StartUrl);
+            var intent = new Intent(Intent.ActionView, uri);
+            intent.AddFlags(ActivityFlags.NoHistory);
+            StartActivity(intent);
+        }
+
+        protected override async void OnNewIntent(Intent intent)
+        {
+            base.OnNewIntent(intent);
+
+            var loginResult = await client.ProcessResponseAsync(intent.DataString, authorizeState);
 
             var sb = new StringBuilder();
             if (loginResult.IsError)

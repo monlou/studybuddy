@@ -10,15 +10,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove=".travis.yml" />
-    <None Remove="googlesignin.png" />
-    <None Remove="Images\googlesignin.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="Authentication.cs" />
+    <Folder Include="Images\" />
   </ItemGroup>
 </Project>
