@@ -1,5 +1,7 @@
 FormsViewGroup
+Newtonsoft.Json
 StudyBuddy
+System.Data.SQLite
 System.Runtime
 Xamarin.Android.Arch.Core.Common
 Xamarin.Android.Arch.Lifecycle.Common
@@ -25,3 +27,4 @@ Xamarin.Forms.Platform.Android
 Xamarin.Forms.Platform
 Xamarin.Forms.Xaml
 netstandard
+System.Reflection.Extensions

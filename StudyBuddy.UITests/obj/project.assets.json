@@ -179,18 +179,19 @@
         }
       }
     },
-    "dependencies": {
-      "NUnit": {
-        "target": "Package",
-        "version": "[3.10.1, )"
-      },
-      "Xamarin.UITest": {
-        "target": "Package",
-        "version": "[2.2.5, )"
-      }
-    },
     "frameworks": {
-      "net461": {}
+      "net461": {
+        "dependencies": {
+          "NUnit": {
+            "target": "Package",
+            "version": "3.10.1"
+          },
+          "Xamarin.UITest": {
+            "target": "Package",
+            "version": "2.2.5"
+          }
+        }
+      }
     },
     "runtimes": {
       "win": {
