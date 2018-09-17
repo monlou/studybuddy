@@ -1,60 +1,62 @@
 ﻿using Android.App;
 using Android.Content;
-using Android.Content.PM;
-using Android.OS;
-using Android.Text.Method;
+using Android.Runtime;
+using Android.Views;
 using Android.Widget;
-using Auth0.OidcClient;
-using IdentityModel.OidcClient;
+using Android.OS;
+using Android.Gms.Common.Apis;
+using Android.Support.V7.App;
+using Android.Gms.Common;
+using Android.Util;
+using Android.Gms.Auth.Api.SignIn;
+using Android.Gms.Auth.Api;
 using System;
 using System.Text;
+using Android.Text.Method;
 
 namespace StudyBuddy.Droid
 {
-    [Activity(Label = "StudyBuddy", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "StudyBuddy", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true)] //ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 
-    [IntentFilter(
-    new[] { Intent.ActionView },
-    Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable },
-        DataScheme = "com.auth0.quickstart",
-        DataHost = "@string/auth0_domain",
-        DataPathPrefix = "/android/com.auth0.quickstart/callback")]
+    [Register("com.ifb330.studybuddy.MainActivity")]
 
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+    public class MainActivity : AppCompatActivity
     {
         //LaunchMode = LaunchMode.SingleTask; 
 
         private Button loginButton;
         private TextView userDetailsTextView;
-        private Auth0Client client;
-        private AuthorizeState authorizeState; 
+        GoogleApiClient GoogleClient;
+        TextView mStatusTextView;
 
         protected override void OnCreate(Bundle bundle)
         {
-            TabLayoutResource = Resource.Layout.Tabbar;
-            ToolbarResource = Resource.Layout.Toolbar;
+            //TabLayoutResource = Resource.Layout.Tabbar;
+            //ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
 
             SetContentView(Resource.Layout.Main);
 
             loginButton = FindViewById<Button>(Resource.Id.LoginButton);
-            loginButton.Click += LoginButtonOnClick;
+            loginButton.Click += OnLoginButtonClick;
 
             userDetailsTextView = FindViewById<TextView>(Resource.Id.UserDetailsTextView);
             userDetailsTextView.MovementMethod = new ScrollingMovementMethod();
             userDetailsTextView.Text = String.Empty;
 
+            GoogleSignInOptions google_signin = new GoogleSignInOptions.Builder(GoogleSignInOptions.DefaultSignIn)
+                .RequestEmail()
+                .Build();
+
+            GoogleClient = new GoogleApiClient.Builder(this)
+                //.EnableAutoManage(this, this)
+                .AddApi(Android.Gms.Auth.GoogleSignInApi, google_signin)
+                .Build();
+
             //global::Xamarin.Forms.Forms.Init(this, bundle);
             //LoadApplication(new App());
 
-            client = new Auth0Client(new Auth0ClientOptions
-            {
-                Domain = Configuration.Domain,
-                ClientId = Configuration.Client
-                //Scope = Configuration.Scope
-                //Activity = this
-            });
         }
 
         protected override void OnResume()
@@ -62,47 +64,37 @@ namespace StudyBuddy.Droid
             base.OnResume();
         }
 
-        private async void LoginButtonOnClick(object sender, EventArgs eventArgs)
+        private async void OnLoginButtonClick(object sender, EventArgs eventArgs)
         {
             userDetailsTextView.Text = "";
-
-            // Prepare for the login
-            authorizeState = await client.PrepareLoginAsync();
-
-            // Send the user off to the authorization endpoint
-            var uri = Android.Net.Uri.Parse(authorizeState.StartUrl);
-            var intent = new Intent(Intent.ActionView, uri);
-            intent.AddFlags(ActivityFlags.NoHistory);
-            StartActivity(intent);
+            
         }
 
-        protected override async void OnNewIntent(Intent intent)
+        void OnSignin()
         {
-            base.OnNewIntent(intent);
+            var signinIntent = Auth.GoogleSignInApi.GetSignInIntent(GoogleClient);
+            StartActivityForResult(signinIntent, Configuration.RC_SIGN_IN);
+        }
 
-            var loginResult = await client.ProcessResponseAsync(intent.DataString, authorizeState);
+        /*void OnSignout()
+        {
+            Auth.GoogleSignInApi.SignOut(GoogleClient).SetResultCallback(new SignOutResultCallback { Activity = this });
+        }*/
 
-            var sb = new StringBuilder();
-            if (loginResult.IsError)
+        public void UpdateUI(bool isSignedIn)
+        {
+            if (isSignedIn)
             {
-                sb.AppendLine($"An error occurred during login: {loginResult.Error}");
+                FindViewById(Resource.Id.LoginButton).Visibility = ViewStates.Gone;
+                FindViewById(Resource.Id.LogoutButton).Visibility = ViewStates.Visible;
             }
             else
             {
-                sb.AppendLine($"ID Token: {loginResult.IdentityToken}");
-                sb.AppendLine($"Access Token: {loginResult.AccessToken}");
-                sb.AppendLine($"Refresh Token: {loginResult.RefreshToken}");
+                //mStatusTextView.Text = GetString(Resource.String.signed_out);
 
-                sb.AppendLine();
-
-                sb.AppendLine("-- Claims --");
-                foreach (var claim in loginResult.User.Claims)
-                {
-                    sb.AppendLine($"{claim.Type} = {claim.Value}");
-                }
+                FindViewById(Resource.Id.LoginButton).Visibility = ViewStates.Visible;
+                FindViewById(Resource.Id.LogoutButton).Visibility = ViewStates.Gone;
             }
-
-            userDetailsTextView.Text = sb.ToString();
         }
     }
 }

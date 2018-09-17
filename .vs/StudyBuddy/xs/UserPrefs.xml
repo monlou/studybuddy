@@ -1,9 +1,7 @@
 ﻿<Properties StartupConfiguration="{6B5759A0-56AF-4B66-81A3-A7E7C1D8D334}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="StudyBuddy Status">
     <Files>
-      <File FileName="StudyBuddy.Android/Configuration.cs" Line="16" Column="59" />
-      <File FileName="StudyBuddy.Android/Resources/values/Strings.xml" Line="5" Column="31" />
-      <File FileName="StudyBuddy.Android/MainActivity.cs" Line="15" Column="5" />
+      <File FileName="StudyBuddy.Android/MainActivity.cs" Line="82" Column="12" />
       <File FileName="StudyBuddy Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>
@@ -12,6 +10,6 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.StudyBuddy.Android AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.Android_Accelerated_Oreo" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
+  <MonoDevelop.Ide.ItemProperties.StudyBuddy.Android PreferredExecutionTarget="Android.Android_Accelerated_Oreo" />
   <MultiItemStartupConfigurations />
 </Properties>

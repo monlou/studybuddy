@@ -6562,12 +6562,6 @@
         }
       }
     },
-    "dependencies": {
-      "Auth0.OidcClient.iOS": {
-        "target": "Package",
-        "version": "[2.3.0, )"
-      }
-    },
     "frameworks": {
       "xamarinios10": {
         "dependencies": {
@@ -6578,6 +6572,10 @@
           "Xamarin.TestCloud.Agent": {
             "target": "Package",
             "version": "0.21.6"
+          },
+          "Auth0.OidcClient.iOS": {
+            "target": "Package",
+            "version": "2.3.0"
           }
         }
       }
