@@ -20,14 +20,16 @@ namespace StudyBuddy.Droid
 
     [Register("com.ifb330.studybuddy.MainActivity")]
 
-    public class MainActivity : AppCompatActivity
+    public class MainActivity : AppCompatActivity, GoogleApiClient.IConnectionCallbacks, GoogleApiClient.IOnConnectionFailedListener
     {
         //LaunchMode = LaunchMode.SingleTask; 
 
         private Button loginButton;
         private TextView userDetailsTextView;
-        GoogleApiClient GoogleClient;
+        GoogleApiClient mGoogleClient;
         TextView mStatusTextView;
+
+        public int SIGN_IN_ID = 9001; 
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -45,43 +47,71 @@ namespace StudyBuddy.Droid
             userDetailsTextView.MovementMethod = new ScrollingMovementMethod();
             userDetailsTextView.Text = String.Empty;
 
-            GoogleSignInOptions google_signin = new GoogleSignInOptions.Builder(GoogleSignInOptions.DefaultSignIn)
-                .RequestEmail()
-                .Build();
-
-            GoogleClient = new GoogleApiClient.Builder(this)
-                //.EnableAutoManage(this, this)
-                .AddApi(Android.Gms.Auth.GoogleSignInApi, google_signin)
-                .Build();
+            ConfigureGoogleSignIn(); 
 
             //global::Xamarin.Forms.Forms.Init(this, bundle);
             //LoadApplication(new App());
 
         }
 
-        protected override void OnResume()
+        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
         {
-            base.OnResume();
+            base.OnActivityResult(requestCode, resultCode, data);
+
+            if(requestCode == SIGN_IN_ID) {
+                var result = Auth.GoogleSignInApi.GetSignInResultFromIntent(data);
+                SignInResultHandler(result); 
+            }
+        }
+
+        private void SignInResultHandler(GoogleSignInResult result)
+        {
+            //throw new NotImplementedException();
+
+            if(result.IsSuccess) {
+                var accountDetails = result.SignInAccount; 
+            }
         }
 
         private async void OnLoginButtonClick(object sender, EventArgs eventArgs)
         {
-            userDetailsTextView.Text = "";
-            
+            var signInIntent = Auth.GoogleSignInApi.GetSignInIntent(mGoogleClient);
+            StartActivityForResult(signInIntent, SIGN_IN_ID); 
+            //userDetailsTextView.Text = "";
+
         }
+
+        private void ConfigureGoogleSignIn() {
+            GoogleSignInOptions google_options = new GoogleSignInOptions.Builder(GoogleSignInOptions.DefaultSignIn)
+                .RequestEmail()
+                .Build();
+
+            mGoogleClient = new GoogleApiClient.Builder(this)
+                .EnableAutoManage(this, this)
+                .AddApi(Auth.GOOGLE_SIGN_IN_API, google_options)
+                .AddConnectionCallbacks(this)
+                .Build();
+        }
+
+        /*protected override void OnResume()
+        {
+            base.OnResume();
+        }
+
+
 
         void OnSignin()
         {
             var signinIntent = Auth.GoogleSignInApi.GetSignInIntent(GoogleClient);
             StartActivityForResult(signinIntent, Configuration.RC_SIGN_IN);
-        }
+        }*/
 
         /*void OnSignout()
         {
             Auth.GoogleSignInApi.SignOut(GoogleClient).SetResultCallback(new SignOutResultCallback { Activity = this });
         }*/
 
-        public void UpdateUI(bool isSignedIn)
+        /*public void UpdateUI(bool isSignedIn)
         {
             if (isSignedIn)
             {
@@ -95,6 +125,21 @@ namespace StudyBuddy.Droid
                 FindViewById(Resource.Id.LoginButton).Visibility = ViewStates.Visible;
                 FindViewById(Resource.Id.LogoutButton).Visibility = ViewStates.Gone;
             }
+        }*/
+
+        public void OnConnected(Bundle connectionHint)
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void OnConnectionSuspended(int cause)
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void OnConnectionFailed(ConnectionResult result)
+        {
+            //throw new NotImplementedException();
         }
     }
 }

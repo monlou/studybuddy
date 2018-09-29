@@ -54,3 +54,4 @@ System.Threading
 System.Reflection.Extensions
 System.Reflection.Primitives
 System.Text.Encoding.Extensions
+Xamarin.Firebase.Iid

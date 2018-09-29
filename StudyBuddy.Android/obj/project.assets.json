@@ -1022,6 +1022,22 @@
           "build/MonoAndroid80/Xamarin.Firebase.Common.targets": {}
         }
       },
+      "Xamarin.Firebase.Iid/60.1142.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Firebase.Common": "[60.1142.1]",
+          "Xamarin.GooglePlayServices.Basement": "[60.1142.1]"
+        },
+        "compile": {
+          "lib/MonoAndroid80/Xamarin.Firebase.Iid.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid80/Xamarin.Firebase.Iid.dll": {}
+        },
+        "build": {
+          "build/MonoAndroid80/Xamarin.Firebase.Iid.targets": {}
+        }
+      },
       "Xamarin.Forms/3.2.0.839982": {
         "type": "package",
         "dependencies": {
@@ -4492,6 +4508,17 @@
         "xamarin.firebase.common.nuspec"
       ]
     },
+    "Xamarin.Firebase.Iid/60.1142.1": {
+      "sha512": "cHauaYNySwKJPBhTFhPujlFLUkr/2CzXHes2DMXDkBi6BcKcnuClwyQ9izY/PuDzflyaqfX5rJGtrkwwZ8pQxw==",
+      "type": "package",
+      "path": "xamarin.firebase.iid/60.1142.1",
+      "files": [
+        "build/MonoAndroid80/Xamarin.Firebase.Iid.targets",
+        "lib/MonoAndroid80/Xamarin.Firebase.Iid.dll",
+        "xamarin.firebase.iid.60.1142.1.nupkg.sha512",
+        "xamarin.firebase.iid.nuspec"
+      ]
+    },
     "Xamarin.Forms/3.2.0.839982": {
       "sha512": "BtiTMpmTqkzPPlGvQEVrO51kC1e/vieOaGHB+bKUULER0ruf2EQ92zVRwuvLop60g0WQQJ0Arj45TNCu6qCINQ==",
       "type": "package",
@@ -4735,6 +4762,7 @@
       "Xamarin.Android.Support.v7.CardView >= 27.0.2.1",
       "Xamarin.Android.Support.v7.MediaRouter >= 27.0.2.1",
       "Xamarin.Firebase.Auth >= 60.1142.1",
+      "Xamarin.Firebase.Iid >= 60.1142.1",
       "Xamarin.Forms >= 3.2.0.839982",
       "Xamarin.GooglePlayServices.Auth >= 60.1142.1",
       "Xamarin.GooglePlayServices.Identity >= 60.1142.1"
@@ -4811,6 +4839,10 @@
             "version": "60.1142.1"
           },
           "Xamarin.Firebase.Auth": {
+            "target": "Package",
+            "version": "60.1142.1"
+          },
+          "Xamarin.Firebase.Iid": {
             "target": "Package",
             "version": "60.1142.1"
           }
