@@ -25,23 +25,26 @@ namespace StudyBuddy.Droid
         //LaunchMode = LaunchMode.SingleTask; 
 
         private Button loginButton;
+        private Button logoutButton;
         private TextView userDetailsTextView;
-        GoogleApiClient mGoogleClient;
-        TextView mStatusTextView;
+        GoogleApiClient mGoogleClient; 
 
         public int SIGN_IN_ID = 9001; 
 
         protected override void OnCreate(Bundle bundle)
         {
-            //TabLayoutResource = Resource.Layout.Tabbar;
-            //ToolbarResource = Resource.Layout.Toolbar;
-
             base.OnCreate(bundle);
 
             SetContentView(Resource.Layout.Main);
 
+            FindViewById(Resource.Id.LoginButton).Visibility = ViewStates.Visible;
+            FindViewById(Resource.Id.LogoutButton).Visibility = ViewStates.Gone;
+
             loginButton = FindViewById<Button>(Resource.Id.LoginButton);
-            loginButton.Click += OnLoginButtonClick;
+            loginButton.Click += OnSignInClick;
+
+            logoutButton = FindViewById<Button>(Resource.Id.LogoutButton);
+            logoutButton.Click += OnSignOutClick;
 
             userDetailsTextView = FindViewById<TextView>(Resource.Id.UserDetailsTextView);
             userDetailsTextView.MovementMethod = new ScrollingMovementMethod();
@@ -54,34 +57,22 @@ namespace StudyBuddy.Droid
 
         }
 
-        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
+        public void UpdateUI(bool isSignedIn)
         {
-            base.OnActivityResult(requestCode, resultCode, data);
-
-            if(requestCode == SIGN_IN_ID) {
-                var result = Auth.GoogleSignInApi.GetSignInResultFromIntent(data);
-                SignInResultHandler(result); 
+            if (isSignedIn)
+            {
+                FindViewById(Resource.Id.LoginButton).Visibility = ViewStates.Gone;
+                FindViewById(Resource.Id.LogoutButton).Visibility = ViewStates.Visible;
+            }
+            else
+            {
+                FindViewById(Resource.Id.LoginButton).Visibility = ViewStates.Visible;
+                FindViewById(Resource.Id.LogoutButton).Visibility = ViewStates.Gone;
             }
         }
 
-        private void SignInResultHandler(GoogleSignInResult result)
+        private void ConfigureGoogleSignIn()
         {
-            //throw new NotImplementedException();
-
-            if(result.IsSuccess) {
-                var accountDetails = result.SignInAccount; 
-            }
-        }
-
-        private async void OnLoginButtonClick(object sender, EventArgs eventArgs)
-        {
-            var signInIntent = Auth.GoogleSignInApi.GetSignInIntent(mGoogleClient);
-            StartActivityForResult(signInIntent, SIGN_IN_ID); 
-            //userDetailsTextView.Text = "";
-
-        }
-
-        private void ConfigureGoogleSignIn() {
             GoogleSignInOptions google_options = new GoogleSignInOptions.Builder(GoogleSignInOptions.DefaultSignIn)
                 .RequestEmail()
                 .Build();
@@ -93,38 +84,39 @@ namespace StudyBuddy.Droid
                 .Build();
         }
 
-        /*protected override void OnResume()
+        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
         {
-            base.OnResume();
+            base.OnActivityResult(requestCode, resultCode, data);
+
+            if(requestCode == SIGN_IN_ID) {
+                var result = Auth.GoogleSignInApi.GetSignInResultFromIntent(data);
+                SignInResultHandler(result); 
+            }
         }
 
-
-
-        void OnSignin()
+        void OnSignInClick(object sender, EventArgs eventArgs)
         {
-            var signinIntent = Auth.GoogleSignInApi.GetSignInIntent(GoogleClient);
-            StartActivityForResult(signinIntent, Configuration.RC_SIGN_IN);
-        }*/
+            var signInIntent = Auth.GoogleSignInApi.GetSignInIntent(mGoogleClient);
+            StartActivityForResult(signInIntent, SIGN_IN_ID);
+        }
+
+        private void SignInResultHandler(GoogleSignInResult result)
+        {
+            if (result.IsSuccess)
+            {
+                var accountDetails = result.SignInAccount;
+                UpdateUI(true); 
+            }
+        }
+
+        void OnSignOutClick(object sender, EventArgs eventArgs)
+        {
+            UpdateUI(false); 
+        }
 
         /*void OnSignout()
         {
             Auth.GoogleSignInApi.SignOut(GoogleClient).SetResultCallback(new SignOutResultCallback { Activity = this });
-        }*/
-
-        /*public void UpdateUI(bool isSignedIn)
-        {
-            if (isSignedIn)
-            {
-                FindViewById(Resource.Id.LoginButton).Visibility = ViewStates.Gone;
-                FindViewById(Resource.Id.LogoutButton).Visibility = ViewStates.Visible;
-            }
-            else
-            {
-                //mStatusTextView.Text = GetString(Resource.String.signed_out);
-
-                FindViewById(Resource.Id.LoginButton).Visibility = ViewStates.Visible;
-                FindViewById(Resource.Id.LogoutButton).Visibility = ViewStates.Gone;
-            }
         }*/
 
         public void OnConnected(Bundle connectionHint)
