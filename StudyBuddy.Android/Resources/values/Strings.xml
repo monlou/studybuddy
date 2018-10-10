@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<resources>
-  <string name="Login">Login</string>
-  <string name="ApplicationName">StudyBuddy</string>
-  <string name="auth0_domain">{studybuddy.au.auth0.com}</string>
-  <string name="auth0_client_id">{LJNvBoaYdUg4lMIqUWB1lqLUwz5Gy6of}</string>
-</resources>
