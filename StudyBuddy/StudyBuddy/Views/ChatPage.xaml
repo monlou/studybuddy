@@ -10,7 +10,8 @@
     <StackLayout Orientation="Horizontal" VerticalOptions="End">
         <Editor Placeholder="Enter your message here."
                Keyboard="Chat"
-               x:Name="ChatBox" >
+               x:Name="ChatBox" 
+                Text="{Binding Message}">
             <Editor.Behaviors>
                 <local:ChatPageEditorBehaviour Command="{Binding EditorCompletedCommand}" />
             </Editor.Behaviors>
