@@ -6,9 +6,9 @@
              x:Class="StudyBuddy.Views.ChatPage">
 
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="End">
 
-        <Label Text="CHAT PAGE!!!" />
+        <Editor />
     </StackLayout>
 
 </ContentPage>
