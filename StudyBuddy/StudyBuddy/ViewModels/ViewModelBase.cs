@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace StudyBuddy.ViewModels
 {
     public class ViewModelBase : BindableBase, INavigationAware, IDestructible

@@ -506,3 +506,7 @@ StudyBuddy/StudyBuddy.Android/bin/Debug/com.ifb330.studybuddy-Signed.apk
 .vs/StudyBuddy/v15/Server/sqlite3/storage.ide-wal
 .vs/StudyBuddy/v15/.suo
 StudyBuddy/StudyBuddy/bin/Debug/netstandard2.0/StudyBuddy.dll
+.vs/StudyBuddy/v15/.suo
+.vs/StudyBuddy/v15/.suo
+*.ide
+*.apk
