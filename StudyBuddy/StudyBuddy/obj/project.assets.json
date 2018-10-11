@@ -532,11 +532,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rohan\\source\\repos\\StudyBuddy\\StudyBuddy\\StudyBuddy\\StudyBuddy.csproj",
+      "projectUniqueName": "C:\\Users\\Rohan\\Documents\\GitHub\\studybuddy\\StudyBuddy\\StudyBuddy\\StudyBuddy.csproj",
       "projectName": "StudyBuddy",
-      "projectPath": "C:\\Users\\Rohan\\source\\repos\\StudyBuddy\\StudyBuddy\\StudyBuddy\\StudyBuddy.csproj",
+      "projectPath": "C:\\Users\\Rohan\\Documents\\GitHub\\studybuddy\\StudyBuddy\\StudyBuddy\\StudyBuddy.csproj",
       "packagesPath": "C:\\Users\\Rohan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rohan\\source\\repos\\StudyBuddy\\StudyBuddy\\StudyBuddy\\obj\\",
+      "outputPath": "C:\\Users\\Rohan\\Documents\\GitHub\\studybuddy\\StudyBuddy\\StudyBuddy\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
