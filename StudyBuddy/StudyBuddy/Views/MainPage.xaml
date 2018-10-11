@@ -9,7 +9,7 @@
         <Label Text="Welcome to StudyBuddy!" />
 
         <Button Text="Login" 
-                Command="{Binding GoogleLoginCommand}"/>
+                Command="{Binding LoginCommand}"/>
 
     </StackLayout>
 

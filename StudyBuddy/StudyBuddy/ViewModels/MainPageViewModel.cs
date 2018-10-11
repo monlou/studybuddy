@@ -15,8 +15,7 @@ namespace StudyBuddy.ViewModels
         private readonly IGoogleManager _googleManager;
         private readonly IPageDialogService _dialogService;
 
-        public DelegateCommand GoogleLoginCommand { get; set; }
-        public DelegateCommand GoogleLogoutCommand { get; set; }
+        public DelegateCommand LoginCommand { get; set; }
 
         private GoogleUser _googleUser;
 
@@ -31,19 +30,14 @@ namespace StudyBuddy.ViewModels
         {
             Title = "Main Page";
             _navigationService = navigationService;
-            GoogleLoginCommand = new DelegateCommand(Login);
             _googleManager = googleManager;
             _dialogService = dialogService;
 
-            //GoogleLoginCommand = new DelegateCommand(NavigateToChatPageCall);
+            LoginCommand = new DelegateCommand(CallLogin);
         }
 
-
-
-
-        public void Login()
+        public void CallLogin()
         {
-            Console.WriteLine("==============Hit NavigateToChatPageCall");
             _googleManager.Login(OnLoginComplete);
         }
 
