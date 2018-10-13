@@ -14,7 +14,7 @@ namespace StudyBuddy.Views {
     
     
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\ChatPage.xaml")]
-    public partial class ChatPage : global::Xamarin.Forms.ContentPage {
+    public partial class ChatPage : global::Xamarin.Forms.CarouselPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Editor ChatBox;
