@@ -33,6 +33,8 @@ namespace StudyBuddy
             containerRegistry.RegisterForNavigation<MainPage>();
 
             containerRegistry.RegisterForNavigation<ChatPage>();
+            containerRegistry.RegisterForNavigation<Carousel>();
+            containerRegistry.RegisterForNavigation<FlashCardsPage>();
         }
     }
 }

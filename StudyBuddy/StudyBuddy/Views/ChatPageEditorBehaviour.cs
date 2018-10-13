@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace StudyBuddy
+namespace StudyBuddy.Views
 {
     public class ChatPageEditorBehaviour : Behavior<Editor>
     {

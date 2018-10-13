@@ -46,7 +46,7 @@ namespace StudyBuddy.ViewModels
             if (googleUser != null)
             {
                 GoogleUser = googleUser;
-                _navigationService.NavigateAsync("ChatPage");
+                _navigationService.NavigateAsync("Carousel");
             }
             else
             {
