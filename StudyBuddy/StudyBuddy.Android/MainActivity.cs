@@ -7,7 +7,8 @@ using Prism;
 using Prism.Ioc;
 using Xamarin.Forms;
 using StudyBuddy.Services.Contracts;
-
+using Firebase;
+using Firebase.Firestore;
 
 namespace StudyBuddy.Droid
 {
@@ -26,7 +27,7 @@ namespace StudyBuddy.Droid
             Instance = this;
 
 
-            global::Xamarin.Forms.Forms.Init(this, bundle);
+            Forms.Init(this, bundle);
             DependencyService.Register<IGoogleManager, GoogleManager>();
             LoadApplication(new App(new AndroidInitializer()));
         }

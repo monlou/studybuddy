@@ -21,6 +21,6 @@ C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netst
 C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\StudyBuddy.csproj.CoreCompileInputs.cache
 C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\StudyBuddy.AssemblyInfoInputs.cache
 C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\StudyBuddy.AssemblyInfo.cs
-C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\StudyBuddy.dll
 C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\StudyBuddy.pdb
+C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\XamlC.stamp

@@ -42,7 +42,7 @@ namespace StudyBuddy.ViewModels
 
         public void SendEditorMessage(object param)
         {
-            Console.WriteLine("AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
+            Console.WriteLine("Hit SendEditorMessage");
             Console.WriteLine(Message);
 
         }

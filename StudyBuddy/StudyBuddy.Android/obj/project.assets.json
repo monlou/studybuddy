@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     "MonoAndroid,Version=v8.1": {
+      "Newtonsoft.Json/11.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
       "Prism.Core/7.0.0.396": {
         "type": "package",
         "compile": {
@@ -35,6 +44,60 @@
         },
         "runtime": {
           "lib/netstandard2.0/Prism.Unity.Forms.dll": {}
+        }
+      },
+      "Square.OkHttp/2.7.5": {
+        "type": "package",
+        "dependencies": {
+          "Square.OkIO": "1.6.0"
+        },
+        "compile": {
+          "lib/MonoAndroid/Square.OkHttp.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid/Square.OkHttp.dll": {}
+        }
+      },
+      "Square.OkIO/1.6.0": {
+        "type": "package",
+        "compile": {
+          "lib/MonoAndroid/Square.OkIO.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid/Square.OkIO.dll": {}
+        }
+      },
+      "SuaveControls.FloatingActionButton/2018.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Android.Support.Animated.Vector.Drawable": "23.3.0",
+          "Xamarin.Android.Support.Design": "23.3.0",
+          "Xamarin.Android.Support.Vector.Drawable": "23.3.0",
+          "Xamarin.Android.Support.v4": "23.3.0",
+          "Xamarin.Android.Support.v7.AppCompat": "23.3.0",
+          "Xamarin.Android.Support.v7.CardView": "23.3.0",
+          "Xamarin.Android.Support.v7.MediaRouter": "23.3.0",
+          "Xamarin.Android.Support.v7.RecyclerView": "23.3.0",
+          "Xamarin.Forms": "2.3.4.231"
+        },
+        "frameworkAssemblies": [
+          "Java.Interop",
+          "Microsoft.CSharp",
+          "Mono.Android",
+          "System",
+          "System.Core",
+          "System.Runtime",
+          "System.Xml",
+          "System.Xml.Linq",
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/monoandroid80/SuaveControls.FloatingActionButton.Droid.dll": {},
+          "lib/monoandroid80/SuaveControls.FloatingActionButton.dll": {}
+        },
+        "runtime": {
+          "lib/monoandroid80/SuaveControls.FloatingActionButton.Droid.dll": {},
+          "lib/monoandroid80/SuaveControls.FloatingActionButton.dll": {}
         }
       },
       "Unity/5.5.5": {
@@ -404,6 +467,24 @@
           "build/MonoAndroid80/Xamarin.Firebase.Common.targets": {}
         }
       },
+      "Xamarin.Firebase.Firestore/60.1142.1": {
+        "type": "package",
+        "dependencies": {
+          "Square.OkHttp": "2.7.5",
+          "Xamarin.Firebase.Common": "[60.1142.1]",
+          "Xamarin.GooglePlayServices.Basement": "[60.1142.1]",
+          "Xamarin.GooglePlayServices.Tasks": "[60.1142.1]"
+        },
+        "compile": {
+          "lib/MonoAndroid80/Xamarin.Firebase.Firestore.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid80/Xamarin.Firebase.Firestore.dll": {}
+        },
+        "build": {
+          "build/MonoAndroid80/Xamarin.Firebase.Firestore.targets": {}
+        }
+      },
       "Xamarin.Forms/3.2.0.871581": {
         "type": "package",
         "dependencies": {
@@ -540,7 +621,9 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Newtonsoft.Json": "11.0.2",
           "Prism.Unity.Forms": "7.0.0.396",
+          "SuaveControls.FloatingActionButton": "2018.1.5",
           "Xamarin.Forms": "3.2.0.871581"
         },
         "compile": {
@@ -553,6 +636,34 @@
     }
   },
   "libraries": {
+    "Newtonsoft.Json/11.0.2": {
+      "sha512": "IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
+      "type": "package",
+      "path": "newtonsoft.json/11.0.2",
+      "files": [
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.11.0.2.nupkg.sha512",
+        "newtonsoft.json.nuspec"
+      ]
+    },
     "Prism.Core/7.0.0.396": {
       "sha512": "XxPmXiA+v/D6zUeAUwSz7GgWNIbzyLLgkP32vDr6fGfv/YPg8CRkmkf+MkP+cxXKdUsqezxXgRRwMUcjWRqWMw==",
       "type": "package",
@@ -595,6 +706,44 @@
         "lib/netstandard2.0/Prism.Unity.Forms.xml",
         "prism.unity.forms.7.0.0.396.nupkg.sha512",
         "prism.unity.forms.nuspec"
+      ]
+    },
+    "Square.OkHttp/2.7.5": {
+      "sha512": "q5/GwwXC/iF4mlIz+7FbzutXRsB9J/ee5QOcSnRYk81o4ETq5/i5phh3b2OhiR3ndWA+dWFk3AwuKwdyL7hT5w==",
+      "type": "package",
+      "path": "square.okhttp/2.7.5",
+      "files": [
+        "LICENSE.txt",
+        "README.md",
+        "lib/MonoAndroid/Square.OkHttp.dll",
+        "square.okhttp.2.7.5.nupkg.sha512",
+        "square.okhttp.nuspec"
+      ]
+    },
+    "Square.OkIO/1.6.0": {
+      "sha512": "pi34RScHEpHGVYVEI/uDi4HDgCqYHmSxVh2MOrJTXEWXbTdPePCXLv3Vq1/hQTGjSo57US9IT+S9ubDW/AiyGw==",
+      "type": "package",
+      "path": "square.okio/1.6.0",
+      "files": [
+        "LICENSE.txt",
+        "README.md",
+        "lib/MonoAndroid/Square.OkIO.dll",
+        "square.okio.1.6.0.nupkg.sha512",
+        "square.okio.nuspec"
+      ]
+    },
+    "SuaveControls.FloatingActionButton/2018.1.5": {
+      "sha512": "sgnBqhD3nXNT/yEO0DzS+WfaHYnhnf8K3g9FMD9o5CMpdG7NOuJme8AmbmOyEBHw0NeLMDX+FHmErVBCMq36BA==",
+      "type": "package",
+      "path": "suavecontrols.floatingactionbutton/2018.1.5",
+      "files": [
+        "lib/monoandroid80/SuaveControls.FloatingActionButton.Droid.dll",
+        "lib/monoandroid80/SuaveControls.FloatingActionButton.dll",
+        "lib/portable45-net45+win8+wpa81/SuaveControls.FloatingActionButton.dll",
+        "lib/xamarinios10/SuaveControls.FloatingActionButton.dll",
+        "lib/xamarinios10/SuaveControls.FloatingActionButton.iOS.dll",
+        "suavecontrols.floatingactionbutton.2018.1.5.nupkg.sha512",
+        "suavecontrols.floatingactionbutton.nuspec"
       ]
     },
     "Unity/5.5.5": {
@@ -977,6 +1126,17 @@
         "xamarin.firebase.common.nuspec"
       ]
     },
+    "Xamarin.Firebase.Firestore/60.1142.1": {
+      "sha512": "pPl3UAz4rXIq40mi6/QYTLoOaDP8P7IzSvYxTLrqOz6COwJJDNjyAIY8aBIEZrJgCtQDUYfG5fhRCMvn9yvPfQ==",
+      "type": "package",
+      "path": "xamarin.firebase.firestore/60.1142.1",
+      "files": [
+        "build/MonoAndroid80/Xamarin.Firebase.Firestore.targets",
+        "lib/MonoAndroid80/Xamarin.Firebase.Firestore.dll",
+        "xamarin.firebase.firestore.60.1142.1.nupkg.sha512",
+        "xamarin.firebase.firestore.nuspec"
+      ]
+    },
     "Xamarin.Forms/3.2.0.871581": {
       "sha512": "1yKOnOHYR1v4Afa5XIkpPfdIG3A3Tu0gT5TX4923xG5DV+8dJw+beSPuLagSJoU33NzV023t73R5iSbMoSF7qQ==",
       "type": "package",
@@ -1203,12 +1363,14 @@
     "MonoAndroid,Version=v8.1": [
       "Prism.Unity.Forms >= 7.0.0.396",
       "StudyBuddy >= 1.0.0",
+      "SuaveControls.FloatingActionButton >= 2018.1.5",
       "Xamarin.Android.Support.Design >= 27.0.2.1",
       "Xamarin.Android.Support.v4 >= 27.0.2.1",
       "Xamarin.Android.Support.v7.AppCompat >= 27.0.2.1",
       "Xamarin.Android.Support.v7.CardView >= 27.0.2.1",
       "Xamarin.Android.Support.v7.MediaRouter >= 27.0.2.1",
       "Xamarin.Firebase.Auth >= 60.1142.1",
+      "Xamarin.Firebase.Firestore >= 60.1142.1",
       "Xamarin.Forms >= 3.2.0.871581",
       "Xamarin.GooglePlayServices.Auth >= 60.1142.1"
     ]
@@ -1254,6 +1416,10 @@
             "target": "Package",
             "version": "[7.0.0.396, )"
           },
+          "SuaveControls.FloatingActionButton": {
+            "target": "Package",
+            "version": "[2018.1.5, )"
+          },
           "Xamarin.Android.Support.Design": {
             "target": "Package",
             "version": "[27.0.2.1, )"
@@ -1275,6 +1441,10 @@
             "version": "[27.0.2.1, )"
           },
           "Xamarin.Firebase.Auth": {
+            "target": "Package",
+            "version": "[60.1142.1, )"
+          },
+          "Xamarin.Firebase.Firestore": {
             "target": "Package",
             "version": "[60.1142.1, )"
           },

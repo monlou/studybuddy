@@ -4,18 +4,28 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:local="clr-namespace:StudyBuddy"
              prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:controls="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
              x:Class="StudyBuddy.Views.ChatPage">
-
 
     <StackLayout Orientation="Horizontal" VerticalOptions="End">
         <Editor Placeholder="Enter your message here."
-               Keyboard="Chat"
-               x:Name="ChatBox" 
+                Keyboard="Chat"
+                x:Name="ChatBox" 
+                HorizontalOptions="StartAndExpand"
+                VerticalOptions="EndAndExpand"
                 Text="{Binding Message}">
             <Editor.Behaviors>
                 <local:ChatPageEditorBehaviour Command="{Binding EditorCompletedCommand}" />
             </Editor.Behaviors>
         </Editor>
+        
+        <controls:FloatingActionButton x:Name="FAB" 
+                                       HorizontalOptions="EndAndExpand" 
+                                       WidthRequest="90" 
+                                       HeightRequest="90"  
+                                       VerticalOptions="EndAndExpand" 
+                                       Image="send.png" 
+                                       ButtonColor="#FF4081"/>
     </StackLayout>
-
+    
 </ContentPage>
