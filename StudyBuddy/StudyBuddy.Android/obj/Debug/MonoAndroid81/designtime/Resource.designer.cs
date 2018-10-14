@@ -4750,9 +4750,6 @@ namespace StudyBuddy.Droid
 			// aapt resource value: 0x7F010326
 			public const int googleg_standard_color_18 = 2130772774;
 			
-			// aapt resource value: 0x7F010002
-			public const int icons8-email-send-48 (2) = 2130771970;
-			
 			// aapt resource value: 0x7F090054
 			public const int ic_audiotrack_dark = 2131296340;
 			
@@ -5529,6 +5526,9 @@ namespace StudyBuddy.Droid
 			
 			// aapt resource value: 0x1
 			public const int quantum_ic_volume_up_white_36 = 1;
+			
+			// aapt resource value: 0x7F010002
+			public const int send = 2130771970;
 			
 			// aapt resource value: 0x7F090069
 			public const int tooltip_frame_dark = 2131296361;

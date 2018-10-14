@@ -59,7 +59,7 @@ namespace StudyBuddy.Droid
             else
             {
                 Console.WriteLine(result);
-                _onLoginComplete?.Invoke(null, "An error occured!");
+                _onLoginComplete?.Invoke(null, "An error occurred!");
             }
         }
 
@@ -70,7 +70,7 @@ namespace StudyBuddy.Droid
 
         public void OnConnectionSuspended(int cause)
         {
-            _onLoginComplete?.Invoke(null, "Canceled!");
+            _onLoginComplete?.Invoke(null, "Cancelled!");
         }
 
         public void OnConnectionFailed(ConnectionResult result)

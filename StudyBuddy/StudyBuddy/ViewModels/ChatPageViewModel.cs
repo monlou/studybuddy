@@ -36,15 +36,14 @@ namespace StudyBuddy.ViewModels
 
         public ChatPageViewModel()
         {
-            EditorCompletedCommand = new Command(_ => SendEditorMessage(_));
+            EditorCompletedCommand = new Command(SendEditorMessage);
 
         }
 
-        public void SendEditorMessage(object param)
+        public void SendEditorMessage()
         {
             Console.WriteLine("Hit SendEditorMessage");
             Console.WriteLine(Message);
-
         }
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = "")

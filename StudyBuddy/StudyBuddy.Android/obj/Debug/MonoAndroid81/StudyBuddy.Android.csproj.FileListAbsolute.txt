@@ -1,9 +1,3 @@
-C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy.Android\bin\Debug\StudyBuddy.Android.dll
-C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy.Android\bin\Debug\StudyBuddy.Android.pdb
-C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy.Android\bin\Debug\com.ifb330.StudyBuddy.apk
-C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy.Android\bin\Debug\com.ifb330.StudyBuddy-Signed.apk
-C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy.Android\bin\Debug\StudyBuddy.dll
-C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy.Android\bin\Debug\StudyBuddy.pdb
 C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy.Android\obj\Debug\MonoAndroid81\StudyBuddy.Android.csprojAssemblyReference.cache
 C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy.Android\obj\Debug\MonoAndroid81\XbdMerge\Xamarin.GooglePlayServices.Basement.dll.stamp
 C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy.Android\obj\Debug\MonoAndroid81\XbdMerge\Xamarin.GooglePlayServices.Tasks.dll.stamp
@@ -25,6 +19,12 @@ C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy.Android\obj\Deb
 C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy.Android\obj\Debug\MonoAndroid81\XbdMerge\proguard\fbf1b9870.txt
 C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy.Android\obj\Debug\MonoAndroid81\XbdMerge\fbf1b987.proguard.stamp
 C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy.Android\obj\Debug\MonoAndroid81\XbdMerge\00d975c9.proguard.stamp
+C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy.Android\bin\Debug\StudyBuddy.Android.dll
+C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy.Android\bin\Debug\StudyBuddy.Android.pdb
+C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy.Android\bin\Debug\com.ifb330.StudyBuddy.apk
+C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy.Android\bin\Debug\com.ifb330.StudyBuddy-Signed.apk
+C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy.Android\bin\Debug\StudyBuddy.dll
+C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy.Android\bin\Debug\StudyBuddy.pdb
 C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy.Android\obj\Debug\MonoAndroid81\res.flag
 C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy.Android\obj\Debug\MonoAndroid81\StudyBuddy.Android.csproj.CoreCompileInputs.cache
 C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy.Android\obj\Debug\MonoAndroid81\XamlC.stamp
