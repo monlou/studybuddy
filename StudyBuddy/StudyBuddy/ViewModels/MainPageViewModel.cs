@@ -19,7 +19,7 @@ namespace StudyBuddy.ViewModels
 
         private GoogleUser _googleUser;
 
-        public GoogleUser GoogleUser
+        public GoogleUser CurrentGoogleUser
         {
             get { return _googleUser; }
             set { SetProperty(ref _googleUser, value); }
@@ -45,7 +45,7 @@ namespace StudyBuddy.ViewModels
         {
             if (googleUser != null)
             {
-                GoogleUser = googleUser;
+                CurrentGoogleUser = googleUser;
                 _navigationService.NavigateAsync("Carousel");
             }
             else

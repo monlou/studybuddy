@@ -12,7 +12,7 @@
                     x:Name="ChatBox" 
                     HorizontalOptions="StartAndExpand"
                     VerticalOptions="EndAndExpand"
-                    Text="{Binding Message}">
+                    Text="{Binding Input}">
         </Editor>
 
         <controls:FloatingActionButton x:Name="FAB" 
@@ -22,6 +22,6 @@
                                            VerticalOptions="EndAndExpand" 
                                            Image="send.png" 
                                            ButtonColor="#FF4081"
-                                           Command="{Binding EditorCompletedCommand}"/>
+                                           Command="{Binding EditorFABCommand}"/>
     </StackLayout>
 </ContentPage>

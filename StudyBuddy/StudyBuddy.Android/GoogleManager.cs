@@ -48,18 +48,18 @@ namespace StudyBuddy.Droid
         {
             if (result.IsSuccess)
             {
-                GoogleSignInAccount accountt = result.SignInAccount;
+                GoogleSignInAccount account = result.SignInAccount;
                 _onLoginComplete?.Invoke(new GoogleUser()
                 {
-                    Name = accountt.DisplayName,
-                    Email = accountt.Email,
-                    Picture = new Uri((accountt.PhotoUrl != null ? $"{accountt.PhotoUrl}" : $"https://autisticdating.net/imgs/profile-placeholder.jpg"))
+                    Name = account.DisplayName,
+                    Email = account.Email,
+                    Picture = new Uri((account.PhotoUrl != null ? $"{account.PhotoUrl}" : $"https://autisticdating.net/imgs/profile-placeholder.jpg"))
                 }, string.Empty);
             }
             else
             {
                 Console.WriteLine(result);
-                _onLoginComplete?.Invoke(null, "An error occurred!");
+                _onLoginComplete?.Invoke(null, "An error ");
             }
         }
 

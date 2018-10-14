@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace StudyBuddy.Models
 {
     public class GoogleUser

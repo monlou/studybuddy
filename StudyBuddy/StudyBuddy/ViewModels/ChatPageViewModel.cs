@@ -13,37 +13,56 @@ using Xamarin.Forms;
 #pragma warning disable CS0108 // Member hides inherited member; missing new keyword
 namespace StudyBuddy.ViewModels
 {
-	public class ChatPageViewModel : BindableBase 
+	public class ChatPageViewModel : BindableBase, INotifyPropertyChanged
 	{
 
         //private INavigationService _navigationService;
         //public EventHandler EditorCompleted { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public System.Windows.Input.ICommand EditorCompletedCommand { get; protected set; }
+        public System.Windows.Input.ICommand EditorFABCommand { get; protected set; }
 
-        private string _message;
-        public string Message
+        private string _input;
+        public string Input
         {
-            get { return _message; }
+            get { return _input; }
             set
             {
-                _message = value;
-                OnPropertyChanged(nameof(Message));
+                _input = value;
+                OnPropertyChanged(nameof(Input));
             }
         }
 
 
+
         public ChatPageViewModel()
         {
-            EditorCompletedCommand = new Command(SendEditorMessage);
+            EditorFABCommand = new Command(SendInput);
 
         }
 
-        public void SendEditorMessage()
+        public void SendInput()
         {
-            Console.WriteLine("Hit SendEditorMessage");
-            Console.WriteLine(Message);
+            Console.WriteLine("Hit SendInput");
+            Console.WriteLine("Input is now: " + Input);
+            ComposeMessage();
+        }
+
+
+        public void ComposeMessage()
+        {
+            Console.WriteLine("Hit ComposeMessage");
+
+            Message message = new Message()
+            {
+                SenderID = 0,
+                SenderName = "Me",
+                Text = Input
+            };
+            Input = "";
+            Console.WriteLine("Input is now: " + Input);
+
+
         }
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = "")
