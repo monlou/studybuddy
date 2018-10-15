@@ -21,7 +21,6 @@
                             TextColor="Black" 
                             HeightRequest="150" 
                             WidthRequest="250">
-                        
                     </Editor>  
                 </StackLayout>
             </Frame>

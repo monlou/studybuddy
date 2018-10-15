@@ -8,6 +8,8 @@ namespace StudyBuddy.ViewModels
 {
 	public class FlashCardsPageViewModel : BindableBase
 	{
+        public System.Windows.Input.ICommand EditorFABCommand { get; protected set; }
+
         public FlashCardsPageViewModel()
         {
 
