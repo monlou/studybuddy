@@ -1,13 +1,51 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:local="clr-namespace:StudyBuddy.Views"
              x:Class="StudyBuddy.Views.FlashCardsPage">
-
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Flashcards will go here!" />
-    </StackLayout>
-
+    <ScrollView>
+    <StackLayout HorizontalOptions="CenterAndExpand" 
+             VerticalOptions="CenterAndExpand" 
+             Padding="50">
+        
+            <Label Text="Create Flashcards" Font="20"/>
+            <Label Text="Front" Font="15"/> 
+            <Frame BackgroundColor="White" 
+                   Margin ="0" 
+                   Padding="10">
+                <StackLayout>
+                    <Editor Placeholder="Question" 
+                            PlaceholderColor="Gray" 
+                            TextColor="Black" 
+                            HeightRequest="150" 
+                            WidthRequest="250">
+                        
+                    </Editor>  
+                </StackLayout>
+            </Frame>
+            <Label Text="Back" Font="15"/> 
+            <Frame BackgroundColor="White" 
+                   Margin ="0" 
+                   Padding="10">
+                <StackLayout>
+                    <Editor Placeholder="Answer" 
+                            PlaceholderColor="Gray" 
+                            TextColor="Black" 
+                            HeightRequest="150" 
+                            WidthRequest="250">
+                    </Editor>  
+                </StackLayout>
+            </Frame>
+            <Label Text="Quiz Options" Font="20"/> 
+            <Editor Placeholder="Incorrect Answer">
+                
+            </Editor>
+            <Editor Placeholder="Incorrect Answer">
+                
+            </Editor>
+            <Button Text="Save"></Button> 
+        
+    </StackLayout> </ScrollView>
 </ContentPage>
