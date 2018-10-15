@@ -6,17 +6,17 @@
              xmlns:local="clr-namespace:StudyBuddy.Views"
              x:Class="StudyBuddy.Views.FlashCardsPage">
     <ScrollView>
-    <StackLayout HorizontalOptions="CenterAndExpand" 
-             VerticalOptions="CenterAndExpand" 
-             Padding="50">
-        
+        <StackLayout HorizontalOptions="CenterAndExpand" 
+                     VerticalOptions="CenterAndExpand" 
+                     Padding="50">
             <Label Text="Create Flashcards" Font="20"/>
             <Label Text="Front" Font="15"/> 
             <Frame BackgroundColor="White" 
                    Margin ="0" 
                    Padding="10">
                 <StackLayout>
-                    <Editor Placeholder="Question" 
+                    <Editor Text="{Binding QuestionInput}"
+                            Placeholder="Question" 
                             PlaceholderColor="Gray" 
                             TextColor="Black" 
                             HeightRequest="150" 
@@ -29,7 +29,8 @@
                    Margin ="0" 
                    Padding="10">
                 <StackLayout>
-                    <Editor Placeholder="Answer" 
+                    <Editor Text="{Binding AnswerInput}"
+                            Placeholder="Answer" 
                             PlaceholderColor="Gray" 
                             TextColor="Black" 
                             HeightRequest="150" 
@@ -38,13 +39,13 @@
                 </StackLayout>
             </Frame>
             <Label Text="Quiz Options" Font="20"/> 
-            <Editor Placeholder="Incorrect Answer">
-                
+            <Editor Text="{Binding IncorrectTwoInput}"
+                    Placeholder="Incorrect Answer">
             </Editor>
-            <Editor Placeholder="Incorrect Answer">
-                
+            <Editor Text="{Binding IncorrectOneInput}"
+                    Placeholder="Incorrect Answer">
             </Editor>
-            <Button Text="Save"></Button> 
-        
-    </StackLayout> </ScrollView>
+            <Button Text="Save" Command="{Binding SaveCardCommand}"></Button> 
+        </StackLayout> 
+    </ScrollView>
 </ContentPage>
