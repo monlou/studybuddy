@@ -58,9 +58,10 @@ namespace StudyBuddy.Droid
             }
             else
             {
-                Console.WriteLine(result);
+                Console.WriteLine(result.Status);
                 _onLoginComplete?.Invoke(null, "An error ");
             }
+
         }
 
         public void OnConnected(Bundle connectionHint)

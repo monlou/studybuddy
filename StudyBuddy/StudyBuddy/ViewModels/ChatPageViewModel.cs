@@ -8,6 +8,11 @@ using StudyBuddy.Models;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
+using Firebase.Xamarin.Database;
+using Firebase.Xamarin.Database.Query;
+using StudyBuddy.Helpers;
+using Microsoft.Azure.Documents.Client;
+using System.Collections.Generic;
 
 #pragma warning disable CS0114 // Member hides inherited member; missing override keyword
 #pragma warning disable CS0108 // Member hides inherited member; missing new keyword
@@ -15,11 +20,13 @@ namespace StudyBuddy.ViewModels
 {
 	public class ChatPageViewModel : BindableBase, INotifyPropertyChanged
 	{
+        DocumentClient ChatClient = new DocumentClient(new Uri(Keys.CosmosDBUri), Keys.CosmosDBUri);
+        Uri collectionLink = UriFactory.CreateDocumentCollectionUri("Chat", "Messages");
 
-        //private INavigationService _navigationService;
-        //public EventHandler EditorCompleted { get; set; }
+
+
+
         public event PropertyChangedEventHandler PropertyChanged;
-
         public System.Windows.Input.ICommand EditorFABCommand { get; protected set; }
 
         private string _input;
@@ -33,21 +40,10 @@ namespace StudyBuddy.ViewModels
             }
         }
 
-
-
         public ChatPageViewModel()
         {
-            EditorFABCommand = new Command(SendInput);
-
+            EditorFABCommand = new Command(ComposeMessage);
         }
-
-        public void SendInput()
-        {
-            Console.WriteLine("Hit SendInput");
-            Console.WriteLine("Input is now: " + Input);
-            ComposeMessage();
-        }
-
 
         public void ComposeMessage()
         {
@@ -56,14 +52,23 @@ namespace StudyBuddy.ViewModels
             Message message = new Message()
             {
                 SenderID = 0,
-                SenderName = "Me",
+                SenderName = "Google User",
                 Text = Input
             };
             Input = "";
             Console.WriteLine("Input is now: " + Input);
+            UploadMessage(message);
+        }
 
+
+        public async void UploadMessage(Message message)
+        {
+            Console.WriteLine("Hit UploadMessage");
+            await ChatClient.CreateDocumentAsync(collectionLink, message);
+            Console.WriteLine("Created a new message in " + collectionLink);
 
         }
+
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {

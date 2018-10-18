@@ -37,13 +37,14 @@ namespace StudyBuddy.ViewModels
             {
                 CreatorID = 0,
                 CreatorName = "Test",
-                QuestionText = Input,//"Powerhouse of the cell",
+                QuestionText = "Powerhouse of the cell",
                 CorrectText = "Mitochondria",
                 WrongTextOne = "Nucleus",
                 WrongTextTwo = "Chromatin"
             };
-            Input = "";
-            Console.WriteLine("Input is now: " + Input);
+
+
+
         }
 
         private void OnChangedProperty([CallerMemberName] string propertyName = "")

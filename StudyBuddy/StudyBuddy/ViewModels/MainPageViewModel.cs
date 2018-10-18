@@ -46,6 +46,7 @@ namespace StudyBuddy.ViewModels
             if (googleUser != null)
             {
                 CurrentGoogleUser = googleUser;
+                Console.WriteLine("Current Google User is: " + CurrentGoogleUser.Name);
                 _navigationService.NavigateAsync("Carousel");
             }
             else
