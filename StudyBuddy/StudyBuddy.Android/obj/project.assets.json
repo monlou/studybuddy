@@ -1226,10 +1226,11 @@
       ]
     },
     "System.Collections.Specialized/4.0.1": {
-      "sha512": "/HKQyVP0yH1I0YtK7KJL/28snxHNH/bi+0lgk/+MbURF6ULhAE31MDI+NZDerNWu264YbxklXCCygISgm+HMug==",
+      "sha512": "2lTt/6eh+HGLg495oLQoFDvLLy9Wk1FTnCw87CywP+Yq0ITi1PD+p5wgxcyw1Zksu/1dLsQmo3ezO2BGRk67tg==",
       "type": "package",
       "path": "system.collections.specialized/4.0.1",
       "files": [
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -2440,34 +2441,31 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Rohan\\.nuget\\packages\\": {}
+    "/Users/Monique/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rohan\\Documents\\GitHub\\studybuddy\\StudyBuddy\\StudyBuddy.Android\\StudyBuddy.Android.csproj",
+      "projectUniqueName": "/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy.Android/StudyBuddy.Android.csproj",
       "projectName": "StudyBuddy.Android",
-      "projectPath": "C:\\Users\\Rohan\\Documents\\GitHub\\studybuddy\\StudyBuddy\\StudyBuddy.Android\\StudyBuddy.Android.csproj",
-      "packagesPath": "C:\\Users\\Rohan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rohan\\Documents\\GitHub\\studybuddy\\StudyBuddy\\StudyBuddy.Android\\obj\\",
+      "projectPath": "/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy.Android/StudyBuddy.Android.csproj",
+      "packagesPath": "/Users/Monique/.nuget/packages/",
+      "outputPath": "/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy.Android/obj",
       "projectStyle": "PackageReference",
-      "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\Rohan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/Monique/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "monoandroid81"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "C:\\Users\\Rohan\\Documents\\GitHub\\studybuddy\\StudyBuddy\\StudyBuddy\\StudyBuddy.csproj": {
-              "projectPath": "C:\\Users\\Rohan\\Documents\\GitHub\\studybuddy\\StudyBuddy\\StudyBuddy\\StudyBuddy.csproj"
+            "/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/StudyBuddy.csproj": {
+              "projectPath": "/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/StudyBuddy.csproj"
             }
           }
         }
@@ -2476,49 +2474,49 @@
     "frameworks": {
       "monoandroid81": {
         "dependencies": {
-          "Prism.Unity.Forms": {
-            "target": "Package",
-            "version": "[7.0.0.396, )"
-          },
           "SuaveControls.FloatingActionButton": {
             "target": "Package",
-            "version": "[2018.1.5, )"
+            "version": "2018.1.5"
           },
           "Xamarin.Android.Support.Design": {
             "target": "Package",
-            "version": "[27.0.2.1, )"
-          },
-          "Xamarin.Android.Support.v4": {
-            "target": "Package",
-            "version": "[27.0.2.1, )"
-          },
-          "Xamarin.Android.Support.v7.AppCompat": {
-            "target": "Package",
-            "version": "[27.0.2.1, )"
-          },
-          "Xamarin.Android.Support.v7.CardView": {
-            "target": "Package",
-            "version": "[27.0.2.1, )"
-          },
-          "Xamarin.Android.Support.v7.MediaRouter": {
-            "target": "Package",
-            "version": "[27.0.2.1, )"
+            "version": "27.0.2.1"
           },
           "Xamarin.Firebase.Auth": {
             "target": "Package",
-            "version": "[60.1142.1, )"
+            "version": "60.1142.1"
           },
           "Xamarin.Firebase.Firestore": {
             "target": "Package",
-            "version": "[60.1142.1, )"
+            "version": "60.1142.1"
           },
           "Xamarin.Forms": {
             "target": "Package",
-            "version": "[3.2.0.871581, )"
+            "version": "3.2.0.871581"
+          },
+          "Xamarin.Android.Support.v7.AppCompat": {
+            "target": "Package",
+            "version": "27.0.2.1"
+          },
+          "Xamarin.Android.Support.v4": {
+            "target": "Package",
+            "version": "27.0.2.1"
+          },
+          "Xamarin.Android.Support.v7.CardView": {
+            "target": "Package",
+            "version": "27.0.2.1"
+          },
+          "Xamarin.Android.Support.v7.MediaRouter": {
+            "target": "Package",
+            "version": "27.0.2.1"
+          },
+          "Prism.Unity.Forms": {
+            "target": "Package",
+            "version": "7.0.0.396"
           },
           "Xamarin.GooglePlayServices.Auth": {
             "target": "Package",
-            "version": "[60.1142.1, )"
+            "version": "60.1142.1"
           }
         }
       }

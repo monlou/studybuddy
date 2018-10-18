@@ -28,7 +28,6 @@ namespace StudyBuddy.ViewModels
         public MainPageViewModel(INavigationService navigationService, IGoogleManager googleManager, IPageDialogService dialogService)
             : base(navigationService)
         {
-            Title = "Main Page";
             _navigationService = navigationService;
             _googleManager = googleManager;
             _dialogService = dialogService;
@@ -46,12 +45,11 @@ namespace StudyBuddy.ViewModels
             if (googleUser != null)
             {
                 CurrentGoogleUser = googleUser;
-                Console.WriteLine("Current Google User is: " + CurrentGoogleUser.Name);
                 _navigationService.NavigateAsync("Carousel");
             }
             else
             {
-                _dialogService.DisplayAlertAsync("Error", message, "Ok");
+                _dialogService.DisplayAlertAsync("Login Error", message, "Ok");
             }
         }
 

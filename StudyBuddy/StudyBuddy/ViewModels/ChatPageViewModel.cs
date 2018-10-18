@@ -20,8 +20,8 @@ namespace StudyBuddy.ViewModels
 {
 	public class ChatPageViewModel : BindableBase, INotifyPropertyChanged
 	{
-        DocumentClient ChatClient = new DocumentClient(new Uri(Keys.CosmosDBUri), Keys.CosmosDBUri);
-        Uri collectionLink = UriFactory.CreateDocumentCollectionUri("Chat", "Messages");
+        //DocumentClient ChatClient = new DocumentClient(new Uri(Keys.CosmosDBUri), Keys.CosmosDBUri);
+        //Uri collectionLink = UriFactory.CreateDocumentCollectionUri("Chat", "Messages");
 
 
 
@@ -57,17 +57,17 @@ namespace StudyBuddy.ViewModels
             };
             Input = "";
             Console.WriteLine("Input is now: " + Input);
-            UploadMessage(message);
+            //UploadMessage(message);
         }
 
 
-        public async void UploadMessage(Message message)
+        /*public async void UploadMessage(Message message)
         {
             Console.WriteLine("Hit UploadMessage");
             await ChatClient.CreateDocumentAsync(collectionLink, message);
             Console.WriteLine("Created a new message in " + collectionLink);
 
-        }
+        }*/
 
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = "")
