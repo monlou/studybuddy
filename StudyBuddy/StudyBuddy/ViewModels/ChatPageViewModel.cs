@@ -13,6 +13,8 @@ using Firebase.Xamarin.Database.Query;
 using StudyBuddy.Helpers;
 using Microsoft.Azure.Documents.Client;
 using System.Collections.Generic;
+using StudyBuddy.Services;
+using System.Threading.Tasks;
 
 #pragma warning disable CS0114 // Member hides inherited member; missing override keyword
 #pragma warning disable CS0108 // Member hides inherited member; missing new keyword
@@ -20,12 +22,6 @@ namespace StudyBuddy.ViewModels
 {
 	public class ChatPageViewModel : BindableBase, INotifyPropertyChanged
 	{
-        //DocumentClient ChatClient = new DocumentClient(new Uri(Keys.CosmosDBUri), Keys.CosmosDBUri);
-        //Uri collectionLink = UriFactory.CreateDocumentCollectionUri("Chat", "Messages");
-
-
-
-
         public event PropertyChangedEventHandler PropertyChanged;
         public System.Windows.Input.ICommand EditorFABCommand { get; protected set; }
 
@@ -45,30 +41,23 @@ namespace StudyBuddy.ViewModels
             EditorFABCommand = new Command(ComposeMessage);
         }
 
-        public void ComposeMessage()
+        public async void ComposeMessage()
         {
             Console.WriteLine("Hit ComposeMessage");
+            ChatDBService chat = new ChatDBService();
+
 
             Message message = new Message()
             {
-                SenderID = 0,
+                SenderID = 2,
                 SenderName = "Google User",
                 Text = Input
             };
             Input = "";
             Console.WriteLine("Input is now: " + Input);
-            //UploadMessage(message);
+            await chat.UploadMessage(message);
+
         }
-
-
-        /*public async void UploadMessage(Message message)
-        {
-            Console.WriteLine("Hit UploadMessage");
-            await ChatClient.CreateDocumentAsync(collectionLink, message);
-            Console.WriteLine("Created a new message in " + collectionLink);
-
-        }*/
-
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {

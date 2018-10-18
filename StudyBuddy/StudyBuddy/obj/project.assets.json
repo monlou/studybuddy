@@ -25,6 +25,22 @@
           "lib/crypto.dll": {}
         }
       },
+      "Microsoft.Azure.DocumentDB/2.1.3": {
+        "type": "package",
+        "build": {
+          "build/Microsoft.Azure.DocumentDB.targets": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win7-x64/native/DocumentDB.Spatial.Sql.dll": {
+            "assetType": "native",
+            "rid": "win7-x64"
+          },
+          "runtimes/win7-x64/native/Microsoft.Azure.Documents.ServiceInterop.dll": {
+            "assetType": "native",
+            "rid": "win7-x64"
+          }
+        }
+      },
       "Microsoft.Azure.DocumentDB.Core/2.1.3": {
         "type": "package",
         "dependencies": {
@@ -1532,6 +1548,23 @@
         "tools/uninstall.ps1"
       ]
     },
+    "Microsoft.Azure.DocumentDB/2.1.3": {
+      "sha512": "Uz+pjWpgpeyJohrzkV3LdlWxVwymbeMq8kcPdIJcZS8hXtu80wcyxTwkiQuDHTyvnUIBfVC5yxzTaZ9D/zx+/Q==",
+      "type": "package",
+      "path": "microsoft.azure.documentdb/2.1.3",
+      "files": [
+        ".signature.p7s",
+        "build/Microsoft.Azure.DocumentDB.targets",
+        "lib/net45/Microsoft.Azure.Documents.Client.XML",
+        "lib/net45/Microsoft.Azure.Documents.Client.dll",
+        "lib/net461/Microsoft.Azure.Documents.Client.XML",
+        "lib/net461/Microsoft.Azure.Documents.Client.dll",
+        "microsoft.azure.documentdb.2.1.3.nupkg.sha512",
+        "microsoft.azure.documentdb.nuspec",
+        "runtimes/win7-x64/native/DocumentDB.Spatial.Sql.dll",
+        "runtimes/win7-x64/native/Microsoft.Azure.Documents.ServiceInterop.dll"
+      ]
+    },
     "Microsoft.Azure.DocumentDB.Core/2.1.3": {
       "sha512": "aG9FIhTmPe4f8LpSp/XwU8n0sXDuYXPKW2KE13FosYL5+Cn3WWaR/1TGbuLO29OygXsMGY+mBb7EVoCHE1NdNg==",
       "type": "package",
@@ -1548,10 +1581,11 @@
       ]
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
-      "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "sha512": "bLpT1f/SFlO1CzqXG12KnJzpZs6lv24uX2Rzi4Fmm0noJpNlnWRVryuO3yK18Ca04t/YHcO1e1Z0WDfjseqNzw==",
       "type": "package",
       "path": "microsoft.netcore.platforms/1.1.0",
       "files": [
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
@@ -2208,11 +2242,10 @@
       ]
     },
     "System.Collections.Specialized/4.0.1": {
-      "sha512": "2lTt/6eh+HGLg495oLQoFDvLLy9Wk1FTnCw87CywP+Yq0ITi1PD+p5wgxcyw1Zksu/1dLsQmo3ezO2BGRk67tg==",
+      "sha512": "/HKQyVP0yH1I0YtK7KJL/28snxHNH/bi+0lgk/+MbURF6ULhAE31MDI+NZDerNWu264YbxklXCCygISgm+HMug==",
       "type": "package",
       "path": "system.collections.specialized/4.0.1",
       "files": [
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -3947,10 +3980,11 @@
       ]
     },
     "System.Runtime/4.3.0": {
-      "sha512": "JufQi0vPQ0xGnAczR13AUFglDyVYt4Kqnz1AZaiKZ5+GICq0/1MH/mO/eAJHt/mHW1zjKBJd7kV26SrxddAhiw==",
+      "sha512": "wLlTiM4b/Un90BM6s3voqYybZEGra4WiIaXfTeB9kVPZr6QDP97xjG+rZYzdP2jiuQnij1bA8q4PzmrY6l5QTw==",
       "type": "package",
       "path": "system.runtime/4.3.0",
       "files": [
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -4896,11 +4930,10 @@
       ]
     },
     "System.Threading.Overlapped/4.0.1": {
-      "sha512": "UeBx2TvawhzKeyUOMZbfpsBgofJ1gypHqfTIhJNS+lxhpO3dw2yUPPri2uBMnxsXOZqYj+rnBC4XvmkSYmyqSw==",
+      "sha512": "f7aLuLkBoCQM2kng7zqLFBXz9Gk48gDK8lk1ih9rH/1arJJzZK9gJwNvPDhL6Ps/l6rwOr8jw+4FCHL0KKWiEg==",
       "type": "package",
       "path": "system.threading.overlapped/4.0.1",
       "files": [
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/net46/System.Threading.Overlapped.dll",
@@ -4991,11 +5024,10 @@
       ]
     },
     "System.Threading.Thread/4.0.0": {
-      "sha512": "Tlo/QJ5w4UhgO7Abxz3k9LL/nfQ9/2ioc88cQIMOjNhzK1QGJvvH+A6w5Sx+u99D6lgR+1Nj1YZ9/lknR963kQ==",
+      "sha512": "gIdJqDXlOr5W9zeqFErLw3dsOsiShSCYtF9SEHitACycmvNvY8odf9kiKvp6V7aibc8C4HzzNBkWXjyfn7plbQ==",
       "type": "package",
       "path": "system.threading.thread/4.0.0",
       "files": [
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -5309,6 +5341,7 @@
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "Firebase.Xamarin >= 0.3.6",
+      "Microsoft.Azure.DocumentDB >= 2.1.3",
       "Microsoft.Azure.DocumentDB.Core >= 2.1.3",
       "NETStandard.Library >= 2.0.3",
       "Newtonsoft.Json >= 11.0.2",
@@ -5318,28 +5351,30 @@
     ]
   },
   "packageFolders": {
-    "/Users/Monique/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\Rohan\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/StudyBuddy.csproj",
+      "projectUniqueName": "C:\\Users\\Rohan\\Documents\\GitHub\\studybuddy\\StudyBuddy\\StudyBuddy\\StudyBuddy.csproj",
       "projectName": "StudyBuddy",
-      "projectPath": "/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/StudyBuddy.csproj",
-      "packagesPath": "/Users/Monique/.nuget/packages/",
-      "outputPath": "/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj",
+      "projectPath": "C:\\Users\\Rohan\\Documents\\GitHub\\studybuddy\\StudyBuddy\\StudyBuddy\\StudyBuddy.csproj",
+      "packagesPath": "C:\\Users\\Rohan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Rohan\\Documents\\GitHub\\studybuddy\\StudyBuddy\\StudyBuddy\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/Monique/.config/NuGet/NuGet.Config"
+        "C:\\Users\\Rohan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5358,33 +5393,37 @@
         "dependencies": {
           "Firebase.Xamarin": {
             "target": "Package",
-            "version": "0.3.6"
+            "version": "[0.3.6, )"
+          },
+          "Microsoft.Azure.DocumentDB": {
+            "target": "Package",
+            "version": "[2.1.3, )"
           },
           "Microsoft.Azure.DocumentDB.Core": {
             "target": "Package",
-            "version": "2.1.3"
-          },
-          "Newtonsoft.Json": {
-            "target": "Package",
-            "version": "11.0.2"
-          },
-          "SuaveControls.FloatingActionButton": {
-            "target": "Package",
-            "version": "2018.1.5"
-          },
-          "Xamarin.Forms": {
-            "target": "Package",
-            "version": "3.2.0.871581"
-          },
-          "Prism.Unity.Forms": {
-            "target": "Package",
-            "version": "7.0.0.396"
+            "version": "[2.1.3, )"
           },
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.0.3",
+            "version": "[2.0.3, )",
             "autoReferenced": true
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[11.0.2, )"
+          },
+          "Prism.Unity.Forms": {
+            "target": "Package",
+            "version": "[7.0.0.396, )"
+          },
+          "SuaveControls.FloatingActionButton": {
+            "target": "Package",
+            "version": "[2018.1.5, )"
+          },
+          "Xamarin.Forms": {
+            "target": "Package",
+            "version": "[3.2.0.871581, )"
           }
         },
         "imports": [
