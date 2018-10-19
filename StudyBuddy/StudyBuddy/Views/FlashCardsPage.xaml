@@ -9,13 +9,13 @@
         <StackLayout HorizontalOptions="CenterAndExpand" 
                      VerticalOptions="CenterAndExpand" 
                      Padding="50">
-            <Label Text="Create Flashcards" Font="20"/>
-            <Label Text="Front" Font="15"/> 
+            <Label Text="Create Flashcards" Font="10"/>
+            <Label Text="Front" Font="5"/> 
             <Frame BackgroundColor="White" 
                    Margin ="0" 
                    Padding="10">
                 <StackLayout>
-                    <Editor Text="{Binding QuestionInput}"
+                    <Editor Text="{Binding Input}"
                             Placeholder="Question" 
                             PlaceholderColor="Gray" 
                             TextColor="Black" 
@@ -24,12 +24,12 @@
                     </Editor>  
                 </StackLayout>
             </Frame>
-            <Label Text="Back" Font="15"/> 
+            <Label Text="Back" Font="5"/> 
             <Frame BackgroundColor="White" 
                    Margin ="0" 
                    Padding="10">
                 <StackLayout>
-                    <Editor Text="{Binding AnswerInput}"
+                    <Editor Text="{Binding Input}"
                             Placeholder="Answer" 
                             PlaceholderColor="Gray" 
                             TextColor="Black" 
@@ -39,10 +39,10 @@
                 </StackLayout>
             </Frame>
             <Label Text="Quiz Options" Font="20"/> 
-            <Editor Text="{Binding IncorrectTwoInput}"
+            <Editor Text="{Binding Input}"
                     Placeholder="Incorrect Answer">
             </Editor>
-            <Editor Text="{Binding IncorrectOneInput}"
+            <Editor Text="{Binding Input}"
                     Placeholder="Incorrect Answer">
             </Editor>
             <Button Text="Save" Command="{Binding SaveCardCommand}"></Button> 

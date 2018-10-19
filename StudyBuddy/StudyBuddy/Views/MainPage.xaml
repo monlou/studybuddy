@@ -4,17 +4,25 @@
              x:Class="StudyBuddy.Views.MainPage">
 
     <StackLayout HorizontalOptions="CenterAndExpand" 
-                 VerticalOptions="CenterAndExpand">
-        <Image Source="sb_icon.png" 
-               WidthRequest="50" 
-               Aspect="AspectFit">
-        </Image>
-                
-        <Label Text="Join the Study Buddy Community" />
-
-        <Button Text="Login" 
-                Command="{Binding LoginCommand}"/>
+                 Margin="20">
         
+        <StackLayout HorizontalOptions="CenterAndExpand">
+            <Image Source="sb_icon.png" 
+               WidthRequest="75" 
+               Aspect="AspectFit">
+            </Image>
+            <Label Text="Join the Study Buddy Community" 
+                   FontSize="10"/>
+        </StackLayout>
+        
+        <Image Margin="20" 
+               Aspect="AspectFill" 
+               Source="google_signin.png" />
+        <StackLayout.GestureRecognizers>
+            <TapGestureRecognizer x:Name="GoogleButton" 
+                                  AutomationId="GoogleButton" 
+                                  Command="{Binding LoginCommand}" />
+        </StackLayout.GestureRecognizers>
     </StackLayout>
 
 </ContentPage>

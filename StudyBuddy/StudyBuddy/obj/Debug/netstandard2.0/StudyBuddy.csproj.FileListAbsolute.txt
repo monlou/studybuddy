@@ -20,7 +20,6 @@ C:/Users/Rohan/Documents/GitHub/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netst
 /Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/bin/Debug/netstandard2.0/StudyBuddy.deps.json
 /Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/bin/Debug/netstandard2.0/StudyBuddy.dll
 /Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/bin/Debug/netstandard2.0/StudyBuddy.pdb
-/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/StudyBuddy.csprojAssemblyReference.cache
 /Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/App.xaml.g.cs
 /Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/Views/Carousel.xaml.g.cs
 /Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/Views/ChatPage.xaml.g.cs
@@ -32,3 +31,4 @@ C:/Users/Rohan/Documents/GitHub/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netst
 /Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/XamlC.stamp
 /Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/StudyBuddy.dll
 /Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/StudyBuddy.pdb
+/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/StudyBuddy.csprojAssemblyReference.cache
