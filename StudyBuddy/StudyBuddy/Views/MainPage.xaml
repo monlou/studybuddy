@@ -4,6 +4,7 @@
              x:Class="StudyBuddy.Views.MainPage">
 
     <StackLayout HorizontalOptions="CenterAndExpand" 
+                 VerticalOptions="CenterAndExpand"
                  Margin="20">
         
         <StackLayout HorizontalOptions="CenterAndExpand">

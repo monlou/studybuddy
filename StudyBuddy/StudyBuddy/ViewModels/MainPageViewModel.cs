@@ -45,7 +45,7 @@ namespace StudyBuddy.ViewModels
             if (googleUser != null)
             {
                 CurrentGoogleUser = googleUser;
-                _navigationService.NavigateAsync("Carousel");
+                _navigationService.NavigateAsync("GroupSelectionPage");
             }
             else
             {

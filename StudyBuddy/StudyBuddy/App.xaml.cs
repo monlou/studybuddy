@@ -24,14 +24,15 @@ namespace StudyBuddy
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("MainPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage>();
-
+            containerRegistry.RegisterForNavigation<ProfilePage>();
+            containerRegistry.RegisterForNavigation<GroupSelectionPage>();
             containerRegistry.RegisterForNavigation<ChatPage>();
             containerRegistry.RegisterForNavigation<Carousel>();
             containerRegistry.RegisterForNavigation<FlashCardsPage>();

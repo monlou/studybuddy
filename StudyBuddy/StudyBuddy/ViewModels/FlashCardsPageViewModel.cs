@@ -42,9 +42,6 @@ namespace StudyBuddy.ViewModels
                 WrongTextOne = "Nucleus",
                 WrongTextTwo = "Chromatin"
             };
-
-
-
         }
 
         private void OnChangedProperty([CallerMemberName] string propertyName = "")

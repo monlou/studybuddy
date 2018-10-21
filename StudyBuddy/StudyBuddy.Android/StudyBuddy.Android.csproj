@@ -97,6 +97,7 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\drawable\sb_icon.png" />
     <AndroidResource Include="Resources\drawable\google_signin.png" />
+    <AndroidResource Include="Resources\drawable\add_circle.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
