@@ -4,20 +4,51 @@
              x:Class="StudyBuddy.Views.GroupSelectionPage">
 
     <StackLayout>
-        <Entry Placeholder="Search" 
-               Keyboard="Chat"
-               x:Name="ChatBox" 
-               HorizontalOptions="StartAndExpand"
-               VerticalOptions="EndAndExpand"
-               Text="{Binding Input}"/>
-        <Button Text="Find" 
-                Command="{Binding SearchGroupsCommand}"/>
-        <ScrollView>
-            
+        <StackLayout Orientation="Horizontal" 
+                     HorizontalOptions="CenterAndExpand">  
+          <Entry Placeholder="Find a Study Group" 
+                 Keyboard="Chat"
+                 x:Name="SearchBar" 
+                 Text="{Binding Input}"/> 
+          <Button Text="Search" 
+                  Command="{Binding SearchGroupsCommand}"/>
+        </StackLayout> 
+        <ScrollView HorizontalOptions="CenterAndExpand"
+                    VerticalScrollBarVisibility="Always">
+            <StackLayout>
+                <Frame>
+                    <Label>
+                        IFB101 - Impact of IT
+                    </Label>
+                </Frame>
+                <Frame>
+                    <Label>
+                        IFB102 - Fundamentals of IT
+                    </Label>
+                </Frame>
+                <Frame>
+                    <Label>
+                        IFB103 - Design for IT 
+                    </Label>
+                </Frame>
+                <Frame>
+                    <Label>
+                        IFB104 - Building IT Systems
+                    </Label>
+                </Frame>
+                <Frame>
+                    <Label>
+                        IFB201 - Programming Principles 
+                    </Label>
+                </Frame>
+            </StackLayout>
         </ScrollView>
-        <Image Margin="20" 
-               Aspect="AspectFill" 
-               Source="add_circle.png" />
+        <Image Aspect="AspectFill" 
+               Source="add_circle.png"
+               HorizontalOptions="EndAndExpand" 
+               WidthRequest="30" 
+               HeightRequest="30"  
+               VerticalOptions="EndAndExpand"/>
         <StackLayout.GestureRecognizers>
             <TapGestureRecognizer x:Name="NewGroup" 
                                   AutomationId="NewGroup" 
