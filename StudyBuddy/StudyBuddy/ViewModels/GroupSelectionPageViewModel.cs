@@ -19,7 +19,7 @@ namespace StudyBuddy.ViewModels
         private INavigationService _navigationService;
         public event PropertyChangedEventHandler ChangedProperty;
 
-        readonly ChatDBService chat = new ChatDBService();
+        //readonly ChatDBService chat = new ChatDBService();
 
 
         public System.Windows.Input.ICommand CreateGroupCommand { get; protected set; }
@@ -60,7 +60,7 @@ namespace StudyBuddy.ViewModels
 
         public async void SelectGroup()
         {
-            await chat.RunChangeFeedHostAsync();
+            //await chat.RunChangeFeedHostAsync();
 
             await _navigationService.NavigateAsync("Carousel");
         }

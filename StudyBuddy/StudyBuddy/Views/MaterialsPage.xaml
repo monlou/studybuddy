@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:local="clr-namespace:StudyBuddy.Views"
+             xmlns:customControl="clr-namespace:StudyBuddy.Services;assembly=StudyBuddy"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:controls="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
+             x:Class="StudyBuddy.Views.MaterialsPage">
+    <StackLayout>
+        <!--<StackLayout Orientation="Horizontal"
+                     HeightRequest="40"
+                     HorizontalOptions="CenterAndExpand">  
+            <Entry Placeholder="Study Materials" 
+                   Keyboard="Chat"                 
+                   x:Name="SearchMaterials" 
+                   Text="{Binding Input}"
+                   HeightRequest="20"/>
+            <Image Source="search.png"
+                   AbsoluteLayout.LayoutBounds=".5,1,.5,.1" 
+                   AbsoluteLayout.LayoutFlags="All"
+                   HeightRequest="20"/> 
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer x:Name="SearchMaterials" 
+                                      AutomationId="SearchMaterials" 
+                                      Command="{Binding SearchMaterials}" />
+            </StackLayout.GestureRecognizers>
+        </StackLayout> -->
+        
+        <ScrollView HorizontalOptions="Fill"
+                    Margin="10">
+            <StackLayout>
+                <Frame>
+                    <Label>
+                        Lecture 1
+                    </Label>
+                </Frame>
+                <Frame>
+                    <Label>
+                        Lecture 2 
+                    </Label>
+                </Frame>
+                <Frame>
+                    <Label>
+                        Lecture 3
+                    </Label>
+                </Frame>
+                <Frame>
+                    <Label>
+                        Lecture 4
+                    </Label>
+                </Frame>
+                <Frame>
+                    <Label>
+                        Lecture 5 
+                    </Label>
+                </Frame>
+                <Frame>
+                    <Label>
+                        Lecture 6 
+                    </Label>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+        <!--<controls:FloatingActionButton x:Name="NewGroup" 
+                                       HorizontalOptions="EndAndExpand" 
+                                       WidthRequest="90" 
+                                       HeightRequest="90"  
+                                       VerticalOptions="EndAndExpand" 
+                                       Image="add_circle.png"
+                                       ButtonColor="#blue" 
+                                       Command="{Binding SelectGroupCommand}"
+                                       AbsoluteLayout.LayoutBounds=".5,1,.5,.1" 
+                                       AbsoluteLayout.LayoutFlags="All"/> --> 
+        
+        <!--<AbsoluteLayout>-->
+            <!--<Image Source="add_circle.png"
+                   AbsoluteLayout.LayoutBounds=".5,1,.5,.1" 
+                   AbsoluteLayout.LayoutFlags="All"/> 
+        <StackLayout.GestureRecognizers>
+            <TapGestureRecognizer x:Name="NewGroup" 
+                                  AutomationId="NewGroup" 
+                                  Command="{Binding SelectGroupCommand}" />
+        </StackLayout.GestureRecognizers> --> 
+            <customControl:ImageButton Source="add_circle"
+                                       HeightRequest="20"
+                            Command="{Binding AddNewCardCommand}"
+                            AbsoluteLayout.LayoutBounds=".5,1,.5,.1" 
+                            AbsoluteLayout.LayoutFlags="All" />         
+        <!--</AbsoluteLayout>-->
+    </StackLayout>
+
+</ContentPage>

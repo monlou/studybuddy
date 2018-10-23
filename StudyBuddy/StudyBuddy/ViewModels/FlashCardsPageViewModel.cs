@@ -1,9 +1,13 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Prism.Commands;
 using Prism.Navigation;
-using System;
-using StudyBuddy.Services.Contracts;
+using Prism.Logging;
 using Prism.Services;
+using Prism.Mvvm;
+using StudyBuddy.Services.Contracts;
 using StudyBuddy.Models;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -11,9 +15,11 @@ using Xamarin.Forms;
 
 namespace StudyBuddy.ViewModels
 {
-	public class FlashCardsPageViewModel : BindableBase
-	{
+    public class FlashCardsPageViewModel : ViewModelBase
+    {
+        private INavigationService _navigationService;
         public event PropertyChangedEventHandler ChangedProperty;
+        //public DelegateCommand AddNewCardCommand { get; set; }
         public System.Windows.Input.ICommand SaveCardCommand { get; protected set; }
         private string _input;
         public string Input
@@ -26,9 +32,17 @@ namespace StudyBuddy.ViewModels
             }
         }
 
-        public FlashCardsPageViewModel()
+        public FlashCardsPageViewModel(INavigationService navigationService) : base(navigationService)
         {
+            //AddNewCardCommand = new DelegateCommand(AddNewCard);
             SaveCardCommand = new Command(SaveCard);
+
+            _navigationService = navigationService;
+        }
+
+        public async void MaterialsNavigate()
+        {
+            await _navigationService.NavigateAsync("MaterialsPage");
         }
 
         public void SaveCard()
@@ -42,6 +56,8 @@ namespace StudyBuddy.ViewModels
                 WrongTextOne = "Nucleus",
                 WrongTextTwo = "Chromatin"
             };
+
+            MaterialsNavigate(); 
         }
 
         private void OnChangedProperty([CallerMemberName] string propertyName = "")

@@ -11,7 +11,7 @@
         <ToolbarItem Name="Account" Order="Primary" Icon="account_circle.png" Text="Account" Priority="1" />
     </ContentPage.ToolbarItems>
 
-    <local:FlashCardsPage />
     <local:ChatPage />
+    <local:MaterialsPage />    
 
 </CarouselPage>

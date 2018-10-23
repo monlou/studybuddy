@@ -9,7 +9,7 @@
              x:Class="StudyBuddy.Views.GroupSelectionPage">
     <StackLayout>
         <StackLayout Orientation="Horizontal"
-                     HeightRequest="20"
+                     HeightRequest="40"
                      HorizontalOptions="CenterAndExpand">  
             <Entry Placeholder="Search Study Groups" 
                    Keyboard="Chat"                 
@@ -27,7 +27,8 @@
             </StackLayout.GestureRecognizers>
         </StackLayout> 
         
-        <ScrollView HorizontalOptions="CenterAndExpand"
+        <ScrollView HorizontalOptions="Fill"
+                    Margin="10"
                 VerticalScrollBarVisibility="Always">
             <StackLayout>
                 <Frame>
