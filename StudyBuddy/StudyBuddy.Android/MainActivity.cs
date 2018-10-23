@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Android.Runtime;
 using Android.Gms.Auth.Api.SignIn;
 using Android.Gms.Auth.Api;
 using Prism;

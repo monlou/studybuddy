@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:local="clr-namespace:StudyBuddy.Views"
+             xmlns:customControl="clr-namespace:StudyBuddy.Services;assembly=StudyBuddy"
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:controls="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
              x:Class="StudyBuddy.Views.ChatPage">
@@ -35,15 +36,20 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Editor Placeholder="Enter your message here."
+        <Editor Placeholder="Send message"
                     Keyboard="Chat"
                     x:Name="ChatBox" 
                     HorizontalOptions="StartAndExpand"
                     VerticalOptions="EndAndExpand"
                     Text="{Binding Input}">
         </Editor>
-        <Button Text="Login" 
-                Command="{Binding EditorFABCommand}"/>
+
+        
+        <customControl:ImageButton Source="send"
+                                       HeightRequest="20"
+                            Command="{Binding EditorFABCommand}"
+                            AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1" 
+                            AbsoluteLayout.LayoutFlags="All" /> 
 
         <!--<controls:FloatingActionButton x:Name="FAB" 
                                            HorizontalOptions="EndAndExpand" 
@@ -51,7 +57,7 @@
                                            HeightRequest="90"  
                                            VerticalOptions="EndAndExpand" 
                                            Image="send.png"
-                                           ButtonColor="#FF4081" 
+                                           ButtonColor="#blue" 
                                            Command="{Binding EditorFABCommand}"/> -->
     </StackLayout>
 </ContentPage>

@@ -100,6 +100,7 @@
     <AndroidResource Include="Resources\drawable\add_circle.png" />
     <AndroidResource Include="Resources\drawable\account_circle.png" />
     <AndroidResource Include="Resources\drawable\menu_black.png" />
+    <AndroidResource Include="Resources\drawable\search.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />

@@ -514,3 +514,5 @@ StudyBuddy/StudyBuddy/bin/Debug/netstandard2.0/StudyBuddy.dll
 .vs/StudyBuddy/v15/.suo
 *.ide
 *.apk
+*.dll
+*.pdb
