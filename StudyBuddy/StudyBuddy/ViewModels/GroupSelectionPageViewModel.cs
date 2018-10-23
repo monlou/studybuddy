@@ -10,6 +10,7 @@ using StudyBuddy.Models;
 using System.ComponentModel;
 using Xamarin.Forms;
 using System.Runtime.CompilerServices;
+using StudyBuddy.Services;
 
 namespace StudyBuddy.ViewModels
 {
@@ -17,6 +18,9 @@ namespace StudyBuddy.ViewModels
     {
         private INavigationService _navigationService;
         public event PropertyChangedEventHandler ChangedProperty;
+
+        readonly ChatDBService chat = new ChatDBService();
+
 
         public System.Windows.Input.ICommand CreateGroupCommand { get; protected set; }
         public DelegateCommand LoadGroupsCommand { get; set; }
@@ -54,9 +58,11 @@ namespace StudyBuddy.ViewModels
             };*/
         }
 
-        public void SelectGroup()
+        public async void SelectGroup()
         {
-            _navigationService.NavigateAsync("Carousel");
+            await chat.RunChangeFeedHostAsync();
+
+            await _navigationService.NavigateAsync("Carousel");
         }
 
         public void CreateGroup()

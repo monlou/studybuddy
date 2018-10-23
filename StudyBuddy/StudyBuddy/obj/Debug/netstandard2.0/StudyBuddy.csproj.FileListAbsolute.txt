@@ -1,36 +1,19 @@
-C:/Users/Rohan/Documents/GitHub/studybuddy/StudyBuddy/StudyBuddy/bin/Debug/netstandard2.0/Microsoft.Azure.Documents.ServiceInterop.dll
-C:/Users/Rohan/Documents/GitHub/studybuddy/StudyBuddy/StudyBuddy/bin/Debug/netstandard2.0/DocumentDB.Spatial.Sql.dll
-C:/Users/Rohan/Documents/GitHub/studybuddy/StudyBuddy/StudyBuddy/bin/Debug/netstandard2.0/StudyBuddy.deps.json
-C:/Users/Rohan/Documents/GitHub/studybuddy/StudyBuddy/StudyBuddy/bin/Debug/netstandard2.0/StudyBuddy.dll
-C:/Users/Rohan/Documents/GitHub/studybuddy/StudyBuddy/StudyBuddy/bin/Debug/netstandard2.0/StudyBuddy.pdb
-C:/Users/Rohan/Documents/GitHub/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/StudyBuddy.csprojAssemblyReference.cache
-C:/Users/Rohan/Documents/GitHub/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/App.xaml.g.cs
-C:/Users/Rohan/Documents/GitHub/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/Views/Carousel.xaml.g.cs
-C:/Users/Rohan/Documents/GitHub/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/Views/ChatPage.xaml.g.cs
-C:/Users/Rohan/Documents/GitHub/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/Views/FlashCardsPage.xaml.g.cs
-C:/Users/Rohan/Documents/GitHub/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/Views/MainPage.xaml.g.cs
-C:/Users/Rohan/Documents/GitHub/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/StudyBuddy.csproj.CoreCompileInputs.cache
-C:/Users/Rohan/Documents/GitHub/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/StudyBuddy.AssemblyInfoInputs.cache
-C:/Users/Rohan/Documents/GitHub/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/StudyBuddy.AssemblyInfo.cs
-C:/Users/Rohan/Documents/GitHub/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/XamlC.stamp
-C:/Users/Rohan/Documents/GitHub/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/StudyBuddy.dll
-C:/Users/Rohan/Documents/GitHub/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/StudyBuddy.pdb
-/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/bin/Debug/netstandard2.0/Microsoft.Azure.Documents.ServiceInterop.dll
-/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/bin/Debug/netstandard2.0/DocumentDB.Spatial.Sql.dll
-/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/bin/Debug/netstandard2.0/StudyBuddy.deps.json
-/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/bin/Debug/netstandard2.0/StudyBuddy.dll
-/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/bin/Debug/netstandard2.0/StudyBuddy.pdb
-/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/App.xaml.g.cs
-/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/Views/Carousel.xaml.g.cs
-/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/Views/ChatPage.xaml.g.cs
-/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/Views/FlashCardsPage.xaml.g.cs
-/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/Views/MainPage.xaml.g.cs
-/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/StudyBuddy.csproj.CoreCompileInputs.cache
-/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/StudyBuddy.AssemblyInfoInputs.cache
-/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/StudyBuddy.AssemblyInfo.cs
-/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/XamlC.stamp
-/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/StudyBuddy.dll
-/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/StudyBuddy.pdb
-/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/StudyBuddy.csprojAssemblyReference.cache
-/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/Views/GroupSelectionPage.xaml.g.cs
-/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/Views/ProfilePage.xaml.g.cs
+C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\bin\Debug\netstandard2.0\Microsoft.Azure.Documents.ServiceInterop.dll
+C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\bin\Debug\netstandard2.0\DocumentDB.Spatial.Sql.dll
+C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\bin\Debug\netstandard2.0\StudyBuddy.deps.json
+C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\bin\Debug\netstandard2.0\StudyBuddy.dll
+C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\bin\Debug\netstandard2.0\StudyBuddy.pdb
+C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\StudyBuddy.csprojAssemblyReference.cache
+C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\Views\Carousel.xaml.g.cs
+C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\Views\ChatPage.xaml.g.cs
+C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\Views\FlashCardsPage.xaml.g.cs
+C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\Views\GroupSelectionPage.xaml.g.cs
+C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
+C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\Views\ProfilePage.xaml.g.cs
+C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\StudyBuddy.csproj.CoreCompileInputs.cache
+C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\StudyBuddy.AssemblyInfoInputs.cache
+C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\StudyBuddy.AssemblyInfo.cs
+C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\StudyBuddy.dll
+C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\StudyBuddy.pdb
+C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\XamlC.stamp

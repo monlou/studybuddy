@@ -11,6 +11,30 @@
         <ToolbarItem Name="Account" Order="Primary" Icon="account_circle.png" Text="Account" Priority="1" />
     </ContentPage.ToolbarItems>
     <StackLayout Orientation="Horizontal" VerticalOptions="End">
+
+        <ListView ItemsSource="{Binding LoadedMessages}"
+				  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+
+                        <StackLayout Orientation="Horizontal" 
+									 HorizontalOptions="FillAndExpand"
+									 Padding="10">
+                            <Frame Padding="5"
+								   BackgroundColor="#7f9"
+								   HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding LoadedMessageText}"
+									   HorizontalTextAlignment="Start"
+									   VerticalTextAlignment="Center"/>
+                            </Frame>
+                        </StackLayout>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
         <Editor Placeholder="Enter your message here."
                     Keyboard="Chat"
                     x:Name="ChatBox" 

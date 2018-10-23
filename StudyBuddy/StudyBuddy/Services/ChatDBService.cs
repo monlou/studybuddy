@@ -5,15 +5,16 @@ using System.Text;
 using StudyBuddy.Helpers;
 using StudyBuddy.Models;
 using System.Threading.Tasks;
-
-
+using Microsoft.Azure.Documents.ChangeFeedProcessor;
+using Microsoft.Azure.Documents;
 
 namespace StudyBuddy.Services
 {
     class ChatDBService
     {
-        DocumentClient ChatClient;
-        Uri CollectionLink;
+
+        static DocumentClient ChatClient;
+        static Uri CollectionLink;
 
         public ChatDBService()
         {
@@ -22,13 +23,60 @@ namespace StudyBuddy.Services
         }
 
 
-        public async Task UploadMessage(Message message)
+        public async static Task UploadMessage(Message message)
         {
             Console.WriteLine("Hit UploadMessage");
             await ChatClient.CreateDocumentAsync(CollectionLink, message);
             Console.WriteLine("Created a new message in " + CollectionLink);
 
         }
+
+        public async Task RunChangeFeedHostAsync()
+        {
+
+            string hostName = "HostName " + DateTime.Now.Ticks.ToString();
+
+
+            // monitored collection info
+            DocumentCollectionInfo documentCollectionInfo = new DocumentCollectionInfo
+            {
+                Uri = new Uri(Keys.CosmosDBUri),
+                MasterKey = Keys.CosmosDBKey,
+                DatabaseName = "Chat",
+                CollectionName = "Messages"
+            };
+
+
+            DocumentCollectionInfo leaseCollectionInfo = new DocumentCollectionInfo
+            {
+                Uri = new Uri(Keys.CosmosDBUri),
+                MasterKey = Keys.CosmosDBKey,
+                DatabaseName = "Chat",
+                CollectionName = "Lease"
+            };
+            DocumentFeedObserverFactory docObserverFactory = new DocumentFeedObserverFactory();
+            ChangeFeedProcessorOptions feedProcessorOptions = new ChangeFeedProcessorOptions();
+
+            // ie. customizing lease renewal interval to 15 seconds
+            // can customize LeaseRenewInterval, LeaseAcquireInterval, LeaseExpirationInterval, FeedPollDelay
+            feedProcessorOptions.LeaseRenewInterval = TimeSpan.FromSeconds(15);
+            feedProcessorOptions.StartFromBeginning = true;
+            ChangeFeedProcessorBuilder builder = new ChangeFeedProcessorBuilder();
+            builder
+                .WithHostName(hostName)
+                .WithFeedCollection(documentCollectionInfo)
+                .WithLeaseCollection(leaseCollectionInfo)
+                .WithProcessorOptions(feedProcessorOptions)
+                .WithObserverFactory(new DocumentFeedObserverFactory());
+
+            //    .WithObserver<DocumentFeedObserver>();  or just pass a observer
+
+            var result = await builder.BuildAsync();
+            await result.StartAsync();
+            Console.Read();
+            //await result.StopAsync();
+        }
+
 
     }
 }

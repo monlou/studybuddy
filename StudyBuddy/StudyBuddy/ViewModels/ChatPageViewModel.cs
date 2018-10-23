@@ -15,6 +15,8 @@ using Microsoft.Azure.Documents.Client;
 using System.Collections.Generic;
 using StudyBuddy.Services;
 using System.Threading.Tasks;
+using Microsoft.Azure.Documents.ChangeFeedProcessor;
+using System.Collections.ObjectModel;
 
 #pragma warning disable CS0114 // Member hides inherited member; missing override keyword
 #pragma warning disable CS0108 // Member hides inherited member; missing new keyword
@@ -24,6 +26,8 @@ namespace StudyBuddy.ViewModels
 	{
         public event PropertyChangedEventHandler PropertyChanged;
         public System.Windows.Input.ICommand EditorFABCommand { get; protected set; }
+
+        public ObservableCollection<Message> LoadedMessages { get; } = new ObservableCollection<Message>();
 
         private string _input;
         public string Input
@@ -39,12 +43,14 @@ namespace StudyBuddy.ViewModels
         public ChatPageViewModel()
         {
             EditorFABCommand = new Command(ComposeMessage);
+
+            //chat.MessageReceived += ChatClient_MessageReceived;
+
         }
 
         public async void ComposeMessage()
         {
             Console.WriteLine("Hit ComposeMessage");
-            ChatDBService chat = new ChatDBService();
 
 
             Message message = new Message()
@@ -55,7 +61,7 @@ namespace StudyBuddy.ViewModels
             };
             Input = "";
             Console.WriteLine("Input is now: " + Input);
-            await chat.UploadMessage(message);
+            await ChatDBService.UploadMessage(message);
 
         }
 

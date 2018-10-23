@@ -25,6 +25,20 @@
           }
         }
       },
+      "Microsoft.Azure.DocumentDB.ChangeFeedProcessor/2.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Azure.DocumentDB.Core": "2.0.0",
+          "Microsoft.CSharp": "4.4.1",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Azure.Documents.ChangeFeedProcessor.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Azure.Documents.ChangeFeedProcessor.dll": {}
+        }
+      },
       "Microsoft.Azure.DocumentDB.Core/2.1.3": {
         "type": "package",
         "dependencies": {
@@ -61,6 +75,18 @@
             "assetType": "native",
             "rid": "win7-x64"
           }
+        }
+      },
+      "Microsoft.CSharp/4.4.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp"
+        ],
+        "compile": {
+          "ref/MonoAndroid10/_._": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid10/_._": {}
         }
       },
       "Newtonsoft.Json/11.0.2": {
@@ -912,6 +938,7 @@
         "dependencies": {
           "Firebase.Xamarin": "0.3.6",
           "Microsoft.Azure.DocumentDB": "2.1.3",
+          "Microsoft.Azure.DocumentDB.ChangeFeedProcessor": "2.2.0",
           "Microsoft.Azure.DocumentDB.Core": "2.1.3",
           "Newtonsoft.Json": "11.0.2",
           "Prism.Unity.Forms": "7.0.0.396",
@@ -966,6 +993,20 @@
         "runtimes/win7-x64/native/Microsoft.Azure.Documents.ServiceInterop.dll"
       ]
     },
+    "Microsoft.Azure.DocumentDB.ChangeFeedProcessor/2.2.0": {
+      "sha512": "SYUQ14m3LQR/lah+l37khVRmOCYyulCTkxnyB0t5iXHHy1coei4XgwXx2LodFUpKXKHjCIa3UtZCiW+FvEAbOQ==",
+      "type": "package",
+      "path": "microsoft.azure.documentdb.changefeedprocessor/2.2.0",
+      "files": [
+        ".signature.p7s",
+        "lib/net45/Microsoft.Azure.Documents.ChangeFeedProcessor.dll",
+        "lib/net45/Microsoft.Azure.Documents.ChangeFeedProcessor.xml",
+        "lib/netstandard2.0/Microsoft.Azure.Documents.ChangeFeedProcessor.dll",
+        "lib/netstandard2.0/Microsoft.Azure.Documents.ChangeFeedProcessor.xml",
+        "microsoft.azure.documentdb.changefeedprocessor.2.2.0.nupkg.sha512",
+        "microsoft.azure.documentdb.changefeedprocessor.nuspec"
+      ]
+    },
     "Microsoft.Azure.DocumentDB.Core/2.1.3": {
       "sha512": "aG9FIhTmPe4f8LpSp/XwU8n0sXDuYXPKW2KE13FosYL5+Cn3WWaR/1TGbuLO29OygXsMGY+mBb7EVoCHE1NdNg==",
       "type": "package",
@@ -979,6 +1020,71 @@
         "microsoft.azure.documentdb.core.nuspec",
         "runtimes/win7-x64/native/DocumentDB.Spatial.Sql.dll",
         "runtimes/win7-x64/native/Microsoft.Azure.Documents.ServiceInterop.dll"
+      ]
+    },
+    "Microsoft.CSharp/4.4.1": {
+      "sha512": "KQgc6Zn0EV7aCz8C+q9I5FAIZAN/iu+1U7KiPgxNPvQHH5X1pZ3AKQIS1l/tXzTQmoc/uvXd+Ea3vze/VHDT6Q==",
+      "type": "package",
+      "path": "microsoft.csharp/4.4.1",
+      "files": [
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/netcore50/Microsoft.CSharp.dll",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.3/Microsoft.CSharp.dll",
+        "lib/netstandard2.0/Microsoft.CSharp.dll",
+        "lib/portable-net45+win8+wp8+wpa81/_._",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "microsoft.csharp.4.4.1.nupkg.sha512",
+        "microsoft.csharp.nuspec",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/_._",
+        "ref/netcore50/Microsoft.CSharp.dll",
+        "ref/netcore50/Microsoft.CSharp.xml",
+        "ref/netcore50/de/Microsoft.CSharp.xml",
+        "ref/netcore50/es/Microsoft.CSharp.xml",
+        "ref/netcore50/fr/Microsoft.CSharp.xml",
+        "ref/netcore50/it/Microsoft.CSharp.xml",
+        "ref/netcore50/ja/Microsoft.CSharp.xml",
+        "ref/netcore50/ko/Microsoft.CSharp.xml",
+        "ref/netcore50/ru/Microsoft.CSharp.xml",
+        "ref/netcore50/zh-hans/Microsoft.CSharp.xml",
+        "ref/netcore50/zh-hant/Microsoft.CSharp.xml",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard1.0/Microsoft.CSharp.dll",
+        "ref/netstandard1.0/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/de/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/es/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/fr/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/it/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ja/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ko/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ru/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/zh-hans/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/zh-hant/Microsoft.CSharp.xml",
+        "ref/netstandard2.0/Microsoft.CSharp.dll",
+        "ref/netstandard2.0/Microsoft.CSharp.xml",
+        "ref/portable-net45+win8+wp8+wpa81/_._",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "Newtonsoft.Json/11.0.2": {
@@ -1260,11 +1366,10 @@
       ]
     },
     "System.Collections.Specialized/4.0.1": {
-      "sha512": "2lTt/6eh+HGLg495oLQoFDvLLy9Wk1FTnCw87CywP+Yq0ITi1PD+p5wgxcyw1Zksu/1dLsQmo3ezO2BGRk67tg==",
+      "sha512": "/HKQyVP0yH1I0YtK7KJL/28snxHNH/bi+0lgk/+MbURF6ULhAE31MDI+NZDerNWu264YbxklXCCygISgm+HMug==",
       "type": "package",
       "path": "system.collections.specialized/4.0.1",
       "files": [
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -2475,31 +2580,34 @@
     ]
   },
   "packageFolders": {
-    "/Users/Monique/.nuget/packages/": {}
+    "C:\\Users\\Rohan\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy.Android/StudyBuddy.Android.csproj",
+      "projectUniqueName": "C:\\Users\\Rohan\\Documents\\GitHub\\studybuddy\\StudyBuddy\\StudyBuddy.Android\\StudyBuddy.Android.csproj",
       "projectName": "StudyBuddy.Android",
-      "projectPath": "/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy.Android/StudyBuddy.Android.csproj",
-      "packagesPath": "/Users/Monique/.nuget/packages/",
-      "outputPath": "/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy.Android/obj",
+      "projectPath": "C:\\Users\\Rohan\\Documents\\GitHub\\studybuddy\\StudyBuddy\\StudyBuddy.Android\\StudyBuddy.Android.csproj",
+      "packagesPath": "C:\\Users\\Rohan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Rohan\\Documents\\GitHub\\studybuddy\\StudyBuddy\\StudyBuddy.Android\\obj\\",
       "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
       "configFilePaths": [
-        "/Users/Monique/.config/NuGet/NuGet.Config"
+        "C:\\Users\\Rohan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "monoandroid81"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/StudyBuddy.csproj": {
-              "projectPath": "/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/StudyBuddy.csproj"
+            "C:\\Users\\Rohan\\Documents\\GitHub\\studybuddy\\StudyBuddy\\StudyBuddy\\StudyBuddy.csproj": {
+              "projectPath": "C:\\Users\\Rohan\\Documents\\GitHub\\studybuddy\\StudyBuddy\\StudyBuddy\\StudyBuddy.csproj"
             }
           }
         }
@@ -2508,49 +2616,49 @@
     "frameworks": {
       "monoandroid81": {
         "dependencies": {
+          "Prism.Unity.Forms": {
+            "target": "Package",
+            "version": "[7.0.0.396, )"
+          },
           "SuaveControls.FloatingActionButton": {
             "target": "Package",
-            "version": "2018.1.5"
+            "version": "[2018.1.5, )"
           },
           "Xamarin.Android.Support.Design": {
             "target": "Package",
-            "version": "27.0.2.1"
-          },
-          "Xamarin.Firebase.Auth": {
-            "target": "Package",
-            "version": "60.1142.1"
-          },
-          "Xamarin.Firebase.Firestore": {
-            "target": "Package",
-            "version": "60.1142.1"
-          },
-          "Xamarin.Forms": {
-            "target": "Package",
-            "version": "3.2.0.871581"
-          },
-          "Xamarin.Android.Support.v7.AppCompat": {
-            "target": "Package",
-            "version": "27.0.2.1"
+            "version": "[27.0.2.1, )"
           },
           "Xamarin.Android.Support.v4": {
             "target": "Package",
-            "version": "27.0.2.1"
+            "version": "[27.0.2.1, )"
+          },
+          "Xamarin.Android.Support.v7.AppCompat": {
+            "target": "Package",
+            "version": "[27.0.2.1, )"
           },
           "Xamarin.Android.Support.v7.CardView": {
             "target": "Package",
-            "version": "27.0.2.1"
+            "version": "[27.0.2.1, )"
           },
           "Xamarin.Android.Support.v7.MediaRouter": {
             "target": "Package",
-            "version": "27.0.2.1"
+            "version": "[27.0.2.1, )"
           },
-          "Prism.Unity.Forms": {
+          "Xamarin.Firebase.Auth": {
             "target": "Package",
-            "version": "7.0.0.396"
+            "version": "[60.1142.1, )"
+          },
+          "Xamarin.Firebase.Firestore": {
+            "target": "Package",
+            "version": "[60.1142.1, )"
+          },
+          "Xamarin.Forms": {
+            "target": "Package",
+            "version": "[3.2.0.871581, )"
           },
           "Xamarin.GooglePlayServices.Auth": {
             "target": "Package",
-            "version": "60.1142.1"
+            "version": "[60.1142.1, )"
           }
         }
       }
