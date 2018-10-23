@@ -58,13 +58,15 @@
             </StackLayout>
         </ScrollView>
         <!--<controls:FloatingActionButton x:Name="NewGroup" 
-                                           HorizontalOptions="EndAndExpand" 
-                                           WidthRequest="90" 
-                                           HeightRequest="90"  
-                                           VerticalOptions="EndAndExpand" 
-                                           Image="send.png"
-                                           ButtonColor="#blue" 
-                                           Command="{Binding SelectGroupCommand}"/> --> 
+                                       HorizontalOptions="EndAndExpand" 
+                                       WidthRequest="90" 
+                                       HeightRequest="90"  
+                                       VerticalOptions="EndAndExpand" 
+                                       Image="add_circle.png"
+                                       ButtonColor="#blue" 
+                                       Command="{Binding SelectGroupCommand}"
+                                       AbsoluteLayout.LayoutBounds=".5,1,.5,.1" 
+                                       AbsoluteLayout.LayoutFlags="All"/> --> 
         
         <!--<AbsoluteLayout>-->
             <!--<Image Source="add_circle.png"
@@ -79,7 +81,7 @@
                                        HeightRequest="20"
                             Command="{Binding SelectGroupCommand}"
                             AbsoluteLayout.LayoutBounds=".5,1,.5,.1" 
-                            AbsoluteLayout.LayoutFlags="All" />          
+                            AbsoluteLayout.LayoutFlags="All" />         
         <!--</AbsoluteLayout>-->
     </StackLayout>
 
