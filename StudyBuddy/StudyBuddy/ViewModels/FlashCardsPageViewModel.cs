@@ -43,7 +43,8 @@ namespace StudyBuddy.ViewModels
 
         public async void MaterialsNavigate()
         {
-            await _navigationService.NavigateAsync("Carousel");
+            await _navigationService.GoBackAsync();
+            //await _navigationService.NavigateAsync("Carousel");
         }
 
         public async void SaveCard()
