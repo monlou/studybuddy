@@ -43,7 +43,7 @@ namespace StudyBuddy.ViewModels
 
         public async void MaterialsNavigate()
         {
-            await _navigationService.NavigateAsync("MaterialsPage");
+            await _navigationService.NavigateAsync("Carousel");
         }
 
         public async void SaveCard()
@@ -59,7 +59,6 @@ namespace StudyBuddy.ViewModels
                 WrongTextTwo = "Chromatin"
             };
 
-            Input = "";
             await FlashDBService.UploadFlashCard(flashcard);
             MaterialsNavigate(); 
         }
