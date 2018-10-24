@@ -44,8 +44,16 @@ namespace StudyBuddy.ViewModels
         {
             EditorFABCommand = new Command(ComposeMessage);
 
-            //chat.MessageReceived += ChatClient_MessageReceived;
+            ChatDBService.MessageReceived += ChatClient_MessageReceived;
+        }
 
+        private void ChatClient_MessageReceived(Message message)
+        {
+            Console.WriteLine("HIT MESS REC");
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                this.LoadedMessages.Add(message);
+            });
         }
 
         public async void ComposeMessage()

@@ -7,11 +7,13 @@ using StudyBuddy.Models;
 using System.Threading.Tasks;
 using Microsoft.Azure.Documents.ChangeFeedProcessor;
 using Microsoft.Azure.Documents;
+using Newtonsoft.Json;
 
 namespace StudyBuddy.Services
 {
     class ChatDBService
     {
+        public static event Action<Message> MessageReceived;
 
         static DocumentClient ChatClient;
         static Uri CollectionLink;
@@ -20,6 +22,20 @@ namespace StudyBuddy.Services
         {
             ChatClient = new DocumentClient(new Uri(Keys.CosmosDBUri), Keys.CosmosDBKey);
             CollectionLink = UriFactory.CreateDocumentCollectionUri("Chat", "Messages");
+            DocumentFeedObserver.DocumentReceived += Observer_DocumentReceived;
+
+        }
+
+        private void Observer_DocumentReceived(Document doc)
+        {
+            var json = JsonConvert.SerializeObject(doc);
+            var message = JsonConvert.DeserializeObject<Message>(json);
+
+            //if (msg.UserId == this.settings.UserId)
+            //    return;
+
+
+            MessageReceived?.Invoke(message);
         }
 
 
@@ -73,7 +89,7 @@ namespace StudyBuddy.Services
 
             var result = await builder.BuildAsync();
             await result.StartAsync();
-            Console.Read();
+
             //await result.StopAsync();
         }
 
