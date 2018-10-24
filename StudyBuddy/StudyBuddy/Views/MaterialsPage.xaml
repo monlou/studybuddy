@@ -22,22 +22,30 @@
 									     Padding="10">
                                 <Image Source="{Binding CreatorAvatar}" HorizontalOptions="Start" 
                                            VerticalOptions="Start" WidthRequest="50" HeightRequest="50"/>
-                                <Frame Padding="5"
-								       HorizontalOptions="FillAndExpand">
-                                    <StackLayout>
-                                        <Label Text="{Binding CreatorName}"
+                                <StackLayout>
+                                    <Label Text="{Binding CreatorName}"
                                            FontAttributes="Bold"       
 									       HorizontalTextAlignment="Start"
 									       VerticalTextAlignment="Center"/>
-                                        <Label Text="{Binding Timestamp}"
+                                    <Label Text="{Binding Timestamp}"
                                            TextColor="LightGray"       
 									       HorizontalTextAlignment="Start"
 									       VerticalTextAlignment="Center"/>
-                                        <Label Text="{Binding QuestionText}"
-									       HorizontalTextAlignment="Start"
-									       VerticalTextAlignment="Center"/>
-                                    </StackLayout>
-                                </Frame>
+                                    <Frame Padding="20"
+								       WidthRequest="100"
+                                       HeightRequest="125"
+                                       BackgroundColor="LightYellow">
+                                        <StackLayout>
+                                            <Image Source="sharedfile" HorizontalOptions="Start" 
+                                               VerticalOptions="Start" WidthRequest="25" HeightRequest="25"/>
+                                            <StackLayout>
+                                                <Label Text="{Binding QuestionText}"
+									           HorizontalTextAlignment="Start"
+									           VerticalTextAlignment="Center"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

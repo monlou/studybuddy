@@ -22,9 +22,7 @@
 									     Padding="10">
                                 <Image Source="{Binding SenderAvatar}" HorizontalOptions="Start" 
                                            VerticalOptions="Start" WidthRequest="50" HeightRequest="50"/>
-                                <Frame Padding="5"
-								       HorizontalOptions="FillAndExpand">
-                                    <StackLayout>
+                                <StackLayout>
                                         <Label Text="{Binding SenderName}"
                                            FontAttributes="Bold"       
 									       HorizontalTextAlignment="Start"
@@ -37,7 +35,6 @@
 									       HorizontalTextAlignment="Start"
 									       VerticalTextAlignment="Center"/>
                                     </StackLayout>
-                                </Frame>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
