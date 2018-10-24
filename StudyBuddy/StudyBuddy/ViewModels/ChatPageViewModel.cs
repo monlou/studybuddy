@@ -59,7 +59,7 @@ namespace StudyBuddy.ViewModels
             Message message = new Message()
             {
                 ObjType = "Msg",
-                SenderID = 2,
+                SenderAvatar = MainPageViewModel.CurrentGoogleAvatar,
                 SenderName = MainPageViewModel.CurrentGoogleUsername,
                 Text = Input,
                 Timestamp = DateTime.Now.Ticks.ToString()

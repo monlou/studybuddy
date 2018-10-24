@@ -29,6 +29,7 @@ namespace StudyBuddy.ViewModels
         }
 
         public static string CurrentGoogleUsername;
+        public static Uri CurrentGoogleAvatar;
         
         public MainPageViewModel(INavigationService navigationService, IGoogleManager googleManager, IPageDialogService dialogService)
             : base(navigationService)
@@ -51,6 +52,7 @@ namespace StudyBuddy.ViewModels
             {
                 CurrentGoogleUser = googleUser;
                 CurrentGoogleUsername = CurrentGoogleUser.Name;
+                CurrentGoogleAvatar = CurrentGoogleUser.Picture;
                 InitializeServices();
             }
             else

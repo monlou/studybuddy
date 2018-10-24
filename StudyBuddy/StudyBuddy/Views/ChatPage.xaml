@@ -20,7 +20,7 @@
                             <StackLayout Orientation="Horizontal" 
 									     HorizontalOptions="FillAndExpand"
 									     Padding="10">
-                                <Image Source="https://autisticdating.net/imgs/profile-placeholder.jpg" HorizontalOptions="Start" 
+                                <Image Source="{Binding SenderAvatar}" HorizontalOptions="Start" 
                                            VerticalOptions="Start" WidthRequest="50" HeightRequest="50"/>
                                 <Frame Padding="5"
 								       HorizontalOptions="FillAndExpand">
