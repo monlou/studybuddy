@@ -13,7 +13,7 @@
                      Order="Primary" 
                      Icon="menu_white.png" 
                      Text="Menu" 
-                     Priority="0" 
+                     Priority="0"
                      Command="{Binding NavProfileCommand}"/>
         <ToolbarItem Name="Account" 
                      Order="Primary" 

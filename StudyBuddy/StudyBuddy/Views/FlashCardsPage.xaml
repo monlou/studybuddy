@@ -8,14 +8,10 @@
 
     <ScrollView HorizontalOptions="Fill"
                     Margin="10">
-        <StackLayout HorizontalOptions="CenterAndExpand" 
-                     VerticalOptions="CenterAndExpand" 
-                     Padding="50">
-            <Label Text="Create Flashcards" Font="10"/>
-            <Label Text="Front" Font="5"/> 
-            <Frame BackgroundColor="White" 
-                   Margin ="0" 
-                   Padding="10">
+        <StackLayout>
+            <Label Text="Create Flashcards"/>
+            <Label Text="Front"/> 
+            <Frame>
                 <StackLayout>
                     <Editor Text="{Binding Input}"
                             Placeholder="Question" 
@@ -26,11 +22,10 @@
                     </Editor>  
                 </StackLayout>
             </Frame>
-            <Label Text="Back" Font="5"/> 
+            <Label Text="Back"/> 
             <Frame BackgroundColor="White" 
                    Margin ="0" 
                    Padding="10">
-                <StackLayout>
                     <Editor Text="{Binding Input}"
                             Placeholder="Answer" 
                             PlaceholderColor="Gray" 
@@ -38,9 +33,8 @@
                             HeightRequest="150" 
                             WidthRequest="250">
                     </Editor>  
-                </StackLayout>
             </Frame>
-            <Label Text="Quiz Options" Font="20"/> 
+            <Label Text="Quiz Options"/> 
             <Editor Text="{Binding Input}"
                     Placeholder="Incorrect Answer">
             </Editor>

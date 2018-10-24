@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom="clr-namespace:XFormsRadioButton.CustomControls;assembly=XFormsRadioButton"
+             Title="{Binding Title}"
+             x:Class="StudyBuddy.Views.QuizPage">
+    
+    <ScrollView HorizontalOptions="Fill"
+                    Margin="10">
+        <StackLayout>
+            <Label Text="Create Flashcards"/>
+            <Label Text="Front"/> 
+            <Frame>
+                <StackLayout>
+                    <Editor Text="{Binding Input}"
+                            Placeholder="Question" 
+                            PlaceholderColor="Gray" 
+                            TextColor="Black" 
+                            HeightRequest="150" 
+                            WidthRequest="250">
+                    </Editor>  
+                </StackLayout>
+            </Frame>
+            <Label Text="Back"/> 
+            <Frame BackgroundColor="White" 
+                   Margin ="0" 
+                   Padding="10">
+                    <Editor Text="{Binding Input}"
+                            Placeholder="Answer" 
+                            PlaceholderColor="Gray" 
+                            TextColor="Black" 
+                            HeightRequest="150" 
+                            WidthRequest="250">
+                    </Editor>  
+            </Frame>
+
+            <Button Text="Submit" Command="{Binding NextCardCommand}"></Button> 
+        </StackLayout> 
+    </ScrollView>
+
+</ContentPage>
