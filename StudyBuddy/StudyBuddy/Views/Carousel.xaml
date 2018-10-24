@@ -5,17 +5,19 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:local="clr-namespace:StudyBuddy.Views"
              x:Class="StudyBuddy.Views.Carousel">
-    
+    <ContentPage.Toolbar>
+        
+    </ContentPage.Toolbar>
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="Menu" 
                      Order="Primary" 
-                     Icon="menu_black.png" 
+                     Icon="menu_white.png" 
                      Text="Menu" 
                      Priority="0" 
                      Command="{Binding NavProfileCommand}"/>
         <ToolbarItem Name="Account" 
                      Order="Primary" 
-                     Icon="account_circle.png" 
+                     Icon="account_white.png" 
                      Text="Account" 
                      Priority="1" 
                      Command="{Binding NavProfileCommand}"/>
