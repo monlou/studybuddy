@@ -39,7 +39,7 @@
                                             <Image Source="sharedfile" HorizontalOptions="Start" 
                                                VerticalOptions="Start" WidthRequest="25" HeightRequest="25"/>
                                             <StackLayout>
-                                                <Label Text="{Binding QuestionText}"
+                                                <Label Text="{Binding Name}"
 									           HorizontalTextAlignment="Start"
 									           VerticalTextAlignment="Center"/>
                                             </StackLayout>

@@ -13,7 +13,7 @@ namespace StudyBuddy.Services
 {
     class FlashDBService
     {
-        public static event Action<Card> FlashcardReceived;
+        public static event Action<CardDeck> FlashcardReceived;
 
         static DocumentClient FlashClient;
         static Uri CollectionLink;
@@ -29,21 +29,21 @@ namespace StudyBuddy.Services
         private void Observer_DocumentReceived(Document doc)
         {
             var json = JsonConvert.SerializeObject(doc);
-            var flashcard = JsonConvert.DeserializeObject<Card>(json);
+            var deck = JsonConvert.DeserializeObject<CardDeck>(json);
             //Console.WriteLine("FLASHCARDS JUST RECIEVED A NEW DOCUMENT");
 
             //if (msg.UserId == this.settings.UserId)
             //    return;
 
 
-            FlashcardReceived?.Invoke(flashcard);
+            FlashcardReceived?.Invoke(deck);
         }
 
 
-        public async static Task UploadFlashCard(Card card)
+        public async static Task UploadFlashCard(CardDeck deck)
         {
-            await FlashClient.CreateDocumentAsync(CollectionLink, card);
-            Console.WriteLine("Created a new flashcard in " + CollectionLink);
+            await FlashClient.CreateDocumentAsync(CollectionLink, deck);
+            Console.WriteLine("Created a new flashcard deck in " + CollectionLink);
 
         }
 

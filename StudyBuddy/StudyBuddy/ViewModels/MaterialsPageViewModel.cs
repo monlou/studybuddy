@@ -16,7 +16,7 @@ namespace StudyBuddy.ViewModels
     public class MaterialsPageViewModel : ViewModelBase
     {
         private INavigationService _navigationService;
-        public ObservableCollection<Card> LoadedFlashcards { get; } = new ObservableCollection<Card>();
+        public ObservableCollection<CardDeck> LoadedFlashcards { get; } = new ObservableCollection<CardDeck>();
         public DelegateCommand AddNewCardCommand { get; set; }
 
 
@@ -29,12 +29,12 @@ namespace StudyBuddy.ViewModels
             _navigationService = navigationService;
         }
 
-        private void ChatClient_FlashcardReceived(Card flashcard)
+        private void ChatClient_FlashcardReceived(CardDeck deck)
         {
             Device.BeginInvokeOnMainThread(() =>
             {
                 Console.WriteLine("HIT DEVICE INVOKE THING");
-                this.LoadedFlashcards.Add(flashcard);
+                this.LoadedFlashcards.Add(deck);
             });
         }
 

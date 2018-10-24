@@ -41,29 +41,51 @@ namespace StudyBuddy.ViewModels
             _navigationService = navigationService;
         }
 
-        public async void MaterialsNavigate()
-        {
-            await _navigationService.GoBackAsync();
-            //await _navigationService.NavigateAsync("Carousel");
-        }
-
         public async void SaveCard()
         {
-            Card flashcard = new Card()
+            Card flashcard1 = new Card()
             {
                 ObjType = "Card",
                 CreatorAvatar = MainPageViewModel.CurrentGoogleAvatar,
                 CreatorName = MainPageViewModel.CurrentGoogleUsername,
-                QuestionText = "Powerhouse of the cell",
+                QuestionText = "Powerhouse of the cell NUMBA 1",
                 CorrectText = "Mitochondria",
                 WrongTextOne = "Nucleus",
                 WrongTextTwo = "Chromatin",
                 Timestamp = DateTime.Now.Ticks.ToString()
-
             };
 
-            await FlashDBService.UploadFlashCard(flashcard);
-            MaterialsNavigate(); 
+            Card flashcard2 = new Card()
+            {
+                ObjType = "Card",
+                CreatorAvatar = MainPageViewModel.CurrentGoogleAvatar,
+                CreatorName = MainPageViewModel.CurrentGoogleUsername,
+                QuestionText = "Powerhouse of the cell NUMBA 2",
+                CorrectText = "Mitochondria",
+                WrongTextOne = "Nucleus",
+                WrongTextTwo = "Chromatin",
+                Timestamp = DateTime.Now.Ticks.ToString()
+            };
+
+            CardDeck deck = new CardDeck()
+            {
+                ObjType = "Card",
+                Name = "Biology 101",
+                CreatorAvatar = MainPageViewModel.CurrentGoogleAvatar,
+                CreatorName = MainPageViewModel.CurrentGoogleUsername,
+                Timestamp = DateTime.Now.Ticks.ToString(),
+                DeckContents = new List<Card>()
+            };
+
+            deck.DeckContents.Add(flashcard1);
+            deck.DeckContents.Add(flashcard2);
+
+
+
+
+            await FlashDBService.UploadFlashCard(deck);
+            await _navigationService.GoBackAsync();
+
         }
 
         private void OnChangedProperty([CallerMemberName] string propertyName = "")
