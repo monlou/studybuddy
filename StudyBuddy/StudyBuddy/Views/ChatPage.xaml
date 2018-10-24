@@ -31,10 +31,12 @@
                                            TextColor="LightGray"       
 									       HorizontalTextAlignment="Start"
 									       VerticalTextAlignment="Center"/>
-                                        <Label Text="{Binding Text}"
+                                    <Label Text="{Binding Text}"
 									       HorizontalTextAlignment="Start"
 									       VerticalTextAlignment="Center"/>
-                                    </StackLayout>
+                                </StackLayout>
+                                <Image Source="question" HorizontalOptions="EndAndExpand" 
+                                           VerticalOptions="Start" WidthRequest="25" HeightRequest="25"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
