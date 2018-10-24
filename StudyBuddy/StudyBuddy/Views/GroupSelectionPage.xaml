@@ -65,7 +65,7 @@
         </StackLayout.GestureRecognizers> --> 
             <customControl:ImageButton Source="add_circle"
                                        HeightRequest="20"
-                            Command="{Binding SelectGroupCommand}"
+                            Command="{Binding CreateGroupCommand}"
                             AbsoluteLayout.LayoutBounds=".5,1,.5,.1" 
                             AbsoluteLayout.LayoutFlags="All" />         
         <!--</AbsoluteLayout>-->

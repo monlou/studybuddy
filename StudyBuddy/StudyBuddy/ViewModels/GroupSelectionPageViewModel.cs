@@ -59,16 +59,9 @@ namespace StudyBuddy.ViewModels
             await _navigationService.NavigateAsync("Carousel");
         }
 
-        public void CreateGroup()
+        public async void CreateGroup()
         {
-            Group group = new Group()
-            {
-                /*CreatorID = 0,
-                CreatorName = "Test",
-                GroupCode = "IFB101",
-                GroupName = "Building Information Systems",
-                Image = "Test"*/
-            };
+            await _navigationService.NavigateAsync("GroupCreationPage");
         }
 
         public void SearchGroups() {

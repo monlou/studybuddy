@@ -14,7 +14,7 @@
                      Icon="menu_white.png" 
                      Text="Menu" 
                      Priority="0"
-                     Command="{Binding NavProfileCommand}"/>
+                     Command="{Binding NavMenuCommand}"/>
         <ToolbarItem Name="Account" 
                      Order="Primary" 
                      Icon="account_white.png" 
