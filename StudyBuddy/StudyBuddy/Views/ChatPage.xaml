@@ -35,7 +35,7 @@
 									       HorizontalTextAlignment="Start"
 									       VerticalTextAlignment="Center"/>
                                 </StackLayout>
-                                <Image Source="question" HorizontalOptions="EndAndExpand" 
+                                <Image Source="{Binding Category}" HorizontalOptions="EndAndExpand" 
                                            VerticalOptions="Start" WidthRequest="25" HeightRequest="25"/>
                             </StackLayout>
                         </ViewCell>

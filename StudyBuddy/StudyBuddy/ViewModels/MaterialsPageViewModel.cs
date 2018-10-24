@@ -33,7 +33,6 @@ namespace StudyBuddy.ViewModels
         {
             Device.BeginInvokeOnMainThread(() =>
             {
-                Console.WriteLine("HIT DEVICE INVOKE THING");
                 this.LoadedFlashcards.Add(deck);
             });
         }
