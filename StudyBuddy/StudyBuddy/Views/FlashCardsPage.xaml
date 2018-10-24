@@ -5,10 +5,7 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:local="clr-namespace:StudyBuddy.Views"
              x:Class="StudyBuddy.Views.FlashCardsPage">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Name="Menu" Order="Primary" Icon="menu_black.png" Text="Menu" Priority="0" />
-        <ToolbarItem Name="Account" Order="Primary" Icon="account_circle.png" Text="Account" Priority="1" />
-    </ContentPage.ToolbarItems>
+
     <ScrollView>
         <StackLayout HorizontalOptions="CenterAndExpand" 
                      VerticalOptions="CenterAndExpand" 

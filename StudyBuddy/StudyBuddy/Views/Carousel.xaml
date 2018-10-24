@@ -7,8 +7,18 @@
              x:Class="StudyBuddy.Views.Carousel">
     
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="Menu" Order="Primary" Icon="menu_black.png" Text="Menu" Priority="0" />
-        <ToolbarItem Name="Account" Order="Primary" Icon="account_circle.png" Text="Account" Priority="1" />
+        <ToolbarItem Name="Menu" 
+                     Order="Primary" 
+                     Icon="menu_black.png" 
+                     Text="Menu" 
+                     Priority="0" 
+                     Command="{Binding NavProfileCommand}"/>
+        <ToolbarItem Name="Account" 
+                     Order="Primary" 
+                     Icon="account_circle.png" 
+                     Text="Account" 
+                     Priority="1" 
+                     Command="{Binding NavProfileCommand}"/>
     </ContentPage.ToolbarItems>
 
     <local:ChatPage />
