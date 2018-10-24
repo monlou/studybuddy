@@ -15,14 +15,14 @@ namespace StudyBuddy.Services
     {
         public static event Action<Message> MessageReceived;
 
-        static DocumentClient ChatClient;
+        static DocumentClient FlashClient;
         static Uri CollectionLink;
 
         public FlashDBService()
         {
-            ChatClient = new DocumentClient(new Uri(Keys.CosmosDBUri), Keys.CosmosDBKey);
+            FlashClient = new DocumentClient(new Uri(Keys.CosmosDBUri), Keys.CosmosDBKey);
             CollectionLink = UriFactory.CreateDocumentCollectionUri("Chat", "Flashcards");
-            DocumentFeedObserver.DocumentReceived += Observer_DocumentReceived;
+            DocumentFeedObserver.FlashcardDocumentReceived += Observer_DocumentReceived;
 
         }
 
@@ -30,8 +30,7 @@ namespace StudyBuddy.Services
         {
             //var json = JsonConvert.SerializeObject(doc);
             //var message = JsonConvert.DeserializeObject<Message>(json);
-
-            Console.WriteLine("HIT FLASH DOC REC");
+            Console.WriteLine("FLASHCARDS JUST RECIEVED A NEW DOCUMENT");
 
             //if (msg.UserId == this.settings.UserId)
             //    return;
@@ -43,8 +42,7 @@ namespace StudyBuddy.Services
 
         public async static Task UploadFlashCard(Card card)
         {
-            Console.WriteLine("Hit UploadMessage");
-            await ChatClient.CreateDocumentAsync(CollectionLink, card);
+            await FlashClient.CreateDocumentAsync(CollectionLink, card);
             Console.WriteLine("Created a new flashcard in " + CollectionLink);
 
         }

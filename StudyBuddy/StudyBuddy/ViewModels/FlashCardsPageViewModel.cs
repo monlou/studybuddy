@@ -50,6 +50,7 @@ namespace StudyBuddy.ViewModels
         {
             Card flashcard = new Card()
             {
+                ObjType = "Card",
                 CreatorID = 0,
                 CreatorName = "Test",
                 QuestionText = "Powerhouse of the cell",
