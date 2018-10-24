@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:StudyBuddy.Views"
              x:Class="StudyBuddy.Views.FlashCardsPage">
 
-    <ScrollView>
+    <ScrollView HorizontalOptions="Fill"
+                    Margin="10">
         <StackLayout HorizontalOptions="CenterAndExpand" 
                      VerticalOptions="CenterAndExpand" 
                      Padding="50">
