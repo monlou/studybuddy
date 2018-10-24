@@ -8,8 +8,10 @@
              xmlns:controls="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
              x:Class="StudyBuddy.Views.ChatPage">
 
-    <StackLayout>
 
+        <StackLayout>
+    <ScrollView HorizontalOptions="Fill"
+                    Margin="10">
         <ListView ItemsSource="{Binding LoadedMessages}"
 				  HasUnevenRows="True">
             <ListView.ItemTemplate>
@@ -20,11 +22,17 @@
 									 HorizontalOptions="FillAndExpand"
 									 Padding="10">
                             <Frame Padding="5"
-								   BackgroundColor="#7f9"
 								   HorizontalOptions="FillAndExpand">
-                                <Label Text="{Binding Text}"
+                                    <StackLayout>
+                                        <Label Text="{Binding SenderName}"
+                                       FontAttributes="Bold"       
 									   HorizontalTextAlignment="Start"
 									   VerticalTextAlignment="Center"/>
+                                        <Label Text="{Binding Text}"
+									   HorizontalTextAlignment="Start"
+									   VerticalTextAlignment="Center"/>
+                                    </StackLayout>
+
                             </Frame>
                         </StackLayout>
 
@@ -32,6 +40,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+    </ScrollView>
         
         <StackLayout Orientation="Horizontal" 
                      VerticalOptions="End"

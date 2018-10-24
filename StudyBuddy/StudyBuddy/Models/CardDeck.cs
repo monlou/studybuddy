@@ -1,14 +1,8 @@
 ﻿using System;
 namespace StudyBuddy.Models
 {
-    public class Card
+    public class CardDeck
     {
-        public string ObjType { get; set; }
-        public int CreatorID { get; set; }
-        public string CreatorName { get; set; }
-        public string QuestionText { get; set; }
-        public string CorrectText { get; set; }
-        public string WrongTextOne { get; set; }
-        public string WrongTextTwo { get; set; }
+        public Card Card { get; set; }
     }
 }
