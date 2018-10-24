@@ -34,28 +34,11 @@
             <StackLayout>
                 <Frame>
                     <Label>
-                        IFB101 - Impact of IT
+                        IAB330 StudyBuddy Group
                     </Label>
-                </Frame>
-                <Frame>
-                    <Label>
-                        IFB102 - Fundamentals of IT
-                    </Label>
-                </Frame>
-                <Frame>
-                    <Label>
-                        IFB103 - Design for IT 
-                    </Label>
-                </Frame>
-                <Frame>
-                    <Label>
-                        IFB104 - Building IT Systems
-                    </Label>
-                </Frame>
-                <Frame>
-                    <Label>
-                        IFB201 - Programming Principles 
-                    </Label>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SelectGroupCommand}"/>
+                    </Frame.GestureRecognizers>
                 </Frame>
             </StackLayout>
         </ScrollView>

@@ -13,7 +13,7 @@
                WidthRequest="75" 
                Aspect="AspectFit">
             </Image>
-            <Label Text="Study Buddy" 
+            <Label Text="StudyBuddy" 
                    FontSize="20"/>
         </StackLayout>
         
