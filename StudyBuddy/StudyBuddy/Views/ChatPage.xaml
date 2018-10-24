@@ -45,16 +45,22 @@
         <StackLayout Orientation="Horizontal" 
                      VerticalOptions="End"
                      Margin="10">
-            <Editor Placeholder="Message #IAB330"
+            <Frame Padding="10" HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal" 
+                     VerticalOptions="End"
+                     Margin="10">
+                    <Editor Placeholder="Message #IAB330"
                     Keyboard="Chat"
                     x:Name="ChatBox" 
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="EndAndExpand"
                     Text="{Binding Input}">
-            </Editor>
-            <customControl:ImageButton Source="send"
+                    </Editor>
+                    <customControl:ImageButton Source="send"
                                        HeightRequest="20"
                             Command="{Binding EditorFABCommand}" />
+                </StackLayout>
+            </Frame>
         </StackLayout>
             
     </StackLayout>
