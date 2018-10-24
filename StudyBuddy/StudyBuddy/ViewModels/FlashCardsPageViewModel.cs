@@ -12,6 +12,7 @@ using StudyBuddy.Models;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
+using StudyBuddy.Services;
 
 namespace StudyBuddy.ViewModels
 {
@@ -45,7 +46,7 @@ namespace StudyBuddy.ViewModels
             await _navigationService.NavigateAsync("MaterialsPage");
         }
 
-        public void SaveCard()
+        public async void SaveCard()
         {
             Card flashcard = new Card()
             {
@@ -57,6 +58,8 @@ namespace StudyBuddy.ViewModels
                 WrongTextTwo = "Chromatin"
             };
 
+            Input = "";
+            await FlashDBService.UploadFlashCard(flashcard);
             MaterialsNavigate(); 
         }
 

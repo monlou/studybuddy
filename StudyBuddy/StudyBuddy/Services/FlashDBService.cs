@@ -11,46 +11,48 @@ using Newtonsoft.Json;
 
 namespace StudyBuddy.Services
 {
-    class ChatDBService
+    class FlashDBService
     {
         public static event Action<Message> MessageReceived;
 
         static DocumentClient ChatClient;
         static Uri CollectionLink;
 
-        public ChatDBService()
+        public FlashDBService()
         {
             ChatClient = new DocumentClient(new Uri(Keys.CosmosDBUri), Keys.CosmosDBKey);
-            CollectionLink = UriFactory.CreateDocumentCollectionUri("Chat", "Messages");
+            CollectionLink = UriFactory.CreateDocumentCollectionUri("Chat", "Flashcards");
             DocumentFeedObserver.DocumentReceived += Observer_DocumentReceived;
 
         }
 
         private void Observer_DocumentReceived(Document doc)
         {
-            var json = JsonConvert.SerializeObject(doc);
-            var message = JsonConvert.DeserializeObject<Message>(json);
+            //var json = JsonConvert.SerializeObject(doc);
+            //var message = JsonConvert.DeserializeObject<Message>(json);
+
+            Console.WriteLine("HIT FLASH DOC REC");
 
             //if (msg.UserId == this.settings.UserId)
             //    return;
 
 
-            MessageReceived?.Invoke(message);
+            //MessageReceived?.Invoke(message);
         }
 
 
-        public async static Task UploadMessage(Message message)
+        public async static Task UploadFlashCard(Card card)
         {
             Console.WriteLine("Hit UploadMessage");
-            await ChatClient.CreateDocumentAsync(CollectionLink, message);
-            Console.WriteLine("Created a new message in " + CollectionLink);
+            await ChatClient.CreateDocumentAsync(CollectionLink, card);
+            Console.WriteLine("Created a new flashcard in " + CollectionLink);
 
         }
 
         public async Task RunChangeFeedHostAsync()
         {
 
-            string hostName = "ChatHost" + DateTime.Now.Ticks.ToString();
+            string hostName = "FlashHost" + DateTime.Now.Ticks.ToString();
 
 
             // monitored collection info
@@ -59,7 +61,7 @@ namespace StudyBuddy.Services
                 Uri = new Uri(Keys.CosmosDBUri),
                 MasterKey = Keys.CosmosDBKey,
                 DatabaseName = "Chat",
-                CollectionName = "Messages"
+                CollectionName = "Flashcards"
             };
 
 
@@ -68,7 +70,7 @@ namespace StudyBuddy.Services
                 Uri = new Uri(Keys.CosmosDBUri),
                 MasterKey = Keys.CosmosDBKey,
                 DatabaseName = "Chat",
-                CollectionName = "Lease"
+                CollectionName = "FlashLease"
             };
             DocumentFeedObserverFactory docObserverFactory = new DocumentFeedObserverFactory();
             ChangeFeedProcessorOptions feedProcessorOptions = new ChangeFeedProcessorOptions();

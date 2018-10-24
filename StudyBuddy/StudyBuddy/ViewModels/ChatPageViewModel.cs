@@ -43,13 +43,11 @@ namespace StudyBuddy.ViewModels
         public ChatPageViewModel()
         {
             EditorFABCommand = new Command(ComposeMessage);
-
             ChatDBService.MessageReceived += ChatClient_MessageReceived;
         }
 
         private void ChatClient_MessageReceived(Message message)
         {
-            Console.WriteLine("HIT MESS REC");
             Device.BeginInvokeOnMainThread(() =>
             {
                 this.LoadedMessages.Add(message);
@@ -58,9 +56,6 @@ namespace StudyBuddy.ViewModels
 
         public async void ComposeMessage()
         {
-            Console.WriteLine("Hit ComposeMessage");
-
-
             Message message = new Message()
             {
                 SenderID = 2,
@@ -68,7 +63,6 @@ namespace StudyBuddy.ViewModels
                 Text = Input
             };
             Input = "";
-            Console.WriteLine("Input is now: " + Input);
             await ChatDBService.UploadMessage(message);
 
         }
