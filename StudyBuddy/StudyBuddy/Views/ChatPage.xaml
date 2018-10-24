@@ -7,67 +7,58 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:controls="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
              x:Class="StudyBuddy.Views.ChatPage">
-
-
-        <StackLayout>
-    <ScrollView HorizontalOptions="Fill"
-                    Margin="10">
-        <ListView ItemsSource="{Binding LoadedMessages}"
-				  HasUnevenRows="True">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-
-                        <StackLayout Orientation="Horizontal" 
-									 HorizontalOptions="FillAndExpand"
-									 Padding="10">
-                                <Image Source="https://autisticdating.net/imgs/profile-placeholder.jpg" HorizontalOptions="Start" VerticalOptions="Start" WidthRequest="50" HeightRequest="50"/>
+    <StackLayout>
+            
+        <ScrollView HorizontalOptions="Fill"
+                        Margin="10"
+                        VerticalOptions="FillAndExpand">
+            <ListView ItemsSource="{Binding LoadedMessages}"
+				      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" 
+									     HorizontalOptions="FillAndExpand"
+									     Padding="10">
+                                <Image Source="https://autisticdating.net/imgs/profile-placeholder.jpg" HorizontalOptions="Start" 
+                                           VerticalOptions="Start" WidthRequest="50" HeightRequest="50"/>
                                 <Frame Padding="5"
-								   HorizontalOptions="FillAndExpand">
+								       HorizontalOptions="FillAndExpand">
                                     <StackLayout>
                                         <Label Text="{Binding SenderName}"
-                                       FontAttributes="Bold"       
-									   HorizontalTextAlignment="Start"
-									   VerticalTextAlignment="Center"/>
+                                           FontAttributes="Bold"       
+									       HorizontalTextAlignment="Start"
+									       VerticalTextAlignment="Center"/>
                                         <Label Text="{Binding Timestamp}"
-                                       TextColor="LightGray"       
-									   HorizontalTextAlignment="Start"
-									   VerticalTextAlignment="Center"/>
+                                           TextColor="LightGray"       
+									       HorizontalTextAlignment="Start"
+									       VerticalTextAlignment="Center"/>
                                         <Label Text="{Binding Text}"
-									   HorizontalTextAlignment="Start"
-									   VerticalTextAlignment="Center"/>
+									       HorizontalTextAlignment="Start"
+									       VerticalTextAlignment="Center"/>
                                     </StackLayout>
                                 </Frame>
-                        </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
 
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </ScrollView>
-        
         <StackLayout Orientation="Horizontal" 
                      VerticalOptions="End"
                      Margin="10">
-            <Editor Placeholder="Send message"
+            <Editor Placeholder="Message #IAB330"
                     Keyboard="Chat"
                     x:Name="ChatBox" 
-                    HorizontalOptions="StartAndExpand"
+                    HorizontalOptions="FillAndExpand"
                     VerticalOptions="EndAndExpand"
                     Text="{Binding Input}">
             </Editor>
             <customControl:ImageButton Source="send"
                                        HeightRequest="20"
-                            Command="{Binding EditorFABCommand}" /> 
+                            Command="{Binding EditorFABCommand}" />
         </StackLayout>
-
-       <!--<controls:FloatingActionButton x:Name="FAB" 
-                                           HorizontalOptions="EndAndExpand" 
-                                           WidthRequest="90" 
-                                           HeightRequest="90"  
-                                           VerticalOptions="EndAndExpand" 
-                                           Image="send.png"
-                                           ButtonColor="#blue" 
-                                           Command="{Binding EditorFABCommand}"/>--> 
+            
     </StackLayout>
 </ContentPage>
