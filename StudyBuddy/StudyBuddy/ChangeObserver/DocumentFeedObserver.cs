@@ -8,11 +8,11 @@ using Microsoft.Azure.Documents.Client;
 
 public class DocumentFeedObserver : IChangeFeedObserver
 {
+    public static Action<Document> DocumentReceived;
     private static int totalDocs = 0;
 
     public DocumentFeedObserver()
     {
-
     }
 
     public Task OpenAsync(IChangeFeedObserverContext context)
@@ -38,6 +38,7 @@ public class DocumentFeedObserver : IChangeFeedObserver
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(doc.ToString());
+            DocumentReceived(doc);
         }
 
         return Task.CompletedTask;
