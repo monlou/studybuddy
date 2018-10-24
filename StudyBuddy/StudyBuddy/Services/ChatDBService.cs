@@ -28,15 +28,15 @@ namespace StudyBuddy.Services
 
         private void Observer_DocumentReceived(Document doc)
         {
-            //var json = JsonConvert.SerializeObject(doc);
-            //var message = JsonConvert.DeserializeObject<Message>(json);
-            Console.WriteLine("CHAT JUST RECIEVED A NEW DOCUMENT");
+            var json = JsonConvert.SerializeObject(doc);
+            var message = JsonConvert.DeserializeObject<Message>(json);
+            //Console.WriteLine("CHAT JUST RECIEVED A NEW DOCUMENT");
 
             //if (msg.UserId == this.settings.UserId)
             //    return;
 
 
-            //MessageReceived?.Invoke(message);
+            MessageReceived?.Invoke(message);
         }
 
 
