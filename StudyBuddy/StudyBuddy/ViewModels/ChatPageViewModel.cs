@@ -61,7 +61,8 @@ namespace StudyBuddy.ViewModels
                 ObjType = "Msg",
                 SenderID = 2,
                 SenderName = "Google User",
-                Text = Input
+                Text = Input,
+                Timestamp = DateTime.Now.Ticks.ToString()
             };
             Input = "";
             await ChatDBService.UploadMessage(message);

@@ -28,6 +28,10 @@
                                        FontAttributes="Bold"       
 									   HorizontalTextAlignment="Start"
 									   VerticalTextAlignment="Center"/>
+                                        <Label Text="{Binding Timestamp}"
+                                       TextColor="LightGray"       
+									   HorizontalTextAlignment="Start"
+									   VerticalTextAlignment="Center"/>
                                         <Label Text="{Binding Text}"
 									   HorizontalTextAlignment="Start"
 									   VerticalTextAlignment="Center"/>

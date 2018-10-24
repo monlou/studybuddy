@@ -33,7 +33,7 @@
                 VerticalScrollBarVisibility="Always">
             <StackLayout>
                 <Frame
-                    BackgroundColor="Gray">
+                    BackgroundColor="LightGray">
                     <Label>
                         IAB330 StudyBuddy Group
                     </Label>
