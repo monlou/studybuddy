@@ -28,6 +28,8 @@ namespace StudyBuddy.ViewModels
             set { SetProperty(ref _googleUser, value); }
         }
 
+        public static string CurrentGoogleUsername;
+        
         public MainPageViewModel(INavigationService navigationService, IGoogleManager googleManager, IPageDialogService dialogService)
             : base(navigationService)
         {
@@ -48,6 +50,7 @@ namespace StudyBuddy.ViewModels
             if (googleUser != null)
             {
                 CurrentGoogleUser = googleUser;
+                CurrentGoogleUsername = CurrentGoogleUser.Name;
                 InitializeServices();
             }
             else

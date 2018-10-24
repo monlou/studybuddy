@@ -23,7 +23,7 @@
                      Command="{Binding NavProfileCommand}"/>
     </ContentPage.ToolbarItems>
 
+    <local:MaterialsPage />
     <local:ChatPage />
-    <local:MaterialsPage />    
 
 </CarouselPage>

@@ -60,13 +60,12 @@ namespace StudyBuddy.ViewModels
             {
                 ObjType = "Msg",
                 SenderID = 2,
-                SenderName = "Google User",
+                SenderName = MainPageViewModel.CurrentGoogleUsername,
                 Text = Input,
                 Timestamp = DateTime.Now.Ticks.ToString()
             };
             Input = "";
             await ChatDBService.UploadMessage(message);
-
         }
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = "")
