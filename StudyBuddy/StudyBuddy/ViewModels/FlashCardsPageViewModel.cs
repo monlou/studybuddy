@@ -51,12 +51,14 @@ namespace StudyBuddy.ViewModels
             Card flashcard = new Card()
             {
                 ObjType = "Card",
-                CreatorID = 0,
-                CreatorName = "Test",
+                CreatorAvatar = MainPageViewModel.CurrentGoogleAvatar,
+                CreatorName = MainPageViewModel.CurrentGoogleUsername,
                 QuestionText = "Powerhouse of the cell",
                 CorrectText = "Mitochondria",
                 WrongTextOne = "Nucleus",
-                WrongTextTwo = "Chromatin"
+                WrongTextTwo = "Chromatin",
+                Timestamp = DateTime.Now.Ticks.ToString()
+
             };
 
             await FlashDBService.UploadFlashCard(flashcard);
