@@ -18,12 +18,6 @@ namespace StudyBuddy.ViewModels
     {
         private INavigationService _navigationService;
         public event PropertyChangedEventHandler ChangedProperty;
-
-        readonly ChatDBService chat = new ChatDBService();
-        readonly FlashDBService flashcards = new FlashDBService();
-
-
-
         public System.Windows.Input.ICommand CreateGroupCommand { get; protected set; }
         public DelegateCommand LoadGroupsCommand { get; set; }
         public DelegateCommand SelectGroupCommand { get; set; }
@@ -62,10 +56,6 @@ namespace StudyBuddy.ViewModels
 
         public async void SelectGroup()
         {
-            await chat.RunChangeFeedHostAsync();
-            await flashcards.RunChangeFeedHostAsync();
-
-
             await _navigationService.NavigateAsync("Carousel");
         }
 
