@@ -41,7 +41,8 @@
             <Editor Text="{Binding Input}"
                     Placeholder="Incorrect Answer">
             </Editor>
-            <Button Text="Save" Command="{Binding SaveCardCommand}"></Button> 
+            <Button Text="Add Another Flashcard" Command="{Binding SaveCardCommand}"></Button>
+            <Button Text="Done" Command="{Binding SaveDeckCommand}"></Button>
         </StackLayout> 
     </ScrollView>
 </ContentPage>

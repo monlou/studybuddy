@@ -22,6 +22,9 @@ namespace StudyBuddy.ViewModels
         public event PropertyChangedEventHandler ChangedProperty;
         //public DelegateCommand AddNewCardCommand { get; set; }
         public System.Windows.Input.ICommand SaveCardCommand { get; protected set; }
+        public System.Windows.Input.ICommand SaveDeckCommand { get; protected set; }
+        public List<Card> tempDeck;
+
         private string _input;
         public string Input
         {
@@ -37,13 +40,16 @@ namespace StudyBuddy.ViewModels
         {
             //AddNewCardCommand = new DelegateCommand(AddNewCard);
             SaveCardCommand = new Command(SaveCard);
+            SaveDeckCommand = new Command(SaveDeck);
+            tempDeck = new List<Card>();
 
-            _navigationService = navigationService;
+
+        _navigationService = navigationService;
         }
 
-        public async void SaveCard()
+        public void SaveCard()
         {
-            Card flashcard1 = new Card()
+            Card flashcard = new Card()
             {
                 ObjType = "Card",
                 CreatorAvatar = MainPageViewModel.CurrentGoogleAvatar,
@@ -55,18 +61,11 @@ namespace StudyBuddy.ViewModels
                 Timestamp = DateTime.Now.Ticks.ToString()
             };
 
-            Card flashcard2 = new Card()
-            {
-                ObjType = "Card",
-                CreatorAvatar = MainPageViewModel.CurrentGoogleAvatar,
-                CreatorName = MainPageViewModel.CurrentGoogleUsername,
-                QuestionText = "Powerhouse of the cell NUMBA 2",
-                CorrectText = "Mitochondria",
-                WrongTextOne = "Nucleus",
-                WrongTextTwo = "Chromatin",
-                Timestamp = DateTime.Now.Ticks.ToString()
-            };
+            tempDeck.Add(flashcard);
+        }
 
+        private async void SaveDeck()
+        {
             CardDeck deck = new CardDeck()
             {
                 ObjType = "Card",
@@ -74,18 +73,12 @@ namespace StudyBuddy.ViewModels
                 CreatorAvatar = MainPageViewModel.CurrentGoogleAvatar,
                 CreatorName = MainPageViewModel.CurrentGoogleUsername,
                 Timestamp = DateTime.Now.Ticks.ToString(),
-                DeckContents = new List<Card>()
+                DeckContents = tempDeck
             };
-
-            deck.DeckContents.Add(flashcard1);
-            deck.DeckContents.Add(flashcard2);
-
-
 
 
             await FlashDBService.UploadFlashCard(deck);
             await _navigationService.GoBackAsync();
-
         }
 
         private void OnChangedProperty([CallerMemberName] string propertyName = "")

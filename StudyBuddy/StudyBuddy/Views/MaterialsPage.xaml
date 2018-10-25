@@ -58,7 +58,6 @@
                             Command="{Binding AddNewCardCommand}"
                             AbsoluteLayout.LayoutBounds=".5,1,.5,.1" 
                             AbsoluteLayout.LayoutFlags="All" />         
-        <!--</AbsoluteLayout>-->
     </StackLayout>
 
 </ContentPage>
