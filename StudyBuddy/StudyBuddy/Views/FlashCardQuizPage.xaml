@@ -4,5 +4,24 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="StudyBuddy.Views.FlashCardQuizPage">
-  
+
+    <StackLayout Orientation="Vertical" Margin="10">
+        <Frame Padding="10">
+            <StackLayout HorizontalOptions="Fill" VerticalOptions="Center">
+                <Label Text="Question" FontAttributes="Bold"/>
+                <Label Text="What is the powerhouse of the cell?"/>
+            </StackLayout>
+        </Frame>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
+            <Picker x:Name="picker"
+                            SelectedIndex="0">
+                <Picker.Items>
+                    <x:String>Answer1</x:String>
+                    <x:String>Answer2</x:String>
+                    <x:String>Answer3</x:String>
+                </Picker.Items>
+            </Picker>
+        </StackLayout>
+        <Button Text="Submit"></Button>
+    </StackLayout>
 </ContentPage>

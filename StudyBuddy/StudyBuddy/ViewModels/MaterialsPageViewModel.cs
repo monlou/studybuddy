@@ -48,8 +48,7 @@ namespace StudyBuddy.ViewModels
 
         public async void StartQuiz()
         {
-            Console.WriteLine(SelectedFlashcardDeck.Name.ToString());
-
+            FlashCardQuizPageViewModel.ReceiveQuizDeck(SelectedFlashcardDeck);
             await _navigationService.NavigateAsync("FlashCardQuizPage");
 
         }

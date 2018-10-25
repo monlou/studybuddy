@@ -22,15 +22,22 @@ namespace StudyBuddy.ViewModels
     {
         private INavigationService _navigationService;
         public event PropertyChangedEventHandler PropertyChanged;
-
+        public static CardDeck QuizDeck;
 
         public FlashCardQuizPageViewModel(INavigationService navigationService) : base(navigationService)
         {
 
-
+            QuizDeck = new CardDeck();
             _navigationService = navigationService;
         }
 
+
+        public static void ReceiveQuizDeck(CardDeck deck)
+        {
+            QuizDeck = deck;
+            Console.WriteLine(QuizDeck.Name.ToString());
+
+        }
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
