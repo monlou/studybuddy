@@ -2,6 +2,7 @@
 <ContentPage NavigationPage.HasNavigationBar="false"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customControl="clr-namespace:StudyBuddy.Services;assembly=StudyBuddy"
              x:Class="StudyBuddy.Views.MainPage">
 
     <StackLayout HorizontalOptions="CenterAndExpand" 
@@ -17,14 +18,12 @@
                    FontSize="20"/>
         </StackLayout>
         
-        <Image Margin="20" 
-               Aspect="AspectFill" 
-               Source="google_signin.png" />
-        <StackLayout.GestureRecognizers>
-            <TapGestureRecognizer x:Name="GoogleButton" 
-                                  AutomationId="GoogleButton" 
-                                  Command="{Binding LoginCommand}" />
-        </StackLayout.GestureRecognizers>
+        <customControl:ImageButton Source="google_signin"
+                                   Margin="20" 
+                                   Aspect="AspectFill" 
+                                   Command="{Binding LoginCommand}"
+                                   AbsoluteLayout.LayoutBounds=".5,1,.5,.1" 
+                                   AbsoluteLayout.LayoutFlags="All" /> 
     </StackLayout>
 
 </ContentPage>
