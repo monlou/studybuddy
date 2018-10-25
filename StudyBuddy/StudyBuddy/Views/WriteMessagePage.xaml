@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customControl="clr-namespace:StudyBuddy.Services;assembly=StudyBuddy"
+             Title="{Binding Title}"
+             x:Class="StudyBuddy.Views.WriteMessagePage">
+    
+    <StackLayout Orientation="Horizontal" 
+                     VerticalOptions="End"
+                     Margin="10">
+            <Frame Padding="10" HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal" 
+                     VerticalOptions="End"
+                     Margin="10">
+                    <Editor Placeholder="Message #IAB330"
+                    Keyboard="Chat"
+                    x:Name="ChatBox" 
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="EndAndExpand"
+                    Text="{Binding Input}">
+                    </Editor>
+                    <customControl:ImageButton Source="send"
+                                       HeightRequest="20"
+                            Command="{Binding EditorFABCommand}" />
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+
+</ContentPage>

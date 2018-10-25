@@ -30,12 +30,21 @@ namespace StudyBuddy
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterForNavigation<Carousel>();
+            containerRegistry.RegisterForNavigation<MenuPage>();
+
             containerRegistry.RegisterForNavigation<MainPage>();
             containerRegistry.RegisterForNavigation<ProfilePage>();
+
             containerRegistry.RegisterForNavigation<GroupSelectionPage>();
+            containerRegistry.RegisterForNavigation<GroupCreationPage>();
+
             containerRegistry.RegisterForNavigation<ChatPage>();
-            containerRegistry.RegisterForNavigation<Carousel>();
+            containerRegistry.RegisterForNavigation<WriteMessagePage>();
+
             containerRegistry.RegisterForNavigation<FlashCardsPage>();
+            containerRegistry.RegisterForNavigation<MaterialsPage>();
+            containerRegistry.RegisterForNavigation<QuizPage>();
         }
     }
 }
