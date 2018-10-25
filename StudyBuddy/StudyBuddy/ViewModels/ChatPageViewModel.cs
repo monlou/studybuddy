@@ -62,7 +62,7 @@ namespace StudyBuddy.ViewModels
                 SenderAvatar = MainPageViewModel.CurrentGoogleAvatar,
                 SenderName = MainPageViewModel.CurrentGoogleUsername,
                 Text = Input,
-                Category = "question",
+                Category = "Question",
                 Timestamp = DateTime.Now.Ticks.ToString()
             };
             Input = "";

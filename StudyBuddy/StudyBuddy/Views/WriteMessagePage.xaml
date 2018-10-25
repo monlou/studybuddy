@@ -19,6 +19,16 @@
                     VerticalOptions="EndAndExpand"
                     Text="{Binding Input}">
                     </Editor>
+                <Picker>
+                    <Picker.Items>
+                        <x:String>Question</x:String>
+                        <x:String>Homework</x:String>
+                        <x:String>Assessment</x:String>
+                        <x:String>Study</x:String>
+                        <x:String>Events</x:String>
+                        <x:String>Social</x:String>
+                    </Picker.Items>
+                </Picker>
                     <customControl:ImageButton Source="send"
                                        HeightRequest="20"
                             Command="{Binding EditorFABCommand}" />
