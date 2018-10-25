@@ -16,23 +16,56 @@ using StudyBuddy.Services;
 
 namespace StudyBuddy.ViewModels
 {
-    public class FlashCardsPageViewModel : ViewModelBase
+    public class FlashCardsPageViewModel : ViewModelBase, INotifyPropertyChanged
     {
         private INavigationService _navigationService;
-        public event PropertyChangedEventHandler ChangedProperty;
+        public event PropertyChangedEventHandler PropertyChanged;
         //public DelegateCommand AddNewCardCommand { get; set; }
         public System.Windows.Input.ICommand SaveCardCommand { get; protected set; }
         public System.Windows.Input.ICommand SaveDeckCommand { get; protected set; }
         public List<Card> tempDeck;
 
-        private string _input;
-        public string Input
+        private string _questionInput;
+        public string QuestionInput
         {
-            get { return _input; }
+            get { return _questionInput; }
             set
             {
-                _input = value;
-                OnChangedProperty(nameof(Input));
+                _questionInput = value;
+                OnPropertyChanged(nameof(QuestionInput));
+            }
+        }
+
+        private string _answerInput;
+        public string AnswerInput
+        {
+            get { return _answerInput; }
+            set
+            {
+                _answerInput = value;
+                OnPropertyChanged(nameof(AnswerInput));
+            }
+        }
+
+        private string _wrong1Input;
+        public string Wrong1Input
+        {
+            get { return _wrong1Input; }
+            set
+            {
+                _wrong1Input = value;
+                OnPropertyChanged(nameof(Wrong1Input));
+            }
+        }
+
+        private string _wrong2Input;
+        public string Wrong2Input
+        {
+            get { return _wrong2Input; }
+            set
+            {
+                _wrong2Input = value;
+                OnPropertyChanged(nameof(Wrong2Input));
             }
         }
 
@@ -47,6 +80,14 @@ namespace StudyBuddy.ViewModels
         _navigationService = navigationService;
         }
 
+        public void ResetInputs()
+        {
+            QuestionInput = "";
+            AnswerInput = "";
+            Wrong1Input = "";
+            Wrong2Input = "";
+        }
+
         public void SaveCard()
         {
             Card flashcard = new Card()
@@ -54,13 +95,14 @@ namespace StudyBuddy.ViewModels
                 ObjType = "Card",
                 CreatorAvatar = MainPageViewModel.CurrentGoogleAvatar,
                 CreatorName = MainPageViewModel.CurrentGoogleUsername,
-                QuestionText = "Powerhouse of the cell NUMBA 1",
-                CorrectText = "Mitochondria",
-                WrongTextOne = "Nucleus",
-                WrongTextTwo = "Chromatin",
+                QuestionText = QuestionInput,
+                CorrectText = AnswerInput,
+                WrongTextOne = Wrong1Input,
+                WrongTextTwo = Wrong2Input,
                 Timestamp = DateTime.Now.Ticks.ToString()
             };
 
+            ResetInputs();
             tempDeck.Add(flashcard);
         }
 
@@ -76,16 +118,15 @@ namespace StudyBuddy.ViewModels
                 DeckContents = tempDeck
             };
 
-
             await FlashDBService.UploadFlashCard(deck);
             await _navigationService.GoBackAsync();
         }
 
-        private void OnChangedProperty([CallerMemberName] string propertyName = "")
+        private void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            var handler = ChangedProperty;
+            var handler = PropertyChanged;
             if (handler != null)
-                ChangedProperty(this, new PropertyChangedEventArgs(propertyName));
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

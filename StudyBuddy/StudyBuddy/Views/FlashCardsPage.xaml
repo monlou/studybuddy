@@ -13,7 +13,7 @@
             <Label Text="Front"/> 
             <Frame>
                 <StackLayout>
-                    <Editor Text="{Binding Input}"
+                    <Editor Text="{Binding QuestionInput}"
                             Placeholder="Question" 
                             PlaceholderColor="Gray" 
                             TextColor="Black" 
@@ -26,7 +26,7 @@
             <Frame BackgroundColor="White" 
                    Margin ="0" 
                    Padding="10">
-                    <Editor Text="{Binding Input}"
+                    <Editor Text="{Binding AnswerInput}"
                             Placeholder="Answer" 
                             PlaceholderColor="Gray" 
                             TextColor="Black" 
@@ -35,10 +35,10 @@
                     </Editor>  
             </Frame>
             <Label Text="Quiz Options"/> 
-            <Editor Text="{Binding Input}"
+            <Editor Text="{Binding Wrong1Input}"
                     Placeholder="Incorrect Answer">
             </Editor>
-            <Editor Text="{Binding Input}"
+            <Editor Text="{Binding Wrong2Input}"
                     Placeholder="Incorrect Answer">
             </Editor>
             <Button Text="Add Another Flashcard" Command="{Binding SaveCardCommand}"></Button>
