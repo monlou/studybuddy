@@ -14,6 +14,8 @@ using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 using StudyBuddy.Services;
 
+#pragma warning disable CS0114 // Member hides inherited member; missing override keyword
+#pragma warning disable CS0108 // Member hides inherited member; missing new keyword
 namespace StudyBuddy.ViewModels
 {
     public class FlashCardsPageViewModel : ViewModelBase, INotifyPropertyChanged
@@ -92,14 +94,10 @@ namespace StudyBuddy.ViewModels
         {
             Card flashcard = new Card()
             {
-                ObjType = "Card",
-                CreatorAvatar = MainPageViewModel.CurrentGoogleAvatar,
-                CreatorName = MainPageViewModel.CurrentGoogleUsername,
                 QuestionText = QuestionInput,
                 CorrectText = AnswerInput,
                 WrongTextOne = Wrong1Input,
-                WrongTextTwo = Wrong2Input,
-                Timestamp = DateTime.Now.Ticks.ToString()
+                WrongTextTwo = Wrong2Input
             };
 
             ResetInputs();
@@ -130,3 +128,5 @@ namespace StudyBuddy.ViewModels
         }
     }
 }
+#pragma warning restore CS0114 // Member hides inherited member; missing override keyword
+#pragma warning restore CS0108 // Member hides inherited member; missing new keyword
