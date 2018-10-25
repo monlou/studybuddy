@@ -61,7 +61,7 @@ namespace StudyBuddy.ViewModels
 
         public async void CreateGroup()
         {
-            await _navigationService.NavigateAsync("GroupCreationPage");
+            await _navigationService.NavigateAsync("Carousel");
         }
 
         public void SearchGroups() {

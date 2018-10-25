@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.Azure.Documents.ChangeFeedProcessor;
 using Microsoft.Azure.Documents;
 using Newtonsoft.Json;
+using Microsoft.Azure.Documents.Linq;
 
 namespace StudyBuddy.Services
 {

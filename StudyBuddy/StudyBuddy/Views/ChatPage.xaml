@@ -58,8 +58,9 @@
                     VerticalOptions="EndAndExpand"
                     Text="{Binding Input}">
                     </Editor>
-                    <Picker SelectedIndex="0"
-                            SelectedIndexChanged="OnPickerSelectedIndexChanged">
+                    <Picker x:Name="picker"
+                            SelectedIndex="0"
+                            SelectedItem="{Binding PickerCategory}">
                         <Picker.Items>
                             <x:String>General</x:String>
                             <x:String>Question</x:String>
@@ -67,7 +68,7 @@
                             <x:String>Assessment</x:String>
                             <x:String>Study</x:String>
                             <x:String>Events</x:String>
-                            <x:String>Social</x:String>
+                            <x:String>Offtopic</x:String>
                         </Picker.Items>
                     </Picker>
                     <customControl:ImageButton Source="send"

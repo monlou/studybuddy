@@ -25,10 +25,20 @@ namespace StudyBuddy.ViewModels
     public class ChatPageViewModel : BindableBase, INotifyPropertyChanged
 	{
         public event PropertyChangedEventHandler PropertyChanged;
-        public string CategoryInput = "General"; 
         public System.Windows.Input.ICommand EditorFABCommand { get; protected set; }
 
         public ObservableCollection<Message> LoadedMessages { get; } = new ObservableCollection<Message>();
+
+        private string _pickerCategory;
+        public string PickerCategory
+        {
+            get { return _pickerCategory; }
+            set
+            {
+                _pickerCategory = value;
+                OnPropertyChanged(nameof(PickerCategory));
+            }
+        }
 
         private string _input;
         public string Input
@@ -63,7 +73,7 @@ namespace StudyBuddy.ViewModels
                 SenderAvatar = MainPageViewModel.CurrentGoogleAvatar,
                 SenderName = MainPageViewModel.CurrentGoogleUsername,
                 Text = Input,
-                Category = CategoryInput,
+                Category = PickerCategory,
                 Timestamp = DateTime.Now.Ticks.ToString()
             };
             Input = "";
