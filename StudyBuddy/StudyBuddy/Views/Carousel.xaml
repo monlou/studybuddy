@@ -9,12 +9,12 @@
         
     </ContentPage.Toolbar>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="Menu" 
+        <ToolbarItem Name="Quiz" 
                      Order="Primary" 
-                     Icon="menu_white.png" 
-                     Text="Menu" 
+                     Icon="play_white.png" 
+                     Text="Quiz" 
                      Priority="0"
-                     Command="{Binding NavMenuCommand}"/>
+                     Command="{Binding NavQuizCommand}"/>
         <ToolbarItem Name="Account" 
                      Order="Primary" 
                      Icon="account_white.png" 

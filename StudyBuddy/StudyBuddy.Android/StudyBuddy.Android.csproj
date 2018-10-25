@@ -103,6 +103,7 @@
     <AndroidResource Include="Resources\drawable\search.png" />
     <AndroidResource Include="Resources\drawable\account_white.png" />
     <AndroidResource Include="Resources\drawable\menu_white.png" />
+    <AndroidResource Include="Resources\drawable\play_black.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
