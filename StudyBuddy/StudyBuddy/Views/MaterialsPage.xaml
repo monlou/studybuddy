@@ -13,7 +13,8 @@
                         VerticalOptions="FillAndExpand">
             <ListView x:Name="list"
                       ItemsSource="{Binding LoadedFlashcards}"
-				      HasUnevenRows="True">
+				      HasUnevenRows="True"
+                      SelectedItem="{Binding SelectedFlashcardDeck}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

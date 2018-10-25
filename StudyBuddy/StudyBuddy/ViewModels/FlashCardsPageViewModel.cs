@@ -26,6 +26,17 @@ namespace StudyBuddy.ViewModels
         public System.Windows.Input.ICommand SaveDeckCommand { get; protected set; }
         public List<Card> tempDeck;
 
+        private string _deckName;
+        public string DeckName
+        {
+            get { return _deckName; }
+            set
+            {
+                _deckName = value;
+                OnPropertyChanged(nameof(DeckName));
+            }
+        }
+
         private string _questionInput;
         public string QuestionInput
         {
@@ -107,7 +118,7 @@ namespace StudyBuddy.ViewModels
             CardDeck deck = new CardDeck()
             {
                 ObjType = "Card",
-                Name = "Biology 101",
+                Name = DeckName,
                 CreatorAvatar = MainPageViewModel.CurrentGoogleAvatar,
                 CreatorName = MainPageViewModel.CurrentGoogleUsername,
                 Timestamp = DateTime.Now.Ticks.ToString(),
