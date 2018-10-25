@@ -22,10 +22,11 @@ using System.Collections.ObjectModel;
 #pragma warning disable CS0108 // Member hides inherited member; missing new keyword
 namespace StudyBuddy.ViewModels
 {
-	public class ChatPageViewModel : BindableBase, INotifyPropertyChanged
+    public class ChatPageViewModel : BindableBase, INotifyPropertyChanged
 	{
         public event PropertyChangedEventHandler PropertyChanged;
         public System.Windows.Input.ICommand EditorFABCommand { get; protected set; }
+        public string CategoryInput = "Question";
 
         public ObservableCollection<Message> LoadedMessages { get; } = new ObservableCollection<Message>();
 
@@ -54,6 +55,17 @@ namespace StudyBuddy.ViewModels
             });
         }
 
+        void OnPickerSelectedIndexChanged(object sender, EventArgs e)
+        {
+            var picker = (Picker)sender;
+            int selectedIndex = picker.SelectedIndex;
+
+            if (selectedIndex != -1)
+            {
+                CategoryInput = picker.Items[selectedIndex];
+            }
+        }
+
         public async void ComposeMessage()
         {
             Message message = new Message()
@@ -62,7 +74,7 @@ namespace StudyBuddy.ViewModels
                 SenderAvatar = MainPageViewModel.CurrentGoogleAvatar,
                 SenderName = MainPageViewModel.CurrentGoogleUsername,
                 Text = Input,
-                Category = "Question",
+                Category = CategoryInput,
                 Timestamp = DateTime.Now.Ticks.ToString()
             };
             Input = "";

@@ -4761,7 +4761,7 @@ namespace StudyBuddy.Droid
 			public const int play_white = 2130837831;
 			
 			// aapt resource value: 0x7f020148
-			public const int question = 2130837832;
+			public const int Question = 2130837832;
 			
 			// aapt resource value: 0x7f020149
 			public const int sb_icon = 2130837833;

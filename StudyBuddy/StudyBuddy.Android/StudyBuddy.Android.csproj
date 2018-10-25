@@ -105,7 +105,7 @@
     <AndroidResource Include="Resources\drawable\menu_white.png" />
     <AndroidResource Include="Resources\drawable\play_black.png" />
     <AndroidResource Include="Resources\drawable\play_white.png" />
-    <AndroidResource Include="Resources\drawable\question.png" />
+    <AndroidResource Include="Resources\drawable\Question.png" />
     <AndroidResource Include="Resources\drawable\sharedfile.png" />
   </ItemGroup>
   <ItemGroup>
