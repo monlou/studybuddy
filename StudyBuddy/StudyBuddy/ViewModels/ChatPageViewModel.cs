@@ -25,8 +25,8 @@ namespace StudyBuddy.ViewModels
     public class ChatPageViewModel : BindableBase, INotifyPropertyChanged
 	{
         public event PropertyChangedEventHandler PropertyChanged;
+        public string CategoryInput = "General"; 
         public System.Windows.Input.ICommand EditorFABCommand { get; protected set; }
-        public string CategoryInput = "Question";
 
         public ObservableCollection<Message> LoadedMessages { get; } = new ObservableCollection<Message>();
 
@@ -55,17 +55,6 @@ namespace StudyBuddy.ViewModels
             });
         }
 
-        void OnPickerSelectedIndexChanged(object sender, EventArgs e)
-        {
-            var picker = (Picker)sender;
-            int selectedIndex = picker.SelectedIndex;
-
-            if (selectedIndex != -1)
-            {
-                CategoryInput = picker.Items[selectedIndex];
-            }
-        }
-
         public async void ComposeMessage()
         {
             Message message = new Message()
@@ -87,6 +76,8 @@ namespace StudyBuddy.ViewModels
             if (handler != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
+
+
     }
 }
 #pragma warning restore CS0108 // Member hides inherited member; missing new keyword
