@@ -45,6 +45,7 @@ namespace StudyBuddy
             containerRegistry.RegisterForNavigation<FlashCardsPage>();
             containerRegistry.RegisterForNavigation<MaterialsPage>();
             containerRegistry.RegisterForNavigation<QuizPage>();
+            containerRegistry.RegisterForNavigation<FlashCardQuizPage>();
         }
     }
 }

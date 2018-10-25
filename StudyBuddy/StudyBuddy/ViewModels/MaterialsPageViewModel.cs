@@ -18,14 +18,25 @@ namespace StudyBuddy.ViewModels
         private INavigationService _navigationService;
         public ObservableCollection<CardDeck> LoadedFlashcards { get; } = new ObservableCollection<CardDeck>();
         public DelegateCommand AddNewCardCommand { get; set; }
+        public DelegateCommand StartQuizCommand { get; set; }
+
 
 
         public MaterialsPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             AddNewCardCommand = new DelegateCommand(AddNewCard);
+            StartQuizCommand = new DelegateCommand(StartQuiz);
+
             FlashDBService.FlashcardReceived += ChatClient_FlashcardReceived;
 
             _navigationService = navigationService;
+        }
+
+        public async void StartQuiz()
+        {
+            Console.WriteLine("Hit start quiz!");
+            await _navigationService.NavigateAsync("FlashCardQuizPage");
+
         }
 
         private void ChatClient_FlashcardReceived(CardDeck deck)

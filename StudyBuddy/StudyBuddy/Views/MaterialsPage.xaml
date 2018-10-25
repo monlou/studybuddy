@@ -11,7 +11,8 @@
         <ScrollView HorizontalOptions="Fill"
                         Margin="10"
                         VerticalOptions="FillAndExpand">
-            <ListView ItemsSource="{Binding LoadedFlashcards}"
+            <ListView x:Name="list"
+                      ItemsSource="{Binding LoadedFlashcards}"
 				      HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -43,6 +44,9 @@
 									           VerticalTextAlignment="Center"/>
                                             </StackLayout>
                                         </StackLayout>
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.StartQuizCommand, Source={x:Reference list}}"/>
+                                        </Frame.GestureRecognizers>
                                     </Frame>
                                 </StackLayout>
                             </StackLayout>
