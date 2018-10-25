@@ -26,7 +26,6 @@ namespace StudyBuddy.ViewModels
 	{
         public event PropertyChangedEventHandler PropertyChanged;
         public System.Windows.Input.ICommand EditorFABCommand { get; protected set; }
-
         public ObservableCollection<Message> LoadedMessages { get; } = new ObservableCollection<Message>();
 
         private string _pickerCategory;
@@ -77,12 +76,14 @@ namespace StudyBuddy.ViewModels
                 Timestamp = DateTime.Now.Ticks.ToString()
             };
             Input = "";
+
             await ChatDBService.UploadMessage(message);
         }
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             var handler = PropertyChanged;
+
             if (handler != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }

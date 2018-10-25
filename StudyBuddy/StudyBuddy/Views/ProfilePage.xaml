@@ -3,10 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="{Binding Title}"
              x:Class="StudyBuddy.Views.ProfilePage">
-    
     <StackLayout>
         <Button Text="Logout">
         </Button>
     </StackLayout>
-
 </ContentPage>

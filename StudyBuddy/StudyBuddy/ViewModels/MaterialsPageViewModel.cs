@@ -25,7 +25,6 @@ namespace StudyBuddy.ViewModels
             AddNewCardCommand = new DelegateCommand(AddNewCard);
             FlashDBService.FlashcardReceived += ChatClient_FlashcardReceived;
 
-
             _navigationService = navigationService;
         }
 

@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="{Binding Title}"
              x:Class="StudyBuddy.Views.GroupCreationPage">
-    
     <StackLayout>
         <Entry Placeholder="Unit Code"
                Keyboard="Chat"
@@ -18,8 +17,6 @@
                HorizontalOptions="FillAndExpand"
                VerticalOptions="EndAndExpand"
                Text="{Binding Input}">
-
         </Entry>
     </StackLayout>
-
 </ContentPage>

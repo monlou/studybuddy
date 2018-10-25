@@ -13,6 +13,7 @@ namespace StudyBuddy.ViewModels
     {
         public QuizPageViewModel(INavigationService navigationService) : base(navigationService)
         {
+
         }
 
     }

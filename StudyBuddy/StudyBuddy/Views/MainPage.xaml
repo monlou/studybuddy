@@ -4,11 +4,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:customControl="clr-namespace:StudyBuddy.Services;assembly=StudyBuddy"
              x:Class="StudyBuddy.Views.MainPage">
-
     <StackLayout HorizontalOptions="CenterAndExpand" 
                  VerticalOptions="CenterAndExpand"
                  Margin="20">
-        
         <StackLayout HorizontalOptions="CenterAndExpand">
             <Image Source="sb_icon.png" 
                WidthRequest="75" 
@@ -17,7 +15,6 @@
             <Label Text="StudyBuddy" 
                    FontSize="20"/>
         </StackLayout>
-        
         <customControl:ImageButton Source="google_signin"
                                    Margin="20" 
                                    Aspect="AspectFill" 
@@ -25,5 +22,4 @@
                                    AbsoluteLayout.LayoutBounds=".5,1,.5,.1" 
                                    AbsoluteLayout.LayoutFlags="All" /> 
     </StackLayout>
-
 </ContentPage>

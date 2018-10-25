@@ -8,7 +8,6 @@
              xmlns:controls="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
              x:Class="StudyBuddy.Views.MaterialsPage">
     <StackLayout>
-
         <ScrollView HorizontalOptions="Fill"
                         Margin="10"
                         VerticalOptions="FillAndExpand">
@@ -52,12 +51,10 @@
                 </ListView.ItemTemplate>
             </ListView>
         </ScrollView>
-
             <customControl:ImageButton Source="add_circle"
                                        HeightRequest="20"
                             Command="{Binding AddNewCardCommand}"
                             AbsoluteLayout.LayoutBounds=".5,1,.5,.1" 
                             AbsoluteLayout.LayoutFlags="All" />         
     </StackLayout>
-
 </ContentPage>

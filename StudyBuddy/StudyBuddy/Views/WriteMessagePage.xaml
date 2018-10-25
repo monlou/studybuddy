@@ -4,7 +4,6 @@
              xmlns:customControl="clr-namespace:StudyBuddy.Services;assembly=StudyBuddy"
              Title="{Binding Title}"
              x:Class="StudyBuddy.Views.WriteMessagePage">
-    
     <StackLayout Orientation="Horizontal" 
                      VerticalOptions="End"
                      Margin="10">

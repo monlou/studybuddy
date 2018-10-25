@@ -13,6 +13,7 @@ namespace StudyBuddy.ViewModels
     {
         public MenuPageViewModel(INavigationService navigationService) : base(navigationService)
         {
+
         }
     }
 }

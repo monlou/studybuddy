@@ -13,6 +13,7 @@ namespace StudyBuddy.ViewModels
     {
         public WriteMessagePageViewModel(INavigationService navigationService) : base(navigationService)
         {
+
         }
     }
 }

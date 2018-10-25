@@ -8,7 +8,6 @@
              xmlns:controls="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
              x:Class="StudyBuddy.Views.ChatPage">
     <StackLayout>
-            
         <ScrollView HorizontalOptions="Fill"
                         Margin="10"
                         VerticalOptions="FillAndExpand">
@@ -43,7 +42,6 @@
                 </ListView.ItemTemplate>
             </ListView>
         </ScrollView>
-
         <StackLayout Orientation="Horizontal" 
                      VerticalOptions="End"
                      Margin="10">
@@ -77,6 +75,5 @@
                 </StackLayout>
             </Frame>
         </StackLayout>
-            
     </StackLayout>
 </ContentPage>

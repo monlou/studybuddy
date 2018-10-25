@@ -18,6 +18,7 @@ namespace StudyBuddy.ViewModels
         private INavigationService _navigationService;
         public event PropertyChangedEventHandler ChangedProperty;
         public System.Windows.Input.ICommand CreateGroupCommand { get; protected set; }
+
         private string _input;
         public string Input
         {
@@ -52,6 +53,7 @@ namespace StudyBuddy.ViewModels
         private void OnChangedProperty([CallerMemberName] string propertyName = "")
         {
             var handler = ChangedProperty;
+
             if (handler != null)
                 ChangedProperty(this, new PropertyChangedEventArgs(propertyName));
         }

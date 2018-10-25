@@ -5,9 +5,6 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:local="clr-namespace:StudyBuddy.Views"
              x:Class="StudyBuddy.Views.Carousel">
-    <ContentPage.Toolbar>
-        
-    </ContentPage.Toolbar>
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="Quiz" 
                      Order="Primary" 
@@ -22,8 +19,6 @@
                      Priority="1" 
                      Command="{Binding NavProfileCommand}"/>
     </ContentPage.ToolbarItems>
-
     <local:MaterialsPage />
     <local:ChatPage />
-
 </CarouselPage>

@@ -4,7 +4,6 @@
              xmlns:custom="clr-namespace:XFormsRadioButton.CustomControls;assembly=XFormsRadioButton"
              Title="{Binding Title}"
              x:Class="StudyBuddy.Views.QuizPage">
-    
     <ScrollView HorizontalOptions="Fill"
                     Margin="10"
                 VerticalScrollBarVisibility="Always">
@@ -20,7 +19,6 @@
                 </Frame>
             </StackLayout>
         </ScrollView>
-    
     <ScrollView HorizontalOptions="Fill"
                 Margin="10">
         <StackLayout>
@@ -31,7 +29,6 @@
                        Padding="10">
                     <Label Text="Placeholder Question"/>
                 </Frame>
-                
                 <!-- Radio Buttons for selecting answer -->
                 <Label>
                     a)

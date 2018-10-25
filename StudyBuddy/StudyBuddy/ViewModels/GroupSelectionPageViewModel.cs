@@ -17,7 +17,9 @@ namespace StudyBuddy.ViewModels
     public class GroupSelectionPageViewModel : ViewModelBase
     {
         private INavigationService _navigationService;
+
         public event PropertyChangedEventHandler ChangedProperty;
+
         public System.Windows.Input.ICommand CreateGroupCommand { get; protected set; }
         public DelegateCommand LoadGroupsCommand { get; set; }
         public DelegateCommand SelectGroupCommand { get; set; }
@@ -46,12 +48,7 @@ namespace StudyBuddy.ViewModels
 
         public void LoadGroups()
         {
-            /*Content = new StackLayout
-            {
-                Children = {
-                    new Label { Text = "Hello ContentPage" }
-                }
-            };*/
+            //TODO
         }
 
         public async void SelectGroup()
@@ -61,16 +58,17 @@ namespace StudyBuddy.ViewModels
 
         public async void CreateGroup()
         {
-            await _navigationService.NavigateAsync("Carousel");
+            await _navigationService.NavigateAsync("GroupCreationPage");
         }
 
         public void SearchGroups() {
-
+            //TODO 
         }
 
         private void OnChangedProperty([CallerMemberName] string propertyName = "")
         {
             var handler = ChangedProperty;
+
             if (handler != null)
                 ChangedProperty(this, new PropertyChangedEventArgs(propertyName));
         }

@@ -22,7 +22,6 @@ namespace StudyBuddy.ViewModels
     {
         private INavigationService _navigationService;
         public event PropertyChangedEventHandler PropertyChanged;
-        //public DelegateCommand AddNewCardCommand { get; set; }
         public System.Windows.Input.ICommand SaveCardCommand { get; protected set; }
         public System.Windows.Input.ICommand SaveDeckCommand { get; protected set; }
         public List<Card> tempDeck;
@@ -73,7 +72,6 @@ namespace StudyBuddy.ViewModels
 
         public FlashCardsPageViewModel(INavigationService navigationService) : base(navigationService)
         {
-            //AddNewCardCommand = new DelegateCommand(AddNewCard);
             SaveCardCommand = new Command(SaveCard);
             SaveDeckCommand = new Command(SaveDeck);
             tempDeck = new List<Card>();
