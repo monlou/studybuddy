@@ -45,9 +45,6 @@
 									           VerticalTextAlignment="Center"/>
                                             </StackLayout>
                                         </StackLayout>
-                                        <Frame.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.StartQuizCommand, Source={x:Reference list}}"/>
-                                        </Frame.GestureRecognizers>
                                     </Frame>
                                 </StackLayout>
                             </StackLayout>
@@ -56,10 +53,18 @@
                 </ListView.ItemTemplate>
             </ListView>
         </ScrollView>
+        <StackLayout Orientation="Horizontal" Margin="10">
+            <customControl:ImageButton Source="play_black"
+                                    HeightRequest="20"
+                                    HorizontalOptions="Start"
+                                    Command="{Binding StartQuizCommand}" />
+
             <customControl:ImageButton Source="add_circle"
-                                       HeightRequest="20"
-                            Command="{Binding AddNewCardCommand}"
-                            AbsoluteLayout.LayoutBounds=".5,1,.5,.1" 
-                            AbsoluteLayout.LayoutFlags="All" />         
+                                    HeightRequest="20"
+                                    HorizontalOptions="End"
+                                    Command="{Binding AddNewCardCommand}"/>
+        </StackLayout>
+
+      
     </StackLayout>
 </ContentPage>

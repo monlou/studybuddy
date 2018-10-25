@@ -48,7 +48,6 @@ namespace StudyBuddy.ViewModels
 
         public async void StartQuiz()
         {
-            Console.WriteLine("===============Hit start quiz!");
             Console.WriteLine(SelectedFlashcardDeck.Name.ToString());
 
             await _navigationService.NavigateAsync("FlashCardQuizPage");
