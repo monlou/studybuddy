@@ -13,7 +13,7 @@ namespace StudyBuddy.ViewModels
     {
         public ProfilePageViewModel(INavigationService navigationService) : base(navigationService)
         {
-
+            Title = "Profile"; 
         }
     }
 }

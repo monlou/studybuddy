@@ -4,6 +4,7 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:local="clr-namespace:StudyBuddy.Views"
+             Title="Materials"
              x:Class="StudyBuddy.Views.FlashCardsPage">
     <StackLayout>
         

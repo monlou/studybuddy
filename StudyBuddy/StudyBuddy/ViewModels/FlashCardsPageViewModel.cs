@@ -87,8 +87,7 @@ namespace StudyBuddy.ViewModels
             SaveDeckCommand = new Command(SaveDeck);
             tempDeck = new List<Card>();
 
-
-        _navigationService = navigationService;
+            _navigationService = navigationService;
         }
 
         public void ResetInputs()

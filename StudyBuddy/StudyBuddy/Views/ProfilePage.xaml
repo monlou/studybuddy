@@ -4,6 +4,17 @@
              Title="{Binding Title}"
              x:Class="StudyBuddy.Views.ProfilePage">
     <StackLayout>
+        <!--<Image Source="{Binding SenderAvatar}" 
+               HorizontalOptions="Start" 
+               VerticalOptions="Start" 
+               WidthRequest="50" 
+               HeightRequest="50"/>
+        <StackLayout>
+            <Label Text="{Binding SenderName}"
+                   FontAttributes="Bold"       
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"/>
+        </StackLayout> -->
         <Button Text="Logout">
         </Button>
     </StackLayout>

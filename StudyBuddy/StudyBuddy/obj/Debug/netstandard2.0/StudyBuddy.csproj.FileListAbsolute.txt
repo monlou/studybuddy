@@ -41,3 +41,4 @@ C:/Users/Rohan/Documents/GitHub/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netst
 /Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/Views/QuizPage.xaml.g.cs
 /Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/Views/GroupCreationPage.xaml.g.cs
 /Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/Views/WriteMessagePage.xaml.g.cs
+/Users/Monique/Documents/IAB330/Assessment/Assignment 3/studybuddy/StudyBuddy/StudyBuddy/obj/Debug/netstandard2.0/Views/FlashCardQuizPage.xaml.g.cs

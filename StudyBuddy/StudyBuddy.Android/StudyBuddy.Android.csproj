@@ -107,6 +107,11 @@
     <AndroidResource Include="Resources\drawable\play_white.png" />
     <AndroidResource Include="Resources\drawable\Question.png" />
     <AndroidResource Include="Resources\drawable\sharedfile.png" />
+    <AndroidResource Include="Resources\drawable\Assessment.png" />
+    <AndroidResource Include="Resources\drawable\Events.png" />
+    <AndroidResource Include="Resources\drawable\Homework.png" />
+    <AndroidResource Include="Resources\drawable\Offtopic.png" />
+    <AndroidResource Include="Resources\drawable\Study.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
