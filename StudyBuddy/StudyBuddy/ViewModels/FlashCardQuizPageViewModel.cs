@@ -26,7 +26,7 @@ namespace StudyBuddy.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         public System.Windows.Input.ICommand SubmitCommand { get; protected set; }
 
-        public static CardDeck loadedQuiz = new CardDeck();
+        //public static CardDeck loadedQuiz = new CardDeck();
 
         private string _quizName;
         public string QuizName
@@ -99,21 +99,7 @@ namespace StudyBuddy.ViewModels
             _navigationService = navigationService;
             SubmitCommand = new Command(SubmitAnswer);
 
-            MainPageViewModel.events.GetEvent<QuizEvent>().Subscribe(x =>
-            {
-                Console.WriteLine("HIT PREPARE QUIZ");
-
-
-                loadedQuiz = x;
-
-                QuizName = loadedQuiz.Name.ToString();
-                Creator = loadedQuiz.CreatorName.ToString();
-                QuestionText = loadedQuiz.DeckContents[0].QuestionText.ToString();
-                AnswerText = loadedQuiz.DeckContents[0].CorrectText.ToString();
-                Wrong1Text = loadedQuiz.DeckContents[0].WrongTextOne.ToString();
-                Wrong2Text = loadedQuiz.DeckContents[0].WrongTextTwo.ToString();
-                OnPropertyChanged(string.Empty);
-            });
+            MainPageViewModel.events.GetEvent<QuizEvent>().Subscribe(PrepareQuiz);
         }
 
         private void SubmitAnswer()
@@ -126,12 +112,12 @@ namespace StudyBuddy.ViewModels
 
 
 
-            QuizName = loadedQuiz.Name.ToString();
-            Creator = loadedQuiz.CreatorName.ToString();
-            QuestionText = loadedQuiz.DeckContents[0].QuestionText.ToString();
-            AnswerText = loadedQuiz.DeckContents[0].CorrectText.ToString();
-            Wrong1Text = loadedQuiz.DeckContents[0].WrongTextOne.ToString();
-            Wrong2Text = loadedQuiz.DeckContents[0].WrongTextTwo.ToString();
+            //QuizName = loadedQuiz.Name.ToString();
+            //Creator = loadedQuiz.CreatorName.ToString();
+            //QuestionText = loadedQuiz.DeckContents[0].QuestionText.ToString();
+            //AnswerText = loadedQuiz.DeckContents[0].CorrectText.ToString();
+            //Wrong1Text = loadedQuiz.DeckContents[0].WrongTextOne.ToString();
+            //Wrong2Text = loadedQuiz.DeckContents[0].WrongTextTwo.ToString();
 
             Console.WriteLine(AnswerText);
         }
@@ -141,17 +127,15 @@ namespace StudyBuddy.ViewModels
             Console.WriteLine("HIT PREPARE QUIZ");
 
 
-            loadedQuiz = quiz;
+            //loadedQuiz = quiz;
 
-            QuizName = loadedQuiz.Name.ToString();
-            Creator = loadedQuiz.CreatorName.ToString();
-            QuestionText = loadedQuiz.DeckContents[0].QuestionText.ToString();
-            AnswerText = loadedQuiz.DeckContents[0].CorrectText.ToString();
-            Wrong1Text = loadedQuiz.DeckContents[0].WrongTextOne.ToString();
-            Wrong2Text = loadedQuiz.DeckContents[0].WrongTextTwo.ToString();
+            QuizName = quiz.Name.ToString();
+            Creator = quiz.CreatorName.ToString();
+            QuestionText = quiz.DeckContents[0].QuestionText.ToString();
+            AnswerText = quiz.DeckContents[0].CorrectText.ToString();
+            Wrong1Text = quiz.DeckContents[0].WrongTextOne.ToString();
+            Wrong2Text = quiz.DeckContents[0].WrongTextTwo.ToString();
 
-            //Console.WriteLine(loadedQuiz.Name.ToString());
-            //Console.WriteLine(loadedQuiz.DeckContents[0].QuestionText.ToString());
         }
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = "")

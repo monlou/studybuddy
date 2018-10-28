@@ -53,10 +53,11 @@ namespace StudyBuddy.ViewModels
 
         public async void StartQuiz()
         {
-            MainPageViewModel.events.GetEvent<QuizEvent>().Publish(SelectedFlashcardDeck);
 
 
             await _navigationService.NavigateAsync("FlashCardQuizPage");
+            MainPageViewModel.events.GetEvent<QuizEvent>().Publish(SelectedFlashcardDeck);
+
 
         }
 

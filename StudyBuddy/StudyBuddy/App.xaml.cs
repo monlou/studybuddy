@@ -5,6 +5,7 @@ using StudyBuddy.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Prism.Unity;
+using Prism.Events;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace StudyBuddy
@@ -46,6 +47,8 @@ namespace StudyBuddy
             containerRegistry.RegisterForNavigation<MaterialsPage>();
             containerRegistry.RegisterForNavigation<QuizPage>();
             containerRegistry.RegisterForNavigation<FlashCardQuizPage>();
+
+            containerRegistry.RegisterSingleton<IEventAggregator, EventAggregator>();
         }
     }
 }
