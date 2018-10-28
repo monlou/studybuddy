@@ -10,13 +10,34 @@
             <Label Text="{Binding QuizName}" FontAttributes="Bold"/>
             <Label Text="{Binding Creator, StringFormat='by {0:F0}'}" TextColor="LightGray"/>
         </StackLayout>
-   
+
+        <StackLayout Orientation="Horizontal">
+            <Label Text="{Binding Counter, StringFormat='Flashcard {0:F0} of '}"/>
+            <Label Text="{Binding Length}"/>
+        </StackLayout>
+
+
         <Frame Padding="10">
             <StackLayout HorizontalOptions="Fill" VerticalOptions="Center">
                 <Label Text="Question" FontAttributes="Bold"/>
                 <Label Text="{Binding QuestionText}"/>
             </StackLayout>
         </Frame>
+
+
+        <Frame Padding="10" BackgroundColor="{Binding SubmitButtonColour}" VerticalOptions="CenterAndExpand" IsVisible="{Binding HasSubmitted}">
+            <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal">
+                <Label Text="The answer was " />
+                <Label Text="{Binding AnswerText}" FontAttributes="Bold"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="And your answer was " />
+                <Label Text="{Binding Submission}" FontAttributes="Bold"/>
+            </StackLayout>
+            </StackLayout>
+        </Frame>
+        
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
             <Editor Placeholder="Write your answer"
                     Keyboard="Chat"

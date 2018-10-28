@@ -26,7 +26,54 @@ namespace StudyBuddy.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         public System.Windows.Input.ICommand SubmitButtonCommand { get; protected set; }
 
+        private string _exclamation;
+        private int _correctSubmissions;
+        private CardDeck _deck;
+
+        private bool _hasSubmitted;
+        public bool HasSubmitted
+        {
+            get { return _hasSubmitted; }
+            set
+            {
+                _hasSubmitted = value;
+                OnPropertyChanged(nameof(HasSubmitted));
+            }
+        }
+
         private string _submission;
+        public string Submission
+        {
+            get { return _submission; }
+            set
+            {
+                _submission = value;
+                OnPropertyChanged(nameof(Submission));
+            }
+        }
+
+        private int _length;
+        public int Length
+        {
+            get { return _length; }
+            set
+            {
+                _length = value;
+                OnPropertyChanged(nameof(Length));
+            }
+        }
+
+        private int _counter;
+        public int Counter
+        {
+            get { return _counter; }
+            set
+            {
+                _counter = value;
+                OnPropertyChanged(nameof(Counter));
+            }
+        }
+
 
         private string _quizName;
         public string QuizName
@@ -111,42 +158,120 @@ namespace StudyBuddy.ViewModels
         {
             _navigationService = navigationService;
             SubmitButtonCommand = new Command(SubmitAnswer);
+
+            _deck = new CardDeck();
+            _correctSubmissions = 0;
+            Counter = 1;
+            _exclamation = "";
+
+            ResetPage();
+
+            MainPageViewModel.events.GetEvent<QuizEvent>().Subscribe(PrepareQuiz);
+        }
+
+        private void ResetPage()
+        {
+            Submission = "";
+            HasSubmitted = false;
             SubmitButtonColour = Color.White;
             SubmitButtonText = "Submit";
-            _submission = "";
-            MainPageViewModel.events.GetEvent<QuizEvent>().Subscribe(PrepareQuiz);
+            Input = "";
         }
 
         private void SubmitAnswer()
         {
-            Console.WriteLine("HIT SUBMIT ANSWER");
-            _submission = Input;
-            QuizLogic();
+            if (HasSubmitted)
+            {
+                Counter++;
+                ProceedLogic();
+            } else
+            {
+                Submission = Input;
+                QuizLogic();
+            }
         }
 
         private void QuizLogic()
         {
-            Console.WriteLine("HIT Quiz logic");
-            if (_submission == AnswerText.ToString())
+            if (Submission == AnswerText.ToString())
             {
                 SubmitButtonColour = Color.Green;
-                SubmitButtonText = "Correct!";
+                SubmitButtonText = "Correct! Tap to Proceed";
+                _correctSubmissions++;
             }
             else
             {
                 SubmitButtonColour = Color.Red;
-                SubmitButtonText = "Incorrect!";
-
+                SubmitButtonText = "Incorrect! Tap to Proceed";
             }
-
+            HasSubmitted = true;
         }
 
-        public void PrepareQuiz(CardDeck quiz)
+        private void ProceedLogic()
         {
-            QuizName = quiz.Name.ToString();
-            Creator = quiz.CreatorName.ToString();
-            QuestionText = quiz.DeckContents[0].QuestionText.ToString();
-            AnswerText = quiz.DeckContents[0].AnswerText.ToString();
+            if (Counter > Length)
+            {
+                FinishQuiz();
+            }
+            else
+            {
+                ResetPage();
+                QuestionText = _deck.DeckContents[Counter-1].QuestionText.ToString();
+                AnswerText = _deck.DeckContents[Counter-1].AnswerText.ToString();
+            }
+        }
+
+        private void PrepareQuiz(CardDeck quiz)
+        {
+            _deck = quiz;
+            QuizName = _deck.Name.ToString();
+            Creator = _deck.CreatorName.ToString();
+            Length = _deck.Length;
+            QuestionText = _deck.DeckContents[0].QuestionText.ToString();
+            AnswerText = _deck.DeckContents[0].AnswerText.ToString();
+        }
+
+        private async void FinishQuiz()
+        {
+
+            DecideExclamation();
+
+            Message message = new Message()
+            {
+                ObjType = "Msg",
+                SenderName = "AnnouncerBot",
+                Text = MainPageViewModel.CurrentGoogleUsername 
+                + " just got " + _correctSubmissions + " out of " + Length 
+                + " flashcards right playing " + Creator + "'s " + QuizName 
+                + " deck! " + _exclamation,
+                Category = "Announcement",
+                Timestamp = DateTime.Now.Ticks.ToString()
+            };
+
+            await ChatDBService.UploadMessage(message);
+            await _navigationService.GoBackAsync();
+        }
+
+        private void DecideExclamation()
+        {
+            if (_correctSubmissions == 0)
+            {
+                _exclamation = "Ouch! Study up, buddy.";
+            } else if (_correctSubmissions < (Length / 2) && (_correctSubmissions > 0))
+            {
+                _exclamation = "Try harder next time!";
+
+            } else if (_correctSubmissions == (Length / 2)) {
+                _exclamation = "Not bad, getting there.";
+
+            } else if ((_correctSubmissions > (Length / 2)) && (_correctSubmissions < Length))
+            {
+                _exclamation = "Almost got it! Next time.";
+
+            } else
+            {
+                _exclamation = "Wow! Be proud. Now make some flashcards of your own.";
+            }
         }
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = "")
