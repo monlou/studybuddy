@@ -7,6 +7,7 @@ using Prism.Services;
 using StudyBuddy.Models;
 using StudyBuddy.Services;
 using System.Threading.Tasks;
+using Prism.Events;
 
 namespace StudyBuddy.ViewModels
 {
@@ -17,6 +18,7 @@ namespace StudyBuddy.ViewModels
         private readonly IPageDialogService _dialogService;
         readonly ChatDBService chat = new ChatDBService();
         readonly FlashDBService flashcards = new FlashDBService();
+        public static EventAggregator events = new EventAggregator();
 
         public DelegateCommand LoginCommand { get; set; }
 

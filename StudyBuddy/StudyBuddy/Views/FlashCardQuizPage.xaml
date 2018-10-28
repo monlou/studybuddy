@@ -6,22 +6,37 @@
              x:Class="StudyBuddy.Views.FlashCardQuizPage">
 
     <StackLayout Orientation="Vertical" Margin="10">
+        <Label Text="{Binding QuizName}" FontAttributes="Bold"/>
+        <Label Text="{Binding Creator}" TextColor="LightGray"/>
+
         <Frame Padding="10">
             <StackLayout HorizontalOptions="Fill" VerticalOptions="Center">
                 <Label Text="Question" FontAttributes="Bold"/>
-                <Label Text="What is the powerhouse of the cell?"/>
+                <Label Text="{Binding QuestionText}"/>
             </StackLayout>
         </Frame>
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
-            <Picker x:Name="picker"
-                            SelectedIndex="0">
-                <Picker.Items>
-                    <x:String>Answer1</x:String>
-                    <x:String>Answer2</x:String>
-                    <x:String>Answer3</x:String>
-                </Picker.Items>
-            </Picker>
+            <ListView x:Name="listView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical">
+                                <Frame>
+                                    <Label Text="{Binding AnswerText}"/>
+                                </Frame>
+                                <Frame>
+                                    <Label Text="{Binding Wrong1Text}"/>
+                                </Frame>
+                                <Frame>
+                                    <Label Text="{Binding Wrong2Text}"/>
+                                </Frame>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
-        <Button Text="Submit"></Button>
+        <Button Text="Submit" Command="{Binding SubmitCommand}"></Button>
     </StackLayout>
+
 </ContentPage>

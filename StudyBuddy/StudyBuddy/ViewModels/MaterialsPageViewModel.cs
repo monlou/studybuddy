@@ -1,4 +1,5 @@
 using Prism.Commands;
+using Prism.Events;
 using Prism.Navigation;
 using StudyBuddy.Models;
 using StudyBuddy.Services;
@@ -20,7 +21,11 @@ namespace StudyBuddy.ViewModels
         public DelegateCommand AddNewCardCommand { get; set; }
         public DelegateCommand StartQuizCommand { get; set; }
 
+
+
+
         public CardDeck _selectedFlashcardDeck;
+
         public CardDeck SelectedFlashcardDeck
         {
             get
@@ -48,7 +53,9 @@ namespace StudyBuddy.ViewModels
 
         public async void StartQuiz()
         {
-            FlashCardQuizPageViewModel.ReceiveQuizDeck(SelectedFlashcardDeck);
+            MainPageViewModel.events.GetEvent<QuizEvent>().Publish(SelectedFlashcardDeck);
+
+
             await _navigationService.NavigateAsync("FlashCardQuizPage");
 
         }
