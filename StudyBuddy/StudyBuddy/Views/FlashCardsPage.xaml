@@ -9,35 +9,27 @@
     <StackLayout>
         
         <ScrollView HorizontalOptions="Fill"
-                        Margin="10">
+                        Margin="15">
             <StackLayout>
-                <Label Text="Create Flashcards"/>
-                <Frame>
-                    <StackLayout>
-                        <Editor Text="{Binding DeckName}"
-                                Placeholder="Name of Flashcard Deck" 
-                                PlaceholderColor="Gray" 
-                                TextColor="Black" 
-                                HeightRequest="150" 
-                                WidthRequest="250">
-                        </Editor>
-                    </StackLayout>
-                </Frame>
-                <Label Text="Front"/>
-                <Frame>
-                    <StackLayout>
-                        <Editor Text="{Binding QuestionInput}"
+                <Label Text="Create Your Flashcard" FontAttributes="Bold"/>
+                <Editor Text="{Binding DeckName}"
+                        Placeholder="Name of the deck" 
+                        PlaceholderColor="Gray" 
+                        TextColor="Black" 
+                        HeightRequest="150" 
+                        WidthRequest="250">
+                </Editor>
+                <Frame Margin ="15" 
+                       Padding="10">
+                    <Editor Text="{Binding QuestionInput}"
                                 Placeholder="Question" 
                                 PlaceholderColor="Gray" 
                                 TextColor="Black" 
                                 HeightRequest="150" 
                                 WidthRequest="250">
                         </Editor>
-                    </StackLayout>
                 </Frame>
-                <Label Text="Back"/>
-                <Frame BackgroundColor="White" 
-                       Margin ="0" 
+                <Frame Margin ="15" 
                        Padding="10">
                     <Editor Text="{Binding AnswerInput}"
                                 Placeholder="Answer" 
@@ -47,18 +39,10 @@
                                 WidthRequest="250">
                     </Editor>
                 </Frame>
-                <Label Text="Quiz Options"/>
-                <Editor Text="{Binding Wrong1Input}"
-                        Placeholder="Incorrect Answer">
-                </Editor>
-                <Editor Text="{Binding Wrong2Input}"
-                        Placeholder="Incorrect Answer">
-                </Editor>
-
             </StackLayout>
         </ScrollView>
         
-        <Button Text="Add Another Flashcard" Command="{Binding SaveCardCommand}"></Button>
+        <Button Text="Add Flashcard" Command="{Binding SaveCardCommand}"></Button>
         <Button Text="Done" Command="{Binding SaveDeckCommand}"></Button>
         
     </StackLayout>

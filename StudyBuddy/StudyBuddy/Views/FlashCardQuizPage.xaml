@@ -6,9 +6,11 @@
              x:Class="StudyBuddy.Views.FlashCardQuizPage">
 
     <StackLayout Orientation="Vertical" Margin="10">
-        <Label Text="{Binding QuizName}" FontAttributes="Bold"/>
-        <Label Text="{Binding Creator}" TextColor="LightGray"/>
-
+        <StackLayout Orientation="Horizontal">
+            <Label Text="{Binding QuizName}" FontAttributes="Bold"/>
+            <Label Text="{Binding Creator, StringFormat='by {0:F0}'}" TextColor="LightGray"/>
+        </StackLayout>
+   
         <Frame Padding="10">
             <StackLayout HorizontalOptions="Fill" VerticalOptions="Center">
                 <Label Text="Question" FontAttributes="Bold"/>
@@ -16,27 +18,14 @@
             </StackLayout>
         </Frame>
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
-            <ListView x:Name="listView">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Orientation="Vertical">
-                                <Frame>
-                                    <Label Text="{Binding AnswerText}"/>
-                                </Frame>
-                                <Frame>
-                                    <Label Text="{Binding Wrong1Text}"/>
-                                </Frame>
-                                <Frame>
-                                    <Label Text="{Binding Wrong2Text}"/>
-                                </Frame>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <Editor Placeholder="Write your answer"
+                    Keyboard="Chat"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="EndAndExpand"
+                    Text="{Binding Input}">
+            </Editor>
         </StackLayout>
-        <Button Text="Submit" Command="{Binding SubmitCommand}"></Button>
+        <Button Text="{Binding SubmitButtonText}" TextColor="Black" Command="{Binding SubmitButtonCommand}" BackgroundColor="{Binding SubmitButtonColour}"></Button>
     </StackLayout>
 
 </ContentPage>

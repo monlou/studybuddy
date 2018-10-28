@@ -24,9 +24,9 @@ namespace StudyBuddy.ViewModels
         private INavigationService _navigationService;
 
         public event PropertyChangedEventHandler PropertyChanged;
-        public System.Windows.Input.ICommand SubmitCommand { get; protected set; }
+        public System.Windows.Input.ICommand SubmitButtonCommand { get; protected set; }
 
-        //public static CardDeck loadedQuiz = new CardDeck();
+        private string _submission;
 
         private string _quizName;
         public string QuizName
@@ -72,70 +72,81 @@ namespace StudyBuddy.ViewModels
             }
         }
 
-        private string _wrong1Text;
-        public string Wrong1Text
+        private string _submitButtonText;
+        public string SubmitButtonText
         {
-            get { return _wrong1Text; }
+            get { return _submitButtonText; }
             set
             {
-                _wrong1Text = value;
-                OnPropertyChanged(nameof(Wrong1Text));
+                _submitButtonText = value;
+                OnPropertyChanged(nameof(SubmitButtonText));
             }
         }
 
-        private string _wrong2Text;
-        public string Wrong2Text
+        private Color _submitButtonColour;
+        public Color SubmitButtonColour
         {
-            get { return _wrong2Text; }
+            get { return _submitButtonColour; }
             set
             {
-                _wrong2Text = value;
-                OnPropertyChanged(nameof(Wrong2Text));
+                _submitButtonColour = value;
+                OnPropertyChanged(nameof(SubmitButtonColour));
             }
         }
+
+        private string _input;
+        public string Input
+        {
+            get { return _input; }
+            set
+            {
+                _input = value;
+                OnPropertyChanged(nameof(Input));
+            }
+        }
+
+
 
         public FlashCardQuizPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             _navigationService = navigationService;
-            SubmitCommand = new Command(SubmitAnswer);
-
+            SubmitButtonCommand = new Command(SubmitAnswer);
+            SubmitButtonColour = Color.White;
+            SubmitButtonText = "Submit";
+            _submission = "";
             MainPageViewModel.events.GetEvent<QuizEvent>().Subscribe(PrepareQuiz);
         }
 
         private void SubmitAnswer()
         {
             Console.WriteLine("HIT SUBMIT ANSWER");
+            _submission = Input;
+            QuizLogic();
+        }
 
-            Console.WriteLine(QuizName);
+        private void QuizLogic()
+        {
+            Console.WriteLine("HIT Quiz logic");
+            if (_submission == AnswerText.ToString())
+            {
+                SubmitButtonColour = Color.Green;
+                SubmitButtonText = "Correct!";
+            }
+            else
+            {
+                SubmitButtonColour = Color.Red;
+                SubmitButtonText = "Incorrect!";
 
-            //Console.WriteLine("loaded quiz name: " + loadedQuiz.Name.ToString());
+            }
 
-
-
-            //QuizName = loadedQuiz.Name.ToString();
-            //Creator = loadedQuiz.CreatorName.ToString();
-            //QuestionText = loadedQuiz.DeckContents[0].QuestionText.ToString();
-            //AnswerText = loadedQuiz.DeckContents[0].CorrectText.ToString();
-            //Wrong1Text = loadedQuiz.DeckContents[0].WrongTextOne.ToString();
-            //Wrong2Text = loadedQuiz.DeckContents[0].WrongTextTwo.ToString();
-
-            Console.WriteLine(AnswerText);
         }
 
         public void PrepareQuiz(CardDeck quiz)
         {
-            Console.WriteLine("HIT PREPARE QUIZ");
-
-
-            //loadedQuiz = quiz;
-
             QuizName = quiz.Name.ToString();
             Creator = quiz.CreatorName.ToString();
             QuestionText = quiz.DeckContents[0].QuestionText.ToString();
-            AnswerText = quiz.DeckContents[0].CorrectText.ToString();
-            Wrong1Text = quiz.DeckContents[0].WrongTextOne.ToString();
-            Wrong2Text = quiz.DeckContents[0].WrongTextTwo.ToString();
-
+            AnswerText = quiz.DeckContents[0].AnswerText.ToString();
         }
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = "")

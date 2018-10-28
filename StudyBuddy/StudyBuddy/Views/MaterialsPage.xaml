@@ -43,6 +43,11 @@
                                                 <Label Text="{Binding Name}"
 									           HorizontalTextAlignment="Start"
 									           VerticalTextAlignment="Center"/>
+                                                <Label Text="{Binding Length, StringFormat='Contains {0:F0} flashcards'}"
+                                                       TextColor="LightGray"
+                                                       FontAttributes="Italic"
+									           HorizontalTextAlignment="Start"
+									           VerticalTextAlignment="Center"/>
                                             </StackLayout>
                                         </StackLayout>
                                     </Frame>

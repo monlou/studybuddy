@@ -59,28 +59,6 @@ namespace StudyBuddy.ViewModels
             }
         }
 
-        private string _wrong1Input;
-        public string Wrong1Input
-        {
-            get { return _wrong1Input; }
-            set
-            {
-                _wrong1Input = value;
-                OnPropertyChanged(nameof(Wrong1Input));
-            }
-        }
-
-        private string _wrong2Input;
-        public string Wrong2Input
-        {
-            get { return _wrong2Input; }
-            set
-            {
-                _wrong2Input = value;
-                OnPropertyChanged(nameof(Wrong2Input));
-            }
-        }
-
         public FlashCardsPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             SaveCardCommand = new Command(SaveCard);
@@ -94,8 +72,6 @@ namespace StudyBuddy.ViewModels
         {
             QuestionInput = "";
             AnswerInput = "";
-            Wrong1Input = "";
-            Wrong2Input = "";
         }
 
         public void SaveCard()
@@ -103,9 +79,7 @@ namespace StudyBuddy.ViewModels
             Card flashcard = new Card()
             {
                 QuestionText = QuestionInput,
-                CorrectText = AnswerInput,
-                WrongTextOne = Wrong1Input,
-                WrongTextTwo = Wrong2Input
+                AnswerText = AnswerInput
             };
 
             ResetInputs();
@@ -121,7 +95,8 @@ namespace StudyBuddy.ViewModels
                 CreatorAvatar = MainPageViewModel.CurrentGoogleAvatar,
                 CreatorName = MainPageViewModel.CurrentGoogleUsername,
                 Timestamp = DateTime.Now.Ticks.ToString(),
-                DeckContents = tempDeck
+                DeckContents = tempDeck,
+                Length = tempDeck.Count
             };
 
             await FlashDBService.UploadFlashCard(deck);

@@ -10,6 +10,7 @@ namespace StudyBuddy.Models
         public Uri CreatorAvatar { get; set; }
         public string CreatorName { get; set; }
         public List<Card> DeckContents { get; set; }
+        public int Length { get; set; }
         public string Timestamp { get; set; }
     }
 }
