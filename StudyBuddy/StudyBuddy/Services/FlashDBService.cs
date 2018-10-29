@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Microsoft.Azure.Documents.ChangeFeedProcessor;
 using Microsoft.Azure.Documents;
 using Newtonsoft.Json;
+using System.Diagnostics;
+using Microsoft.Azure.Documents.Linq;
 
 namespace StudyBuddy.Services
 {
@@ -17,6 +19,9 @@ namespace StudyBuddy.Services
 
         static DocumentClient FlashClient;
         static Uri CollectionLink;
+
+        private static List<CardDeck> _flashcards;
+
 
         public FlashDBService()
         {
@@ -46,6 +51,29 @@ namespace StudyBuddy.Services
             Console.WriteLine("Created a new flashcard deck in " + CollectionLink);
 
         }
+
+        public async static Task<List<CardDeck>> LoadFlashcards()
+        {
+            _flashcards = new List<CardDeck>();
+
+            try
+            {
+                var query = FlashClient.CreateDocumentQuery<CardDeck>(CollectionLink)
+                                  .AsDocumentQuery();
+
+                while (query.HasMoreResults)
+                {
+                    _flashcards.AddRange(await query.ExecuteNextAsync<CardDeck>());
+                }
+            }
+            catch (DocumentClientException ex)
+            {
+                Debug.WriteLine("Error: ", ex.Message);
+            }
+
+            return _flashcards;
+        }
+
 
         public async Task RunChangeFeedHostAsync()
         {

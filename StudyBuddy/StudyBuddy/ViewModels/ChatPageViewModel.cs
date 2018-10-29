@@ -89,7 +89,6 @@ namespace StudyBuddy.ViewModels
 
         private async void LoadMessages()
         {
-            Console.WriteLine("HIT LOAD Messages");
             _loadedMessages = await ChatDBService.LoadMessages();
 
             foreach (var message in _loadedMessages)

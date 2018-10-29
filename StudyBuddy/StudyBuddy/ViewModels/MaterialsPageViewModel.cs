@@ -4,6 +4,7 @@ using Prism.Navigation;
 using StudyBuddy.Models;
 using StudyBuddy.Services;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -17,7 +18,10 @@ namespace StudyBuddy.ViewModels
     {
         private INavigationService _navigationService;
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private List<CardDeck> _loadedFlashcards;
         public ObservableCollection<CardDeck> LoadedFlashcards { get; } = new ObservableCollection<CardDeck>();
+
         public DelegateCommand AddNewCardCommand { get; set; }
         public DelegateCommand StartQuizCommand { get; set; }
 
@@ -43,12 +47,16 @@ namespace StudyBuddy.ViewModels
 
         public MaterialsPageViewModel(INavigationService navigationService) : base(navigationService)
         {
+            _navigationService = navigationService;
+
             AddNewCardCommand = new DelegateCommand(AddNewCard);
             StartQuizCommand = new DelegateCommand(StartQuiz);
 
+            _loadedFlashcards = new List<CardDeck>();
+            LoadFlashcards();
+
             FlashDBService.FlashcardReceived += ChatClient_FlashcardReceived;
 
-            _navigationService = navigationService;
         }
 
         public async void StartQuiz()
@@ -72,6 +80,16 @@ namespace StudyBuddy.ViewModels
         public async void AddNewCard()
         {
             await _navigationService.NavigateAsync("FlashCardsPage");
+        }
+
+        private async void LoadFlashcards()
+        {
+            _loadedFlashcards = await FlashDBService.LoadFlashcards();
+
+            foreach (var message in _loadedFlashcards)
+            {
+                this.LoadedFlashcards.Add(message);
+            }
         }
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = "")
