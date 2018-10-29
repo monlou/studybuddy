@@ -31,7 +31,8 @@
                         Margin="10"
                         VerticalOptions="FillAndExpand">
             <ListView ItemsSource="{Binding LoadedGroups}"
-				      HasUnevenRows="True">
+				      HasUnevenRows="True"
+                      SelectedItem="{Binding SelectedGroup}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

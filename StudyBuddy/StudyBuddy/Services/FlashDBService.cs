@@ -10,6 +10,7 @@ using Microsoft.Azure.Documents;
 using Newtonsoft.Json;
 using System.Diagnostics;
 using Microsoft.Azure.Documents.Linq;
+using StudyBuddy.ViewModels;
 
 namespace StudyBuddy.Services
 {
@@ -26,7 +27,7 @@ namespace StudyBuddy.Services
         public FlashDBService()
         {
             FlashClient = new DocumentClient(new Uri(Keys.CosmosDBUri), Keys.CosmosDBKey);
-            CollectionLink = UriFactory.CreateDocumentCollectionUri("Chat", "Flashcards");
+            CollectionLink = UriFactory.CreateDocumentCollectionUri(GroupSelectionPageViewModel.SelectedDBName, "Flashcards");
             DocumentFeedObserver.FlashcardDocumentReceived += Observer_DocumentReceived;
 
         }
@@ -86,7 +87,7 @@ namespace StudyBuddy.Services
             {
                 Uri = new Uri(Keys.CosmosDBUri),
                 MasterKey = Keys.CosmosDBKey,
-                DatabaseName = "Chat",
+                DatabaseName = GroupSelectionPageViewModel.SelectedDBName,
                 CollectionName = "Flashcards"
             };
 
@@ -95,7 +96,7 @@ namespace StudyBuddy.Services
             {
                 Uri = new Uri(Keys.CosmosDBUri),
                 MasterKey = Keys.CosmosDBKey,
-                DatabaseName = "Chat",
+                DatabaseName = GroupSelectionPageViewModel.SelectedDBName,
                 CollectionName = "FlashLease"
             };
             DocumentFeedObserverFactory docObserverFactory = new DocumentFeedObserverFactory();

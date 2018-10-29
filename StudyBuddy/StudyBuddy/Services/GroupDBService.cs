@@ -26,6 +26,43 @@ namespace StudyBuddy.Services
             CollectionLink = UriFactory.CreateDocumentCollectionUri("Master", "Groups");
         }
 
+        public static async Task CreateDatabase(string databaseName)
+        {
+            try
+            {
+                await GroupClient.CreateDatabaseIfNotExistsAsync(new Database
+                {
+                    Id = databaseName
+                });
+            }
+            catch (DocumentClientException ex)
+            {
+                Debug.WriteLine("Error: ", ex.Message);
+            }
+        }
+
+        public static async Task CreateDocumentCollection(string databaseName, string collectionName)
+        {
+            try
+            {
+                // Create collection with 400 RU/s
+                await GroupClient.CreateDocumentCollectionIfNotExistsAsync(
+                    UriFactory.CreateDatabaseUri(databaseName),
+                    new DocumentCollection
+                    {
+                        Id = collectionName
+                    },
+                    new RequestOptions
+                    {
+                        OfferThroughput = 400
+                    });
+            }
+            catch (DocumentClientException ex)
+            {
+                Debug.WriteLine("Error: ", ex.Message);
+            }
+        }
+
         public async static Task UploadGroup(Group group)
         {
             Console.WriteLine("Hit UploadMessage");

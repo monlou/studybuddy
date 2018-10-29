@@ -10,6 +10,7 @@ using Microsoft.Azure.Documents;
 using Newtonsoft.Json;
 using Microsoft.Azure.Documents.Linq;
 using System.Diagnostics;
+using StudyBuddy.ViewModels;
 
 namespace StudyBuddy.Services
 {
@@ -25,7 +26,7 @@ namespace StudyBuddy.Services
         public ChatDBService()
         {
             ChatClient = new DocumentClient(new Uri(Keys.CosmosDBUri), Keys.CosmosDBKey);
-            CollectionLink = UriFactory.CreateDocumentCollectionUri("Chat", "Messages");
+            CollectionLink = UriFactory.CreateDocumentCollectionUri(GroupSelectionPageViewModel.SelectedDBName, "Messages");
             DocumentFeedObserver.ChatDocumentReceived += Observer_DocumentReceived;
 
         }
@@ -85,7 +86,7 @@ namespace StudyBuddy.Services
             {
                 Uri = new Uri(Keys.CosmosDBUri),
                 MasterKey = Keys.CosmosDBKey,
-                DatabaseName = "Chat",
+                DatabaseName = GroupSelectionPageViewModel.SelectedDBName,
                 CollectionName = "Messages"
             };
 
@@ -94,7 +95,7 @@ namespace StudyBuddy.Services
             {
                 Uri = new Uri(Keys.CosmosDBUri),
                 MasterKey = Keys.CosmosDBKey,
-                DatabaseName = "Chat",
+                DatabaseName = GroupSelectionPageViewModel.SelectedDBName,
                 CollectionName = "Lease"
             };
             DocumentFeedObserverFactory docObserverFactory = new DocumentFeedObserverFactory();

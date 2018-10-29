@@ -61,8 +61,18 @@ namespace StudyBuddy.ViewModels
             Console.WriteLine(group.ToString());
 
             await GroupDBService.UploadGroup(group);
+            InitializeDB();
 
             await _navigationService.NavigateAsync("GroupSelectionPage");
+        }
+
+        private async void InitializeDB()
+        {
+            await GroupDBService.CreateDatabase(SubjectCode);
+            await GroupDBService.CreateDocumentCollection(SubjectCode, "Messages");
+            await GroupDBService.CreateDocumentCollection(SubjectCode, "Flashcards");
+            await GroupDBService.CreateDocumentCollection(SubjectCode, "Lease");
+            await GroupDBService.CreateDocumentCollection(SubjectCode, "FlashLease");
         }
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = "")

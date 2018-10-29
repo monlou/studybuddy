@@ -16,8 +16,7 @@ namespace StudyBuddy.ViewModels
         private INavigationService _navigationService;
         private readonly IGoogleManager _googleManager;
         private readonly IPageDialogService _dialogService;
-        readonly ChatDBService chat = new ChatDBService();
-        readonly FlashDBService flashcards = new FlashDBService();
+
         readonly GroupDBService master = new GroupDBService();
 
         public static EventAggregator events = new EventAggregator();
@@ -57,7 +56,7 @@ namespace StudyBuddy.ViewModels
                 CurrentGoogleUser = googleUser;
                 CurrentGoogleUsername = CurrentGoogleUser.Name;
                 CurrentGoogleAvatar = CurrentGoogleUser.Picture;
-                InitializeServices();
+                NavigateToGroupPage();
             }
             else
             {
@@ -65,10 +64,8 @@ namespace StudyBuddy.ViewModels
             }
         }
 
-        private async void InitializeServices()
+        private async void NavigateToGroupPage()
         {
-            await chat.RunChangeFeedHostAsync();
-            await flashcards.RunChangeFeedHostAsync();
             await _navigationService.NavigateAsync("GroupSelectionPage");
         }
 

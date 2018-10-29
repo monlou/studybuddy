@@ -18,6 +18,8 @@ namespace StudyBuddy.ViewModels
     public class GroupSelectionPageViewModel : ViewModelBase
     {
         private INavigationService _navigationService;
+        static ChatDBService chat;
+        static FlashDBService flash;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -29,6 +31,19 @@ namespace StudyBuddy.ViewModels
         public DelegateCommand LoadGroupsCommand { get; set; }
         public DelegateCommand SelectGroupCommand { get; set; }
         public DelegateCommand SearchGroupsCommand { get; set; }
+
+        public static string SelectedDBName;
+
+        private Group _selectedGroup;
+        public Group SelectedGroup
+        {
+            get { return _selectedGroup; }
+            set
+            {
+                _selectedGroup = value;
+                OnPropertyChanged(nameof(SelectedGroup));
+            }
+        }
 
         private string _input;
         public string Input
@@ -55,8 +70,19 @@ namespace StudyBuddy.ViewModels
 
         private async void SelectGroup()
         {
+            SelectedDBName = SelectedGroup.GroupSubjectCode.ToString();
+            InitializeServices();
             await _navigationService.NavigateAsync("Carousel");
         }
+
+        private async void InitializeServices()
+        {
+            chat = new ChatDBService();
+            flash = new FlashDBService();
+            await chat.RunChangeFeedHostAsync();
+            await flash.RunChangeFeedHostAsync();
+        }
+
 
         private async void CreateGroup()
         {
