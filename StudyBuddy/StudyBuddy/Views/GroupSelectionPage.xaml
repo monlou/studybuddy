@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:StudyBuddy.Views"
              xmlns:customControl="clr-namespace:StudyBuddy.Services;assembly=StudyBuddy"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="StudyBuddy.Views.GroupSelectionPage">
+             x:Class="StudyBuddy.Views.GroupSelectionPage"
+             Title="Select a Study Group">
     <StackLayout>
         <StackLayout Orientation="Horizontal"
                      HeightRequest="40"
@@ -25,22 +26,29 @@
                                       AutomationId="Search" 
                                       Command="{Binding SearchGroupsCommand}" />
             </StackLayout.GestureRecognizers>
-        </StackLayout>    
+        </StackLayout>
         <ScrollView HorizontalOptions="Fill"
-                    VerticalOptions="End"
-                    Margin="10"
-                    VerticalScrollBarVisibility="Always">
-            <StackLayout>
-                <Frame
-                    BackgroundColor="LightGray">
-                    <Label>
-                        IAB330 StudyBuddy Group
-                    </Label>
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding SelectGroupCommand}"/>
-                    </Frame.GestureRecognizers>
-                </Frame>
-            </StackLayout>
+                        Margin="10"
+                        VerticalOptions="FillAndExpand">
+            <ListView ItemsSource="{Binding LoadedGroups}"
+				      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" BackgroundColor="White" Margin="20">
+                                <Label Text="{Binding GroupSubjectCode}"
+                                           FontAttributes="Bold"       
+									       HorizontalTextAlignment="Start"
+									       VerticalTextAlignment="Center"/>
+                                <Label Text="{Binding GroupSubjectName}"
+                                           TextColor="LightGray"       
+									       HorizontalTextAlignment="Start"
+									       VerticalTextAlignment="Center"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </ScrollView>
         <Button Text="Create a New Group" VerticalOptions="EndAndExpand" Command="{Binding CreateGroupCommand}"></Button>
 

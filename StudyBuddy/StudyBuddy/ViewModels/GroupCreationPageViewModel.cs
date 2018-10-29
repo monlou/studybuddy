@@ -62,7 +62,7 @@ namespace StudyBuddy.ViewModels
 
             await GroupDBService.UploadGroup(group);
 
-            await _navigationService.GoBackAsync();
+            await _navigationService.NavigateAsync("GroupSelectionPage");
         }
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = "")

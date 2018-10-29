@@ -11,6 +11,7 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using System.Runtime.CompilerServices;
 using StudyBuddy.Services;
+using System.Collections.ObjectModel;
 
 namespace StudyBuddy.ViewModels
 {
@@ -21,6 +22,10 @@ namespace StudyBuddy.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         public System.Windows.Input.ICommand CreateGroupCommand { get; protected set; }
+
+        private List<Group> _loadedGroups;
+        public ObservableCollection<Group> LoadedGroups { get; } = new ObservableCollection<Group>();
+
         public DelegateCommand LoadGroupsCommand { get; set; }
         public DelegateCommand SelectGroupCommand { get; set; }
         public DelegateCommand SearchGroupsCommand { get; set; }
@@ -38,31 +43,35 @@ namespace StudyBuddy.ViewModels
 
         public GroupSelectionPageViewModel(INavigationService navigationService) : base(navigationService)
         {
-            LoadGroupsCommand = new DelegateCommand(LoadGroups);
             SelectGroupCommand = new DelegateCommand(SelectGroup);
             CreateGroupCommand = new DelegateCommand(CreateGroup);
-            SearchGroupsCommand = new DelegateCommand(SearchGroups);
+
+            _loadedGroups = new List<Group>();
+            LoadGroups();
 
             _navigationService = navigationService;
         }
 
-        public void LoadGroups()
-        {
-            //TODO
-        }
 
-        public async void SelectGroup()
+        private async void SelectGroup()
         {
             await _navigationService.NavigateAsync("Carousel");
         }
 
-        public async void CreateGroup()
+        private async void CreateGroup()
         {
             await _navigationService.NavigateAsync("GroupCreationPage");
         }
 
-        public void SearchGroups() {
-            //TODO 
+        private async void LoadGroups() {
+            Console.WriteLine("HIT LOAD GROUPS");
+            _loadedGroups = await GroupDBService.GetTodoItemsAsync();
+
+            foreach (var group in _loadedGroups)
+            {
+                this.LoadedGroups.Add(group);
+            }
+            //LoadedGroups = new ObservableCollection<Group>(_loadedGroups as List<Group>);
         }
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = "")
