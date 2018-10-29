@@ -64,14 +64,13 @@ namespace StudyBuddy.ViewModels
         }
 
         private async void LoadGroups() {
-            Console.WriteLine("HIT LOAD GROUPS");
-            _loadedGroups = await GroupDBService.GetTodoItemsAsync();
+
+            _loadedGroups = await GroupDBService.LoadGroups();
 
             foreach (var group in _loadedGroups)
             {
                 this.LoadedGroups.Add(group);
             }
-            //LoadedGroups = new ObservableCollection<Group>(_loadedGroups as List<Group>);
         }
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = "")

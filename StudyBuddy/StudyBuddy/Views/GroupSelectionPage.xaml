@@ -35,7 +35,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal" BackgroundColor="White" Margin="20">
+                            <StackLayout Orientation="Horizontal" Margin="20">
                                 <Label Text="{Binding GroupSubjectCode}"
                                            FontAttributes="Bold"       
 									       HorizontalTextAlignment="Start"
@@ -50,6 +50,7 @@
                 </ListView.ItemTemplate>
             </ListView>
         </ScrollView>
+        <Button Text="Enter Selected Group" VerticalOptions="EndAndExpand" Command="{Binding SelectGroupCommand}"></Button>
         <Button Text="Create a New Group" VerticalOptions="EndAndExpand" Command="{Binding CreateGroupCommand}"></Button>
 
     </StackLayout>

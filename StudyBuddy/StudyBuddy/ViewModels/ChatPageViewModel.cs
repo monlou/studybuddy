@@ -26,6 +26,9 @@ namespace StudyBuddy.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public System.Windows.Input.ICommand EditorFABCommand { get; protected set; }
+
+
+        private List<Message> _loadedMessages;
         public ObservableCollection<Message> LoadedMessages { get; } = new ObservableCollection<Message>();
 
         private string _pickerCategory;
@@ -53,6 +56,10 @@ namespace StudyBuddy.ViewModels
         public ChatPageViewModel()
         {
             EditorFABCommand = new Command(ComposeMessage);
+
+            _loadedMessages = new List<Message>();
+            LoadMessages();
+
             ChatDBService.MessageReceived += ChatClient_MessageReceived;
         }
 
@@ -78,6 +85,17 @@ namespace StudyBuddy.ViewModels
             Input = "";
 
             await ChatDBService.UploadMessage(message);
+        }
+
+        private async void LoadMessages()
+        {
+            Console.WriteLine("HIT LOAD Messages");
+            _loadedMessages = await ChatDBService.LoadMessages();
+
+            foreach (var message in _loadedMessages)
+            {
+                this.LoadedMessages.Add(message);
+            }
         }
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = "")

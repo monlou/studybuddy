@@ -9,12 +9,15 @@ using Microsoft.Azure.Documents.ChangeFeedProcessor;
 using Microsoft.Azure.Documents;
 using Newtonsoft.Json;
 using Microsoft.Azure.Documents.Linq;
+using System.Diagnostics;
 
 namespace StudyBuddy.Services
 {
     class ChatDBService
     {
         public static event Action<Message> MessageReceived;
+
+        private static List<Message> _messages;
 
         static DocumentClient ChatClient;
         static Uri CollectionLink;
@@ -47,6 +50,28 @@ namespace StudyBuddy.Services
             await ChatClient.CreateDocumentAsync(CollectionLink, message);
             Console.WriteLine("Created a new message in " + CollectionLink);
 
+        }
+
+        public async static Task<List<Message>> LoadMessages()
+        {
+            _messages = new List<Message>();
+
+            try
+            {
+                var query = ChatClient.CreateDocumentQuery<Message>(CollectionLink)
+                                  .AsDocumentQuery();
+
+                while (query.HasMoreResults)
+                {
+                    _messages.AddRange(await query.ExecuteNextAsync<Message>());
+                }
+            }
+            catch (DocumentClientException ex)
+            {
+                Debug.WriteLine("Error: ", ex.Message);
+            }
+
+            return _messages;
         }
 
         public async Task RunChangeFeedHostAsync()

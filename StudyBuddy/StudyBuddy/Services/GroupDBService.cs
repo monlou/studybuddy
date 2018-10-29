@@ -33,7 +33,7 @@ namespace StudyBuddy.Services
             Console.WriteLine("Created a new group in " + CollectionLink);
         }
 
-        public async static Task<List<Group>> GetTodoItemsAsync()
+        public async static Task<List<Group>> LoadGroups()
         {
             _groups = new List<Group>();
 
