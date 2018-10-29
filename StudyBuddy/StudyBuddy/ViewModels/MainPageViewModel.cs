@@ -18,6 +18,8 @@ namespace StudyBuddy.ViewModels
         private readonly IPageDialogService _dialogService;
         readonly ChatDBService chat = new ChatDBService();
         readonly FlashDBService flashcards = new FlashDBService();
+        readonly GroupDBService master = new GroupDBService();
+
         public static EventAggregator events = new EventAggregator();
 
         public DelegateCommand LoginCommand { get; set; }

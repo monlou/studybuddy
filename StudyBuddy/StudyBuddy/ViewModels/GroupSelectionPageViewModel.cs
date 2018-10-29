@@ -18,7 +18,7 @@ namespace StudyBuddy.ViewModels
     {
         private INavigationService _navigationService;
 
-        public event PropertyChangedEventHandler ChangedProperty;
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public System.Windows.Input.ICommand CreateGroupCommand { get; protected set; }
         public DelegateCommand LoadGroupsCommand { get; set; }
@@ -32,7 +32,7 @@ namespace StudyBuddy.ViewModels
             set
             {
                 _input = value;
-                OnChangedProperty(nameof(Input));
+                OnPropertyChanged(nameof(Input));
             }
         }
 
@@ -65,12 +65,12 @@ namespace StudyBuddy.ViewModels
             //TODO 
         }
 
-        private void OnChangedProperty([CallerMemberName] string propertyName = "")
+        private void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            var handler = ChangedProperty;
+            var handler = PropertyChanged;
 
             if (handler != null)
-                ChangedProperty(this, new PropertyChangedEventArgs(propertyName));
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

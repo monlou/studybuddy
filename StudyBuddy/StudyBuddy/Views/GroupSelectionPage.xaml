@@ -41,16 +41,8 @@
                     </Frame.GestureRecognizers>
                 </Frame>
             </StackLayout>
-        </ScrollView>       
-        <!--<StackLayout VerticalOptions="End"
-                     HorizontalOptions="Center"
-                     Margin="10">
-            <customControl:ImageButton Source="add_circle"
-                                       Aspect="AspectFill" 
-                                       HeightRequest="20"
-                                       Command="{Binding CreateGroupCommand}"
-                                       AbsoluteLayout.LayoutBounds=".5,1,.5,.1" 
-                                       AbsoluteLayout.LayoutFlags="All" />  
-        </StackLayout>-->
+        </ScrollView>
+        <Button Text="Create a New Group" VerticalOptions="EndAndExpand" Command="{Binding CreateGroupCommand}"></Button>
+
     </StackLayout>
 </ContentPage>

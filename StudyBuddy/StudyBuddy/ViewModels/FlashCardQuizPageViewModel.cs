@@ -152,8 +152,6 @@ namespace StudyBuddy.ViewModels
             }
         }
 
-
-
         public FlashCardQuizPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             _navigationService = navigationService;
@@ -204,6 +202,7 @@ namespace StudyBuddy.ViewModels
                 SubmitButtonColour = Color.Red;
                 SubmitButtonText = "Incorrect! Tap to Proceed";
             }
+
             HasSubmitted = true;
         }
 
@@ -233,7 +232,6 @@ namespace StudyBuddy.ViewModels
 
         private async void FinishQuiz()
         {
-
             DecideExclamation();
 
             Message message = new Message()
@@ -257,18 +255,23 @@ namespace StudyBuddy.ViewModels
             if (_correctSubmissions == 0)
             {
                 _exclamation = "Ouch! Study up, buddy.";
-            } else if (_correctSubmissions < (Length / 2) && (_correctSubmissions > 0))
+            }
+            else if (_correctSubmissions < (Length / 2) && (_correctSubmissions > 0))
             {
                 _exclamation = "Try harder next time!";
 
-            } else if (_correctSubmissions == (Length / 2)) {
+            }
+            else if (_correctSubmissions == (Length / 2))
+            {
                 _exclamation = "Not bad, getting there.";
 
-            } else if ((_correctSubmissions > (Length / 2)) && (_correctSubmissions < Length))
+            }
+            else if ((_correctSubmissions > (Length / 2)) && (_correctSubmissions < Length))
             {
                 _exclamation = "Almost got it! Next time.";
 
-            } else
+            }
+            else
             {
                 _exclamation = "Wow! Be proud. Now make some flashcards of your own.";
             }

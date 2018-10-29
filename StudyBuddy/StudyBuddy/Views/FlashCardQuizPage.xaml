@@ -28,13 +28,13 @@
         <Frame Padding="10" BackgroundColor="{Binding SubmitButtonColour}" VerticalOptions="CenterAndExpand" IsVisible="{Binding HasSubmitted}">
             <StackLayout Orientation="Vertical">
                 <StackLayout Orientation="Horizontal">
-                <Label Text="The answer was " />
-                <Label Text="{Binding AnswerText}" FontAttributes="Bold"/>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="And your answer was " />
-                <Label Text="{Binding Submission}" FontAttributes="Bold"/>
-            </StackLayout>
+                    <Label Text="You submitted " />
+                    <Label Text="{Binding Submission}" FontAttributes="Bold"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="And the answer was " />
+                    <Label Text="{Binding AnswerText}" FontAttributes="Bold"/>
+                </StackLayout>
             </StackLayout>
         </Frame>
         
