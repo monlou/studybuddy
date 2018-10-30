@@ -32,7 +32,6 @@ namespace StudyBuddy
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<Carousel>();
-            containerRegistry.RegisterForNavigation<MenuPage>();
 
             containerRegistry.RegisterForNavigation<MainPage>();
             containerRegistry.RegisterForNavigation<ProfilePage>();
@@ -41,11 +40,9 @@ namespace StudyBuddy
             containerRegistry.RegisterForNavigation<GroupCreationPage>();
 
             containerRegistry.RegisterForNavigation<ChatPage>();
-            containerRegistry.RegisterForNavigation<WriteMessagePage>();
 
             containerRegistry.RegisterForNavigation<FlashCardsPage>();
             containerRegistry.RegisterForNavigation<MaterialsPage>();
-            containerRegistry.RegisterForNavigation<QuizPage>();
             containerRegistry.RegisterForNavigation<FlashCardQuizPage>();
 
             containerRegistry.RegisterSingleton<IEventAggregator, EventAggregator>();

@@ -6,12 +6,6 @@
              xmlns:local="clr-namespace:StudyBuddy.Views"
              x:Class="StudyBuddy.Views.Carousel">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="Quiz" 
-                     Order="Primary" 
-                     Icon="play_white.png" 
-                     Text="Quiz" 
-                     Priority="0"
-                     Command="{Binding NavQuizCommand}"/>
         <ToolbarItem Name="Account" 
                      Order="Primary" 
                      Icon="account_white.png" 
