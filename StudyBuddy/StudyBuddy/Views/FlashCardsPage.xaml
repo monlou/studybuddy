@@ -4,14 +4,13 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:local="clr-namespace:StudyBuddy.Views"
-             Title="Materials"
+             Title="Create New Flashcards"
              x:Class="StudyBuddy.Views.FlashCardsPage">
     <StackLayout>
         
         <ScrollView HorizontalOptions="Fill"
                         Margin="15">
             <StackLayout>
-                <Label Text="Create Your Flashcard" FontAttributes="Bold"/>
                 <Editor Text="{Binding DeckName}"
                         Placeholder="Name of the deck" 
                         PlaceholderColor="Gray" 

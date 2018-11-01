@@ -88,6 +88,12 @@ namespace StudyBuddy.ViewModels
 
         private async void SaveDeck()
         {
+
+            if (tempDeck.Count == 0)
+            {
+                return;
+            }
+
             CardDeck deck = new CardDeck()
             {
                 ObjType = "Card",

@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="StudyBuddy.Views.FlashCardQuizPage">
+             x:Class="StudyBuddy.Views.FlashCardQuizPage"
+             Title="Quiz">
 
     <StackLayout Orientation="Vertical" Margin="10">
         <StackLayout Orientation="Horizontal">

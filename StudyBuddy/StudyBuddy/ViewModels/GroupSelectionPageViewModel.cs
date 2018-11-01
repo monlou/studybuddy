@@ -21,6 +21,9 @@ namespace StudyBuddy.ViewModels
         static ChatDBService chat;
         static FlashDBService flash;
 
+        public DelegateCommand NavProfileCommand { get; set; }
+
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public System.Windows.Input.ICommand CreateGroupCommand { get; protected set; }
@@ -60,9 +63,12 @@ namespace StudyBuddy.ViewModels
         {
             SelectGroupCommand = new DelegateCommand(SelectGroup);
             CreateGroupCommand = new DelegateCommand(CreateGroup);
+            NavProfileCommand = new DelegateCommand(NavProfile);
+
 
             _loadedGroups = new List<Group>();
             LoadGroups();
+
 
             _navigationService = navigationService;
         }
@@ -70,7 +76,15 @@ namespace StudyBuddy.ViewModels
 
         private async void SelectGroup()
         {
+            Console.WriteLine("Hit Selected Group");
+
+            if (SelectedGroup == null)
+            {
+                return;
+            } 
+
             SelectedDBName = SelectedGroup.GroupSubjectCode.ToString();
+            Console.WriteLine("Selected group is: " + SelectedDBName);
             InitializeServices();
             await _navigationService.NavigateAsync("Carousel");
         }
@@ -97,6 +111,11 @@ namespace StudyBuddy.ViewModels
             {
                 this.LoadedGroups.Add(group);
             }
+        }
+
+        public async void NavProfile()
+        {
+            await _navigationService.NavigateAsync("ProfilePage");
         }
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = "")

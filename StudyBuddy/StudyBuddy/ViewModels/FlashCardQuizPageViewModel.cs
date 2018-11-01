@@ -171,7 +171,7 @@ namespace StudyBuddy.ViewModels
         {
             Submission = "";
             HasSubmitted = false;
-            SubmitButtonColour = Color.White;
+            SubmitButtonColour = Color.LightGray;
             SubmitButtonText = "Submit";
             Input = "";
         }

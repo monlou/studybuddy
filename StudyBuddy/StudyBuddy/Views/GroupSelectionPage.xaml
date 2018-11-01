@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage NavigationPage.HasNavigationBar="false"
-             xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:local="clr-namespace:StudyBuddy.Views"
@@ -8,25 +7,14 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="StudyBuddy.Views.GroupSelectionPage"
              Title="Select a Study Group">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Account" 
+                     Icon="account_white.png" 
+                     Command="{Binding NavProfileCommand}"/>
+    </ContentPage.ToolbarItems>
+
     <StackLayout>
-        <StackLayout Orientation="Horizontal"
-                     HeightRequest="40"
-                     HorizontalOptions="StartAndExpand">  
-            <Entry Placeholder="Search Study Groups" 
-                   Keyboard="Chat"                 
-                   x:Name="SearchBar" 
-                   Text="{Binding Input}"
-                   HeightRequest="20"/>
-            <Image Source="search.png"
-                   AbsoluteLayout.LayoutBounds=".5,1,.5,.1" 
-                   AbsoluteLayout.LayoutFlags="All"
-                   HeightRequest="20"/> 
-            <StackLayout.GestureRecognizers>
-                <TapGestureRecognizer x:Name="Search" 
-                                      AutomationId="Search" 
-                                      Command="{Binding SearchGroupsCommand}" />
-            </StackLayout.GestureRecognizers>
-        </StackLayout>
         <ScrollView HorizontalOptions="Fill"
                         Margin="10"
                         VerticalOptions="FillAndExpand">
@@ -51,8 +39,29 @@
                 </ListView.ItemTemplate>
             </ListView>
         </ScrollView>
-        <Button Text="Enter Selected Group" VerticalOptions="EndAndExpand" Command="{Binding SelectGroupCommand}"></Button>
-        <Button Text="Create a New Group" VerticalOptions="EndAndExpand" Command="{Binding CreateGroupCommand}"></Button>
 
+        <StackLayout Orientation="Horizontal" 
+                     VerticalOptions="End"
+                     Margin="10">
+            <Frame Padding="10" HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal" 
+                         VerticalOptions="End"
+                         Margin="10">
+
+                    <customControl:ImageButton Source="enter_group"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="CenterAndExpand"
+                                           HeightRequest="40"
+                                Command="{Binding SelectGroupCommand}" />
+                    <customControl:ImageButton Source="add"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="CenterAndExpand"
+                                           HeightRequest="40"
+                                Command="{Binding CreateGroupCommand}" />
+
+                </StackLayout>
+            </Frame>
+            <StackLayout/>
+        </StackLayout>
     </StackLayout>
 </ContentPage>

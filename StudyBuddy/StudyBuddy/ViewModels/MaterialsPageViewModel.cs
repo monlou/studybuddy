@@ -62,6 +62,10 @@ namespace StudyBuddy.ViewModels
         public async void StartQuiz()
         {
 
+            if (SelectedFlashcardDeck == null)
+            {
+                return;
+            }
 
             await _navigationService.NavigateAsync("FlashCardQuizPage");
             MainPageViewModel.events.GetEvent<QuizEvent>().Publish(SelectedFlashcardDeck);
