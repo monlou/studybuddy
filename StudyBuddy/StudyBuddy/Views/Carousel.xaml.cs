@@ -2,7 +2,7 @@
 
 namespace StudyBuddy.Views
 {
-    public partial class Carousel : CarouselPage
+    public partial class Carousel : TabbedPage
     {
         public Carousel()
         {

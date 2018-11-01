@@ -6,7 +6,8 @@
              xmlns:customControl="clr-namespace:StudyBuddy.Services;assembly=StudyBuddy"
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:controls="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
-             x:Class="StudyBuddy.Views.MaterialsPage">
+             x:Class="StudyBuddy.Views.MaterialsPage"
+             Title="Materials">
     <StackLayout>
         <ScrollView HorizontalOptions="Fill"
                         Margin="10"

@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:local="clr-namespace:StudyBuddy.Views"
              x:Class="StudyBuddy.Views.Carousel">
-    <ContentPage.ToolbarItems>
+    <TabbedPage.ToolbarItems>
         <ToolbarItem Name="Account" 
-                     Order="Primary" 
                      Icon="account_white.png" 
-                     Text="Account" 
-                     Priority="1" 
                      Command="{Binding NavProfileCommand}"/>
-    </ContentPage.ToolbarItems>
+    </TabbedPage.ToolbarItems>
+    
     <local:MaterialsPage />
     <local:ChatPage />
-</CarouselPage>
+    
+</TabbedPage>
