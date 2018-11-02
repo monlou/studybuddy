@@ -89,7 +89,7 @@ namespace StudyBuddy.ViewModels
         private async void SaveDeck()
         {
 
-            if (tempDeck.Count == 0)
+            if (tempDeck.Count == 0 || DeckName == null)
             {
                 return;
             }

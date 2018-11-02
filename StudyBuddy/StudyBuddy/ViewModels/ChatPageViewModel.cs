@@ -73,6 +73,12 @@ namespace StudyBuddy.ViewModels
 
         public async void ComposeMessage()
         {
+
+            if (Input == null)
+            {
+                return;
+            }
+
             Message message = new Message()
             {
                 ObjType = "Msg",

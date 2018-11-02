@@ -51,6 +51,11 @@ namespace StudyBuddy.ViewModels
 
         public async void CreateGroup()
         {
+            if (SubjectCode == null || SubjectName == null)
+            {
+                return;
+            }
+
             Group group = new Group()
             {
                 GroupOwner = MainPageViewModel.CurrentGoogleUsername,
