@@ -16,8 +16,6 @@ public class DocumentFeedObserver : IChangeFeedObserver
     public static Action<Document> ChatDocumentReceived;
     public static Action<Document> FlashcardDocumentReceived;
 
-    private static int totalDocs = 0;
-
     public DocumentFeedObserver()
     {
     }
@@ -34,8 +32,6 @@ public class DocumentFeedObserver : IChangeFeedObserver
 
     public Task ProcessChangesAsync(IChangeFeedObserverContext context, IReadOnlyList<Document> docs, CancellationToken cancellationToken)
     {
-        Console.ForegroundColor = ConsoleColor.Green;
-
         // The parameter docs is the collection item reported as being new/changed by the Observer.
         foreach (Document doc in docs)
         {

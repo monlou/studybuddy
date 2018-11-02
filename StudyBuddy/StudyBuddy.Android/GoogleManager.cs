@@ -31,6 +31,8 @@ namespace StudyBuddy.Droid
                 .Build();
         }
 
+        // The dependency injection is invoked and a new Google User
+        // is outfitted with the response data from authentication.
         public void OnAuthCompleted(GoogleSignInResult result)
         {
             if (result.IsSuccess)
