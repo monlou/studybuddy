@@ -238,6 +238,7 @@ namespace StudyBuddy.ViewModels
             {
                 ObjType = "Msg",
                 SenderName = "AnnouncerBot",
+                SenderAvatar = new Uri("http://icons.iconarchive.com/icons/danleech/simple/1024/android-icon.png"),
                 Text = MainPageViewModel.CurrentGoogleUsername 
                 + " just got " + _correctSubmissions + " out of " + Length 
                 + " flashcards right playing " + Creator + "'s " + QuizName 

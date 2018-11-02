@@ -13,10 +13,7 @@ C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netst
 C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\Views\GroupSelectionPage.xaml.g.cs
 C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
 C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\Views\MaterialsPage.xaml.g.cs
-C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\Views\MenuPage.xaml.g.cs
 C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\Views\ProfilePage.xaml.g.cs
-C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\Views\QuizPage.xaml.g.cs
-C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\Views\WriteMessagePage.xaml.g.cs
 C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\StudyBuddy.csproj.CoreCompileInputs.cache
 C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\StudyBuddy.AssemblyInfoInputs.cache
 C:\Users\Rohan\Documents\GitHub\studybuddy\StudyBuddy\StudyBuddy\obj\Debug\netstandard2.0\StudyBuddy.AssemblyInfo.cs
