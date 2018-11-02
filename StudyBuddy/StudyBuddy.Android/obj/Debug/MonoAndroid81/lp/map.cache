@@ -1,5 +1,11 @@
 CommonServiceLocator
 FormsViewGroup
+Microsoft.AppCenter.Analytics.Android.Bindings
+Microsoft.AppCenter.Analytics
+Microsoft.AppCenter.Android.Bindings
+Microsoft.AppCenter.Crashes.Android.Bindings
+Microsoft.AppCenter.Crashes
+Microsoft.AppCenter
 Microsoft.Azure.DocumentDB.Core
 Microsoft.Azure.Documents.ChangeFeedProcessor
 Newtonsoft.Json

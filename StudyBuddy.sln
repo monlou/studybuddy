@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyBuddy", "StudyBuddy\StudyBuddy\StudyBuddy.csproj", "{7F8073C5-1E81-4D65-9847-8FEF6C8F541F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudyBuddy", "StudyBuddy\StudyBuddy\StudyBuddy.csproj", "{7F8073C5-1E81-4D65-9847-8FEF6C8F541F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyBuddy.Android", "StudyBuddy\StudyBuddy.Android\StudyBuddy.Android.csproj", "{264A7EF4-AA3D-4D45-BB00-C39DC394ECD4}"
 EndProject
