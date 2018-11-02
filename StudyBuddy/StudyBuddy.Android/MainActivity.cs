@@ -10,6 +10,9 @@ using Xamarin.Forms;
 using StudyBuddy.Services.Contracts;
 using Firebase;
 using Firebase.Firestore;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace StudyBuddy.Droid
 {
@@ -29,6 +32,10 @@ namespace StudyBuddy.Droid
 
             Forms.Init(this, bundle);
             DependencyService.Register<IGoogleManager, GoogleManager>();
+
+            AppCenter.Start("18fc2ed5-04a0-4594-a87e-0fd1fa8ebae2",
+                   typeof(Analytics), typeof(Crashes));
+
             LoadApplication(new App(new AndroidInitializer()));
         }
 
