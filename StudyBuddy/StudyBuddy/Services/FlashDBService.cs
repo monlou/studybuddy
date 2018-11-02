@@ -32,15 +32,12 @@ namespace StudyBuddy.Services
 
         }
 
+        // When the dependency injection from the Observer is fulfilled this method is called to convert it into an appropriate form
+        // and then make another dependency injection which will send the data to the ViewModel.
         private void Observer_DocumentReceived(Document doc)
         {
             var json = JsonConvert.SerializeObject(doc);
             var deck = JsonConvert.DeserializeObject<CardDeck>(json);
-            //Console.WriteLine("FLASHCARDS JUST RECIEVED A NEW DOCUMENT");
-
-            //if (msg.UserId == this.settings.UserId)
-            //    return;
-
 
             FlashcardReceived?.Invoke(deck);
         }
@@ -53,6 +50,8 @@ namespace StudyBuddy.Services
 
         }
 
+        // Whenever the page is constructed, it will call this method to query the collection for 
+        // flashcards received while the client was inactive.
         public async static Task<List<CardDeck>> LoadFlashcards()
         {
             _flashcards = new List<CardDeck>();
@@ -75,14 +74,11 @@ namespace StudyBuddy.Services
             return _flashcards;
         }
 
-
+        // Boilerplate from the ChangeFeedProcessor library.
         public async Task RunChangeFeedHostAsync()
         {
-
             string hostName = "FlashHost" + DateTime.Now.Ticks.ToString();
 
-
-            // monitored collection info
             DocumentCollectionInfo documentCollectionInfo = new DocumentCollectionInfo
             {
                 Uri = new Uri(Keys.CosmosDBUri),
@@ -90,7 +86,6 @@ namespace StudyBuddy.Services
                 DatabaseName = GroupSelectionPageViewModel.SelectedDBName,
                 CollectionName = "Flashcards"
             };
-
 
             DocumentCollectionInfo leaseCollectionInfo = new DocumentCollectionInfo
             {
@@ -102,8 +97,6 @@ namespace StudyBuddy.Services
             DocumentFeedObserverFactory docObserverFactory = new DocumentFeedObserverFactory();
             ChangeFeedProcessorOptions feedProcessorOptions = new ChangeFeedProcessorOptions();
 
-            // ie. customizing lease renewal interval to 15 seconds
-            // can customize LeaseRenewInterval, LeaseAcquireInterval, LeaseExpirationInterval, FeedPollDelay
             feedProcessorOptions.LeaseRenewInterval = TimeSpan.FromSeconds(15);
             feedProcessorOptions.StartFromBeginning = true;
             ChangeFeedProcessorBuilder builder = new ChangeFeedProcessorBuilder();
@@ -114,12 +107,8 @@ namespace StudyBuddy.Services
                 .WithProcessorOptions(feedProcessorOptions)
                 .WithObserverFactory(new DocumentFeedObserverFactory());
 
-            //    .WithObserver<DocumentFeedObserver>();  or just pass a observer
-
             var result = await builder.BuildAsync();
             await result.StartAsync();
-
-            //await result.StopAsync();
         }
 
 

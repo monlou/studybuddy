@@ -9,6 +9,8 @@ using Microsoft.Azure.Documents.Client;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
+
+// Boilerplate from the ChangeFeedProcessor documentation.
 public class DocumentFeedObserver : IChangeFeedObserver
 {
     public static Action<Document> ChatDocumentReceived;
@@ -22,50 +24,44 @@ public class DocumentFeedObserver : IChangeFeedObserver
 
     public Task OpenAsync(IChangeFeedObserverContext context)
     {
-        Console.ForegroundColor = ConsoleColor.Magenta;
-        Console.WriteLine("Observer opened for partition Key Range: {0}", context.PartitionKeyRangeId);
         return Task.CompletedTask;
     }
 
     public Task CloseAsync(IChangeFeedObserverContext context, ChangeFeedObserverCloseReason reason)
     {
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine("Observer closed, {0}", context.PartitionKeyRangeId);
-        Console.WriteLine("Reason for shutdown, {0}", reason);
         return Task.CompletedTask;
     }
 
     public Task ProcessChangesAsync(IChangeFeedObserverContext context, IReadOnlyList<Document> docs, CancellationToken cancellationToken)
     {
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("Change feed: PartitionId {0} total {1} doc(s)", context.PartitionKeyRangeId, Interlocked.Add(ref totalDocs, docs.Count));
+
+        // The parameter docs is the collection item reported as being new/changed by the Observer.
         foreach (Document doc in docs)
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine(doc);
-            //DocumentReceived(doc);
-
+            // The doc is converted to json for processing purposes.
             var json = JsonConvert.SerializeObject(doc);
+
+            // The json is converted to a JObject for the purpose of accessing its child properties.
             JObject o = JObject.Parse(json);
+
+            // Flashcards and Messages contain a property declaring their type, "ObjType".
             string docType = (string)o["ObjType"];
 
+            // The incoming doc must have its type checked so the correct dependency injection is made. Without this step, 
+            // every changed collection item is sent to both Chat and Flashcard ViewModels.
             if (docType == "Msg")
             {
-                Console.WriteLine("The received document is a chat message.");
                 ChatDocumentReceived(doc);
-
             }
             else if (docType == "Card")
             {
-                Console.WriteLine("The received document is a flashcard.");
                 FlashcardDocumentReceived(doc);
-
             }
             else
             {
-                Console.WriteLine("The received document is neither a chat message nor flashcard.");
+                Console.WriteLine("Received unknown doc");
             }
-
         }
 
         return Task.CompletedTask;

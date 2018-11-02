@@ -1,5 +1,6 @@
 ﻿using Microsoft.Azure.Documents.ChangeFeedProcessor.FeedProcessing;
 
+// Boilerplate from the ChangeFeedProcessor documentation.
 public class DocumentFeedObserverFactory : IChangeFeedObserverFactory
 {
     public DocumentFeedObserverFactory()

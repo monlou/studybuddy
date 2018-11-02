@@ -20,6 +20,8 @@ namespace StudyBuddy.Services
 
         private static List<Group> _groups;
 
+        // The "master" DB houses Group models, which house the names, codes and creator identities of each StudyBuddy group.
+        // These are tied to actual DBs, allowing for multiple servers with independent communication channels.
         public GroupDBService()
         {
             GroupClient = new DocumentClient(new Uri(Keys.CosmosDBUri), Keys.CosmosDBKey);
@@ -30,6 +32,7 @@ namespace StudyBuddy.Services
         {
             try
             {
+                // Using the parameters, if it does not already exist by the given name, a new DB is created.
                 await GroupClient.CreateDatabaseIfNotExistsAsync(new Database
                 {
                     Id = databaseName
@@ -45,7 +48,7 @@ namespace StudyBuddy.Services
         {
             try
             {
-                // Create collection with 400 RU/s
+                // Using the parameters, if it does not already exist by the given name, a new collection is created with 400 throughput.
                 await GroupClient.CreateDocumentCollectionIfNotExistsAsync(
                     UriFactory.CreateDatabaseUri(databaseName),
                     new DocumentCollection
@@ -65,11 +68,11 @@ namespace StudyBuddy.Services
 
         public async static Task UploadGroup(Group group)
         {
-            Console.WriteLine("Hit UploadMessage");
             await GroupClient.CreateDocumentAsync(CollectionLink, group);
-            Console.WriteLine("Created a new group in " + CollectionLink);
         }
 
+        // Whenever the page is constructed, it will call this method to query the collection for 
+        // groups created while the client was inactive.
         public async static Task<List<Group>> LoadGroups()
         {
             _groups = new List<Group>();
