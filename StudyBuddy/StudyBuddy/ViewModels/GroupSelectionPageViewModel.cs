@@ -17,25 +17,21 @@ namespace StudyBuddy.ViewModels
 {
     public class GroupSelectionPageViewModel : ViewModelBase
     {
-        private INavigationService _navigationService;
+        public event PropertyChangedEventHandler PropertyChanged;
+        public DelegateCommand LoadGroupsCommand { get; set; }
+        public DelegateCommand SelectGroupCommand { get; set; }
+        public DelegateCommand NavProfileCommand { get; set; }
+        public DelegateCommand CreateGroupCommand { get; protected set; }
+
+        // Only one version of the chat and flash services are required per client.
         static ChatDBService chat;
         static FlashDBService flash;
 
-        public DelegateCommand NavProfileCommand { get; set; }
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public System.Windows.Input.ICommand CreateGroupCommand { get; protected set; }
-
-        private List<Group> _loadedGroups;
         public ObservableCollection<Group> LoadedGroups { get; } = new ObservableCollection<Group>();
-
-        public DelegateCommand LoadGroupsCommand { get; set; }
-        public DelegateCommand SelectGroupCommand { get; set; }
-        public DelegateCommand SearchGroupsCommand { get; set; }
-
         public static string SelectedDBName;
+
+        private INavigationService _navigationService;
+        private List<Group> _loadedGroups;
 
         private Group _selectedGroup;
         public Group SelectedGroup
@@ -61,38 +57,38 @@ namespace StudyBuddy.ViewModels
 
         public GroupSelectionPageViewModel(INavigationService navigationService) : base(navigationService)
         {
+            _navigationService = navigationService;
+
             SelectGroupCommand = new DelegateCommand(SelectGroup);
             CreateGroupCommand = new DelegateCommand(CreateGroup);
             NavProfileCommand = new DelegateCommand(NavProfile);
 
-
             _loadedGroups = new List<Group>();
             LoadGroups();
-
-
-            _navigationService = navigationService;
         }
 
 
         private async void SelectGroup()
         {
-            Console.WriteLine("Hit Selected Group");
-
+            // If the user has not selected a group, they cannot proceed.
             if (SelectedGroup == null)
             {
                 return;
             } 
 
             SelectedDBName = SelectedGroup.GroupSubjectCode.ToString();
-            Console.WriteLine("Selected group is: " + SelectedDBName);
             InitializeServices();
             await _navigationService.NavigateAsync("Carousel");
         }
 
+        // The DB services are initialized with the selected group's information, tying them to the correct locations
+        // in Cosmos DB. 
         private async void InitializeServices()
         {
             chat = new ChatDBService();
             flash = new FlashDBService();
+
+            // Initializes the ChangeFeedProcessor.
             await chat.RunChangeFeedHostAsync();
             await flash.RunChangeFeedHostAsync();
         }
@@ -103,6 +99,11 @@ namespace StudyBuddy.ViewModels
             await _navigationService.NavigateAsync("GroupCreationPage");
         }
 
+
+        // When the page is constructed, the client receives all pre-existing groups
+        // from the database. These groups are loaded into a temporary list which are
+        // then read into the ObservableCollection. This intermediary step was made 
+        // necessary due to the fact that ObservableCollections cannot be assigned to Lists.
         private async void LoadGroups() {
 
             _loadedGroups = await GroupDBService.LoadGroups();
@@ -118,6 +119,7 @@ namespace StudyBuddy.ViewModels
             await _navigationService.NavigateAsync("ProfilePage");
         }
 
+        // Boilerplate responsible for acknowledging changes between the two-way View/ViewModel binding.
         private void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             var handler = PropertyChanged;

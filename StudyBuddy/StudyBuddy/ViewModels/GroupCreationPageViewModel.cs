@@ -16,9 +16,10 @@ namespace StudyBuddy.ViewModels
 {
     public class GroupCreationPageViewModel : ViewModelBase
     {
-        private INavigationService _navigationService;
         public event PropertyChangedEventHandler PropertyChanged;
-        public System.Windows.Input.ICommand CreateGroupCommand { get; protected set; }
+        public DelegateCommand CreateGroupCommand { get; protected set; }
+
+        private INavigationService _navigationService;
 
         private string _subjectCode;
         public string SubjectCode
@@ -44,13 +45,14 @@ namespace StudyBuddy.ViewModels
 
         public GroupCreationPageViewModel(INavigationService navigationService) : base(navigationService)
         {
-            CreateGroupCommand = new Command(CreateGroup);
-
             _navigationService = navigationService;
+
+            CreateGroupCommand = new DelegateCommand(CreateGroup);
         }
 
-        public async void CreateGroup()
+        private async void CreateGroup()
         {
+            // The user must both assign a name and a code or the group will not be created and published to the database.
             if (SubjectCode == null || SubjectName == null)
             {
                 return;
@@ -71,6 +73,7 @@ namespace StudyBuddy.ViewModels
             await _navigationService.NavigateAsync("GroupSelectionPage");
         }
 
+        // Using the assigned code, a new database is created in the Azure Cosmos DB with the appropriate collections.
         private async void InitializeDB()
         {
             await GroupDBService.CreateDatabase(SubjectCode);
@@ -80,6 +83,7 @@ namespace StudyBuddy.ViewModels
             await GroupDBService.CreateDocumentCollection(SubjectCode, "FlashLease");
         }
 
+        // Boilerplate responsible for acknowledging changes between the two-way View/ViewModel binding.
         private void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             var handler = PropertyChanged;

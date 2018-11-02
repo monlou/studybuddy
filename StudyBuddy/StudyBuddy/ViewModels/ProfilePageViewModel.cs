@@ -15,6 +15,7 @@ namespace StudyBuddy.ViewModels
     public class ProfilePageViewModel : ViewModelBase, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
         private INavigationService _navigationService;
         private readonly IGoogleManager _googleManager;
 
@@ -63,7 +64,6 @@ namespace StudyBuddy.ViewModels
             Username = MainPageViewModel.CurrentGoogleUsername;
 
             LogoutCommand = new DelegateCommand(CallLogout);
-
         }
 
         private async void CallLogout()
@@ -72,6 +72,7 @@ namespace StudyBuddy.ViewModels
             await _navigationService.NavigateAsync("MainPage");
         }
 
+        // Boilerplate responsible for acknowledging changes between the two-way View/ViewModel binding.
         private void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             var handler = PropertyChanged;

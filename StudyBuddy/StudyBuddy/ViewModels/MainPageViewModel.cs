@@ -13,16 +13,15 @@ namespace StudyBuddy.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
+
+        public static EventAggregator events = new EventAggregator();
+        public DelegateCommand LoginCommand { get; set; }
+
         private INavigationService _navigationService;
         private readonly IGoogleManager _googleManager;
         private readonly IPageDialogService _dialogService;
 
         readonly GroupDBService master = new GroupDBService();
-
-        public static EventAggregator events = new EventAggregator();
-
-        public DelegateCommand LoginCommand { get; set; }
-
         private GoogleUser _googleUser;
 
         public GoogleUser CurrentGoogleUser
@@ -50,6 +49,7 @@ namespace StudyBuddy.ViewModels
             _googleManager.Login(OnLoginComplete);
         }
 
+        // When the login process is complete, the user's details are written into the ViewModel's properties.
         private void OnLoginComplete(GoogleUser googleUser, string message)
         {
             if (googleUser != null)

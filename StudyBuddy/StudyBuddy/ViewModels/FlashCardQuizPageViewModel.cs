@@ -21,10 +21,10 @@ namespace StudyBuddy.ViewModels
 {
     public class FlashCardQuizPageViewModel : ViewModelBase, INotifyPropertyChanged
     {
-        private INavigationService _navigationService;
-
         public event PropertyChangedEventHandler PropertyChanged;
-        public System.Windows.Input.ICommand SubmitButtonCommand { get; protected set; }
+        public DelegateCommand SubmitButtonCommand { get; protected set; }
+
+        private INavigationService _navigationService;
 
         private string _exclamation;
         private int _correctSubmissions;
@@ -155,7 +155,8 @@ namespace StudyBuddy.ViewModels
         public FlashCardQuizPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             _navigationService = navigationService;
-            SubmitButtonCommand = new Command(SubmitAnswer);
+
+            SubmitButtonCommand = new DelegateCommand(SubmitAnswer);
 
             _deck = new CardDeck();
             _correctSubmissions = 0;
@@ -164,6 +165,8 @@ namespace StudyBuddy.ViewModels
 
             ResetPage();
 
+            // Using Prism's EventAggregator, this ViewModel can receive information from another
+            // ViewModel publishes it, and then call a function loaded with said information.
             MainPageViewModel.events.GetEvent<QuizEvent>().Subscribe(PrepareQuiz);
         }
 
@@ -176,19 +179,8 @@ namespace StudyBuddy.ViewModels
             Input = "";
         }
 
-        private void SubmitAnswer()
-        {
-            if (HasSubmitted)
-            {
-                Counter++;
-                ProceedLogic();
-            } else
-            {
-                Submission = Input;
-                QuizLogic();
-            }
-        }
-
+        // The user first enters their submission. It is determined whether this submission matches 
+        // the supplied answer. 
         private void QuizLogic()
         {
             if (Submission == AnswerText.ToString())
@@ -206,6 +198,24 @@ namespace StudyBuddy.ViewModels
             HasSubmitted = true;
         }
 
+        // Once the user receives the verdict on their submission, they are to tap the button again to proceed.
+        private void SubmitAnswer()
+        {
+            if (HasSubmitted)
+            {
+                Counter++;
+                ProceedLogic();
+            }
+            else
+            {
+                Submission = Input;
+                QuizLogic();
+            }
+        }
+
+        // If the user has reached the end of the flashcard deck, a function that handles the ending of the quiz is called.
+        // If there are yet questions remaining, the information on the quiz screen is reset, and the question/answer text is
+        // replaced with that of the following flashcard in the deck.
         private void ProceedLogic()
         {
             if (Counter > Length)
@@ -220,6 +230,8 @@ namespace StudyBuddy.ViewModels
             }
         }
 
+        // The function that is called when a subscription to the EventAggregator is fulfilled. The received details
+        // are read into the ViewModel and the quiz is prepared from the beginning of the flashcard deck.
         private void PrepareQuiz(CardDeck quiz)
         {
             _deck = quiz;
@@ -230,6 +242,7 @@ namespace StudyBuddy.ViewModels
             AnswerText = _deck.DeckContents[0].AnswerText.ToString();
         }
 
+        // When the user finishes the quiz, an automated message is generated detailing their efforts.
         private async void FinishQuiz()
         {
             DecideExclamation();
@@ -251,6 +264,7 @@ namespace StudyBuddy.ViewModels
             await _navigationService.GoBackAsync();
         }
 
+        // The announcement posted to the chatroom will differ depending on the user's score.
         private void DecideExclamation()
         {
             if (_correctSubmissions == 0)
@@ -278,6 +292,7 @@ namespace StudyBuddy.ViewModels
             }
         }
 
+        // Boilerplate responsible for acknowledging changes between the two-way View/ViewModel binding.
         private void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             var handler = PropertyChanged;

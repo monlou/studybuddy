@@ -8,8 +8,6 @@ using StudyBuddy.Models;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
-using Firebase.Xamarin.Database;
-using Firebase.Xamarin.Database.Query;
 using StudyBuddy.Helpers;
 using Microsoft.Azure.Documents.Client;
 using System.Collections.Generic;
@@ -25,11 +23,11 @@ namespace StudyBuddy.ViewModels
     public class ChatPageViewModel : BindableBase, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public System.Windows.Input.ICommand EditorFABCommand { get; protected set; }
+        public ObservableCollection<Message> LoadedMessages { get; } = new ObservableCollection<Message>();
 
+        public DelegateCommand EditorFABCommand { get; protected set; }
 
         private List<Message> _loadedMessages;
-        public ObservableCollection<Message> LoadedMessages { get; } = new ObservableCollection<Message>();
 
         private string _pickerCategory;
         public string PickerCategory
@@ -55,14 +53,16 @@ namespace StudyBuddy.ViewModels
 
         public ChatPageViewModel()
         {
-            EditorFABCommand = new Command(ComposeMessage);
-
             _loadedMessages = new List<Message>();
-            LoadMessages();
 
+            EditorFABCommand = new DelegateCommand(ComposeMessage);
+
+            LoadMessages();
             ChatDBService.MessageReceived += ChatClient_MessageReceived;
         }
 
+        // When the dependency injection is fulfilled, the Observable Collection, which is
+        // bound to the View, receives the incoming Message into its properties.
         private void ChatClient_MessageReceived(Message message)
         {
             Device.BeginInvokeOnMainThread(() =>
@@ -73,7 +73,7 @@ namespace StudyBuddy.ViewModels
 
         public async void ComposeMessage()
         {
-
+            // Disallows the user from publishing empty strings.
             if (Input == null)
             {
                 return;
@@ -88,11 +88,15 @@ namespace StudyBuddy.ViewModels
                 Category = PickerCategory,
                 Timestamp = DateTime.Now.Ticks.ToString()
             };
-            Input = "";
 
+            Input = "";
             await ChatDBService.UploadMessage(message);
         }
 
+        // When the page is constructed, the client receives all pre-existing messages
+        // from the database. These messages are loaded into a temporary list which are
+        // then read into the ObservableCollection. This intermediary step was made 
+        // necessary due to the fact that ObservableCollections cannot be assigned to Lists.
         private async void LoadMessages()
         {
             _loadedMessages = await ChatDBService.LoadMessages();
@@ -103,6 +107,7 @@ namespace StudyBuddy.ViewModels
             }
         }
 
+        // Boilerplate responsible for acknowledging changes between the two-way View/ViewModel binding.
         private void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             var handler = PropertyChanged;
@@ -110,8 +115,6 @@ namespace StudyBuddy.ViewModels
             if (handler != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
-
-
     }
 }
 #pragma warning restore CS0108 // Member hides inherited member; missing new keyword

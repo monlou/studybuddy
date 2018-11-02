@@ -10,26 +10,21 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 
-#pragma warning disable CS0114 // Member hides inherited member; missing override keyword
-#pragma warning disable CS0108 // Member hides inherited member; missing new keyword
 namespace StudyBuddy.ViewModels
 {
     public class MaterialsPageViewModel : ViewModelBase, INotifyPropertyChanged
     {
-        private INavigationService _navigationService;
         public event PropertyChangedEventHandler PropertyChanged;
-
-        private List<CardDeck> _loadedFlashcards;
-        public ObservableCollection<CardDeck> LoadedFlashcards { get; } = new ObservableCollection<CardDeck>();
-
         public DelegateCommand AddNewCardCommand { get; set; }
         public DelegateCommand StartQuizCommand { get; set; }
 
+        public ObservableCollection<CardDeck> LoadedFlashcards { get; } = new ObservableCollection<CardDeck>();
 
+        private INavigationService _navigationService;
 
+        private List<CardDeck> _loadedFlashcards;
 
         public CardDeck _selectedFlashcardDeck;
-
         public CardDeck SelectedFlashcardDeck
         {
             get
@@ -68,11 +63,14 @@ namespace StudyBuddy.ViewModels
             }
 
             await _navigationService.NavigateAsync("FlashCardQuizPage");
+
+            // Publishes the SelectedFlashcardDeck into Prism's EventAggregator store. A ViewModel subscribing
+            // to this event will receive SelectedFlashcardDeck upon construction.
             MainPageViewModel.events.GetEvent<QuizEvent>().Publish(SelectedFlashcardDeck);
-
-
         }
 
+        // When the dependency injection is fulfilled, the Observable Collection, which is
+        // bound to the View, receives the incoming CardDeck into its properties.
         private void ChatClient_FlashcardReceived(CardDeck deck)
         {
             Device.BeginInvokeOnMainThread(() =>
@@ -86,6 +84,10 @@ namespace StudyBuddy.ViewModels
             await _navigationService.NavigateAsync("FlashCardsPage");
         }
 
+        // When the page is constructed, the client receives all pre-existing cards
+        // from the database. These cards are loaded into a temporary list which are
+        // then read into the ObservableCollection. This intermediary step was made 
+        // necessary due to the fact that ObservableCollections cannot be assigned to Lists.
         private async void LoadFlashcards()
         {
             _loadedFlashcards = await FlashDBService.LoadFlashcards();
@@ -96,6 +98,7 @@ namespace StudyBuddy.ViewModels
             }
         }
 
+        // Boilerplate responsible for acknowledging changes between the two-way View/ViewModel binding.
         private void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             var handler = PropertyChanged;
@@ -107,5 +110,3 @@ namespace StudyBuddy.ViewModels
 
     }
 }
-#pragma warning restore CS0114 // Member hides inherited member; missing override keyword
-#pragma warning restore CS0108 // Member hides inherited member; missing new keyword

@@ -20,11 +20,14 @@ namespace StudyBuddy.ViewModels
 {
     public class FlashCardsPageViewModel : ViewModelBase, INotifyPropertyChanged
     {
-        private INavigationService _navigationService;
         public event PropertyChangedEventHandler PropertyChanged;
-        public System.Windows.Input.ICommand SaveCardCommand { get; protected set; }
-        public System.Windows.Input.ICommand SaveDeckCommand { get; protected set; }
+        public DelegateCommand SaveCardCommand { get; protected set; }
+        public DelegateCommand SaveDeckCommand { get; protected set; }
+
+        private INavigationService _navigationService;
+
         public List<Card> tempDeck;
+
 
         private string _deckName;
         public string DeckName
@@ -61,20 +64,21 @@ namespace StudyBuddy.ViewModels
 
         public FlashCardsPageViewModel(INavigationService navigationService) : base(navigationService)
         {
-            SaveCardCommand = new Command(SaveCard);
-            SaveDeckCommand = new Command(SaveDeck);
-            tempDeck = new List<Card>();
-
             _navigationService = navigationService;
+
+            SaveCardCommand = new DelegateCommand(SaveCard);
+            SaveDeckCommand = new DelegateCommand(SaveDeck);
+
+            tempDeck = new List<Card>();
         }
 
-        public void ResetInputs()
+        private void ResetInputs()
         {
             QuestionInput = "";
             AnswerInput = "";
         }
 
-        public void SaveCard()
+        private void SaveCard()
         {
             Card flashcard = new Card()
             {
@@ -89,6 +93,7 @@ namespace StudyBuddy.ViewModels
         private async void SaveDeck()
         {
 
+            // If the user has not added any flashcards to the deck, or failed to assign it a name, it won't be published to the database.
             if (tempDeck.Count == 0 || DeckName == null)
             {
                 return;
@@ -109,6 +114,7 @@ namespace StudyBuddy.ViewModels
             await _navigationService.GoBackAsync();
         }
 
+        // Boilerplate responsible for acknowledging changes between the two-way View/ViewModel binding.
         private void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             var handler = PropertyChanged;

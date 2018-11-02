@@ -9,9 +9,9 @@ namespace StudyBuddy.ViewModels
 {
 	public class CarouselViewModel : ViewModelBase
     {
-        private INavigationService _navigationService;
-
         public DelegateCommand NavProfileCommand { get; set; }
+
+        private INavigationService _navigationService;
 
         public CarouselViewModel(INavigationService navigationService) : base(navigationService)
         {
@@ -20,7 +20,7 @@ namespace StudyBuddy.ViewModels
             NavProfileCommand = new DelegateCommand(NavProfile);
         }
 
-        public async void NavProfile()
+        private async void NavProfile()
         {
             await _navigationService.NavigateAsync("ProfilePage");
         }
