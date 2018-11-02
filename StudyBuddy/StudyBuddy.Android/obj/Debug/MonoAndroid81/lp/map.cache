@@ -12,15 +12,7 @@ Newtonsoft.Json
 Prism
 Prism.Forms
 Prism.Unity.Forms
-Square.OkHttp
-Square.OkIO
 StudyBuddy
-SuaveControls.FloatingActionButton
-SuaveControls.FloatingActionButton.Droid
-System.Reactive.Core
-System.Reactive.Interfaces
-System.Reactive.Linq
-System.Reactive.PlatformServices
 System.Runtime
 Unity.Abstractions
 Unity.Container
@@ -44,9 +36,6 @@ Xamarin.Android.Support.v7.MediaRouter
 Xamarin.Android.Support.v7.Palette
 Xamarin.Android.Support.v7.RecyclerView
 Xamarin.Android.Support.Vector.Drawable
-Xamarin.Firebase.Auth
-Xamarin.Firebase.Common
-Xamarin.Firebase.Firestore
 Xamarin.Forms.Core
 Xamarin.Forms.Platform.Android
 Xamarin.Forms.Platform
@@ -90,5 +79,3 @@ Microsoft.Win32.Primitives
 System.Linq.Queryable
 System.Net.NameResolution
 System.Security.Cryptography.X509Certificates
-System.ComponentModel
-System.Runtime.InteropServices.WindowsRuntime

@@ -6,9 +6,6 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Prism.Unity;
 using Prism.Events;
-using Microsoft.AppCenter;
-using Microsoft.AppCenter.Analytics;
-using Microsoft.AppCenter.Crashes;
 
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]

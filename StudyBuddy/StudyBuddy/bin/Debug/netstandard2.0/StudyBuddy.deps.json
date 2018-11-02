@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "4056a3f3a106abe1ee4dd857bc3a50e8dea120a8"
+    "signature": "a03ffd34ff0966721ebaee9d3205c3053b669d2f"
   },
   "compilationOptions": {},
   "targets": {
@@ -9,53 +9,16 @@
     ".NETStandard,Version=v2.0/": {
       "StudyBuddy/1.0.0": {
         "dependencies": {
-          "Firebase.Xamarin": "0.3.6",
-          "Microsoft.AppCenter": "1.10.0",
-          "Microsoft.AppCenter.Analytics": "1.10.0",
-          "Microsoft.AppCenter.Crashes": "1.10.0",
           "Microsoft.Azure.DocumentDB": "2.1.3",
           "Microsoft.Azure.DocumentDB.ChangeFeedProcessor": "2.2.0",
           "Microsoft.Azure.DocumentDB.Core": "2.1.3",
           "NETStandard.Library": "2.0.3",
           "Newtonsoft.Json": "11.0.2",
           "Prism.Unity.Forms": "7.0.0.396",
-          "SuaveControls.FloatingActionButton": "2018.1.5",
           "Xamarin.Forms": "3.2.0.871581"
         },
         "runtime": {
           "StudyBuddy.dll": {}
-        }
-      },
-      "Firebase.Xamarin/0.3.6": {
-        "runtime": {
-          "lib/Firebase.Xamarin.dll": {},
-          "lib/JWT.dll": {},
-          "lib/System.Reactive.Core.dll": {},
-          "lib/System.Reactive.Interfaces.dll": {},
-          "lib/System.Reactive.Linq.dll": {},
-          "lib/System.Reactive.PlatformServices.dll": {},
-          "lib/crypto.dll": {}
-        }
-      },
-      "Microsoft.AppCenter/1.10.0": {
-        "runtime": {
-          "lib/netstandard1.0/Microsoft.AppCenter.dll": {}
-        }
-      },
-      "Microsoft.AppCenter.Analytics/1.10.0": {
-        "dependencies": {
-          "Microsoft.AppCenter": "1.10.0"
-        },
-        "runtime": {
-          "lib/netstandard1.0/Microsoft.AppCenter.Analytics.dll": {}
-        }
-      },
-      "Microsoft.AppCenter.Crashes/1.10.0": {
-        "dependencies": {
-          "Microsoft.AppCenter": "1.10.0"
-        },
-        "runtime": {
-          "lib/netstandard1.0/Microsoft.AppCenter.Crashes.dll": {}
         }
       },
       "Microsoft.Azure.DocumentDB/2.1.3": {},
@@ -191,11 +154,6 @@
       "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
       "runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
       "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
-      "SuaveControls.FloatingActionButton/2018.1.5": {
-        "runtime": {
-          "lib/portable45-net45+win8+wpa81/SuaveControls.FloatingActionButton.dll": {}
-        }
-      },
       "System.Collections/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -955,34 +913,6 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Firebase.Xamarin/0.3.6": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-NarWViC3HJP8Q8F5l0Hd0ukPpC8EBt0qjjl6LfvujtzSw5tO/t5jllmTO0kCZBtnAR+rw1WsNVns0n8Teh4cSw==",
-      "path": "firebase.xamarin/0.3.6",
-      "hashPath": "firebase.xamarin.0.3.6.nupkg.sha512"
-    },
-    "Microsoft.AppCenter/1.10.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-UxWGv7h0jIKWOoLefy/emJcpCmxxAQXiO9clvVLPegCMmvDh81+lCnZJlWrZ7/dLaiuJ4FFQQ03HSWON5KqPRA==",
-      "path": "microsoft.appcenter/1.10.0",
-      "hashPath": "microsoft.appcenter.1.10.0.nupkg.sha512"
-    },
-    "Microsoft.AppCenter.Analytics/1.10.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-CVLB1JaQkY1f2jSSWu6/Wn4PnDIDuw+zQ9f2Tv/rxl5B/34M+VkA7rqWgH5ICjzEfQrM81ScNiRdpzCDt8kVIg==",
-      "path": "microsoft.appcenter.analytics/1.10.0",
-      "hashPath": "microsoft.appcenter.analytics.1.10.0.nupkg.sha512"
-    },
-    "Microsoft.AppCenter.Crashes/1.10.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-hU5Ol/vygxqp7QxOSuWwzehvf3J4p6A+OzBNlNk7IsCNfJX/KT14FOUPbYvvbw3lsM9EwtjrKmqW95ZmeeX6Fg==",
-      "path": "microsoft.appcenter.crashes/1.10.0",
-      "hashPath": "microsoft.appcenter.crashes.1.10.0.nupkg.sha512"
-    },
     "Microsoft.Azure.DocumentDB/2.1.3": {
       "type": "package",
       "serviceable": true,
@@ -1185,13 +1115,6 @@
       "sha512": "sha512-X+DmqHjv9Zz+JKjVevURQFdtjg/sSYjkiSwjPEezo+7SfewHKmwNVd1hV3fNnOP+VFxTU7SpUok3atC5QI7Uvg==",
       "path": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.2",
       "hashPath": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512"
-    },
-    "SuaveControls.FloatingActionButton/2018.1.5": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-sgnBqhD3nXNT/yEO0DzS+WfaHYnhnf8K3g9FMD9o5CMpdG7NOuJme8AmbmOyEBHw0NeLMDX+FHmErVBCMq36BA==",
-      "path": "suavecontrols.floatingactionbutton/2018.1.5",
-      "hashPath": "suavecontrols.floatingactionbutton.2018.1.5.nupkg.sha512"
     },
     "System.Collections/4.3.0": {
       "type": "package",

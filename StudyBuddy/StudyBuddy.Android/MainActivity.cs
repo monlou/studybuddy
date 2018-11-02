@@ -8,8 +8,6 @@ using Prism;
 using Prism.Ioc;
 using Xamarin.Forms;
 using StudyBuddy.Services.Contracts;
-using Firebase;
-using Firebase.Firestore;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;

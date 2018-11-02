@@ -19,16 +19,35 @@ namespace StudyBuddy.Droid
         public GoogleManager()
         {
             Instance = this;
-            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DefaultSignIn)
+            GoogleSignInOptions signInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DefaultSignIn)
                                                              .RequestEmail()
                                                              .Build();
 
             _googleApiClient = new GoogleApiClient.Builder((MainActivity.Instance).ApplicationContext)
                 .AddConnectionCallbacks(this)
                 .AddOnConnectionFailedListener(this)
-                .AddApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .AddApi(Auth.GOOGLE_SIGN_IN_API, signInOptions)
                 .AddScope(new Scope(Scopes.Profile))
                 .Build();
+        }
+
+        public void OnAuthCompleted(GoogleSignInResult result)
+        {
+            if (result.IsSuccess)
+            {
+                GoogleSignInAccount account = result.SignInAccount;
+                _onLoginComplete?.Invoke(new GoogleUser()
+                {
+                    Name = account.DisplayName,
+                    Email = account.Email,
+                    Picture = new Uri($"{account.PhotoUrl}")
+                }, string.Empty);
+            }
+            else
+            {
+                Console.WriteLine(result.Status);
+                _onLoginComplete?.Invoke(null, "An error has occurred!");
+            }
         }
 
         public void Login(Action<GoogleUser, string> onLoginComplete)
@@ -42,26 +61,6 @@ namespace StudyBuddy.Droid
         public void Logout()
         {
             _googleApiClient.Disconnect();
-        }
-
-        public void OnAuthCompleted(GoogleSignInResult result)
-        {
-            if (result.IsSuccess)
-            {
-                GoogleSignInAccount account = result.SignInAccount;
-                _onLoginComplete?.Invoke(new GoogleUser()
-                {
-                    Name = account.DisplayName,
-                    Email = account.Email,
-                    Picture = new Uri((account.PhotoUrl != null ? $"{account.PhotoUrl}" : $"https://autisticdating.net/imgs/profile-placeholder.jpg"))
-                }, string.Empty);
-            }
-            else
-            {
-                Console.WriteLine(result.Status);
-                _onLoginComplete?.Invoke(null, "An error ");
-            }
-
         }
 
         public void OnConnected(Bundle connectionHint)
